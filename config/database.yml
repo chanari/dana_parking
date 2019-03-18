@@ -13,7 +13,7 @@ development:
 
 test: &test
   <<: *default
-  database: epicater_rails_test
+  database: dana_parking_test
 
 production:
   <<: *default
