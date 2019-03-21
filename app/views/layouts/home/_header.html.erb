@@ -15,11 +15,13 @@
               <li><a href="javascript:void(0)">Thuê dài hạn</a></li>
               <li><a href="javascript:void(0)">Trợ giúp</a></li>
               <li class="login-btn button gradient-bg mt-2 mt-md-0">
-                <a class="d-flex justify-content-center align-items-center" href="javascript:void(0)" data-toggle="modal" data-target="#loginModal">
-                  <i class="fa fa-2x fa-sign-in"></i>Login
-                </a>
+                <%= link_to new_user_session_path, class: 'd-flex justify-content-center align-items-center' do %>
+                <i class="fa fa-2x fa-sign-in"></i>Login
+                <% end %>
               </li>
-              <li><a href="javascript:void(0)" data-toggle="modal" data-target="#registerModal">Register</a></li>
+              <li>
+                <%= link_to  'Dang Ky', new_user_registration_path %>
+              </li>
             </ul>
           </nav><!-- .site-navigation -->
         </div><!-- .col -->
