@@ -2,6 +2,7 @@
   <div class="main-header row">
     <div class="col-xs-12 col-md-3 col-lg-3">
 
+<<<<<<< HEAD
     </div>
     <div class="col-xs-12 col-md-9 col-lg-9">
       <nav class="header-nav nav-collapse">
@@ -24,3 +25,32 @@
     </div>
   </div>
 </header>
+=======
+          <nav class="site-navigation d-flex justify-content-end align-items-center">
+            <ul class="d-flex flex-column flex-lg-row justify-content-lg-end align-items-center">
+              <li><a href="javascript:void(0)">Trang Chủ</a></li>
+              <li><a href="javascript:void(0)">Bãi xe</a></li>
+              <li><a href="javascript:void(0)">Đặt chỗ</a></li>
+              <li><a href="javascript:void(0)">Thuê dài hạn</a></li>
+              <li><a href="javascript:void(0)">Trợ giúp</a></li>
+              <li class="login-btn button gradient-bg mt-2 mt-md-0">
+                <%= link_to new_user_session_path, class: 'd-flex justify-content-center align-items-center' do %>
+                <i class="fa fa-2x fa-sign-in"></i>Login
+                <% end %>
+              </li>
+              <li>
+                <%= link_to  'Dang Ky', new_user_registration_path %>
+              </li>
+            </ul>
+          </nav><!-- .site-navigation -->
+        </div><!-- .col -->
+      </div><!-- .row -->
+    </div><!-- .container -->
+  </div><!-- .nav-bar -->
+
+  <div class="swiper-container hero-slider">
+    <div class="swiper-slide hero-content-wrap" style="min-height: 100px;">
+    </div><!-- .hero-content-wrap -->
+  </div><!-- .hero-slider -->
+</header><!-- .site-header -->
+>>>>>>> 4492d7f4bb0bd19ae87595d06f99d6645eb38df1
