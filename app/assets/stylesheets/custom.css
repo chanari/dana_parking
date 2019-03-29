@@ -148,7 +148,7 @@ a:hover, a:active {
 # Hero Section
 --------------------------------------------------------------*/
 .hero-content-wrap {
-  min-height: 700px;
+  min-height: 450px;
   position: relative;
   color: #fff;
 
@@ -368,293 +368,300 @@ a:hover, a:active {
 ul.slot-list-items {
   list-style-type: none;
   padding: 0;
-  margin-top: 50px; }
-  ul.slot-list-items li.slot-item {
-    display: inline-block;
-    padding: 0; }
-    ul.slot-list-items li.slot-item a {
-      color: black;
-      padding: 15px;
-      border-radius: 5px;
-      border: 1px solid black;
-      box-shadow: 5px 5px 0 0 black;
-      text-decoration: none; }
-      ul.slot-list-items li.slot-item a.selected {
-        background-color: red;
-        color: white; }
-        ul.slot-list-items li.slot-item a.selecting {
-          background-color: gray;
-          pointer-events: none; }
-          ul.slot-list-items li.slot-item a.reservation {
-            background-color: #e5d315;
-            pointer-events: none; }
+  margin-top: 50px;
+}
+ul.slot-list-items li.slot-item {
+  display: inline-block;
+  padding: 0;
+}
+ul.slot-list-items li.slot-item a {
+  color: black;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 5px 5px 0 0 black;
+  text-decoration: none;
+}
+ul.slot-list-items li.slot-item a.selected {
+  background-color: red;
+  color: white;
+}
+ul.slot-list-items li.slot-item a.selecting {
+  background-color: gray;
+  pointer-events: none;
+}
+ul.slot-list-items li.slot-item a.reservation {
+  background-color: #e5d315;
+  pointer-events: none;
+}
 
-            .result-parking {
-              display: none;
-            }
+.result-parking {
+  display: none;
+}
 
-            .select-month, .select-day {
-              display: none; }
+.select-month, .select-day {
+  display: none;
+}
 
 
 
-              nav.header-nav ul li a {
-                transition-duration: .3s;
-                padding: 50px 10px;
-                color: #000;
-                font-weight: 500;
-                display: inline-block
-              }
+nav.header-nav ul li a {
+  transition-duration: .3s;
+  padding: 40px 10px;
+  color: #000;
+  font-weight: 500;
+  display: inline-block
+}
 
-              .breadcrum {
-                background-color: #efefef;
-                padding: 15px 0;
-                margin-bottom: 5px
-              }
+.breadcrum {
+  background-color: #efefef;
+  padding: 15px 0;
+  margin-bottom: 5px
+}
 
-              .breadcrum a {
-                color: #000;
-                font-style: italic
-              }
+.breadcrum a {
+  color: #000;
+  font-style: italic
+}
 
-              .breadcrum a:hover,
-              .pagination-container .pagination__item a.active,
-              .pagination-container .pagination__item a:hover {
-                color: #f17130
-              }
+.breadcrum a:hover,
+.pagination-container .pagination__item a.active,
+.pagination-container .pagination__item a:hover {
+  color: #f17130
+}
 
-              .breadcrum span {
-                margin: 0 5px
-              }
+.breadcrum span {
+  margin: 0 5px
+}
 
-              .introduction {
-                max-width: 980px;
-                margin: auto;
-                padding: 25px 0
-              }
+.introduction {
+  max-width: 980px;
+  margin: auto;
+  padding: 25px 0
+}
 
-              .introduction--bg {
-                background-color: #fafafa
-              }
+.introduction--bg {
+  background-color: #fafafa
+}
 
-              .introduction__header {
-                margin-bottom: 25px
-              }
+.introduction__header {
+  margin-bottom: 25px
+}
 
-              .introduction p {
-                margin-bottom: 10px
-              }
+.introduction p {
+  margin-bottom: 10px
+}
 
-              .advertisement {
-                padding-right: 0;
-                margin: 0 15px 30px 0
-              }
+.advertisement {
+  padding-right: 0;
+  margin: 0 15px 30px 0
+}
 
-              .advertisement img {
-                display: block;
-                width: 100%
-              }
+.advertisement img {
+  display: block;
+  width: 100%
+}
 
-              .advertisement img:hover {
-                opacity: .7
-              }
+.advertisement img:hover {
+  opacity: .7
+}
 
-              .pagination-container .pagination {
-                display: inline-block;
-                margin: 20px 0
-              }
+.pagination-container .pagination {
+  display: inline-block;
+  margin: 20px 0
+}
 
-              .pagination-container .pagination__item {
-                display: inline-block;
-                font-weight: 500;
-                font-size: 16px
-              }
+.pagination-container .pagination__item {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 16px
+}
 
-              .pagination-container .pagination__item a {
-                margin: 0 25px;
-                color: #333
-              }
+.pagination-container .pagination__item a {
+  margin: 0 25px;
+  color: #333
+}
 
-              .header-container {
-                padding: 0 45px
-              }
+.header-container {
+  padding: 0 45px
+}
 
-              p {
-                margin: 0
-              }
+p {
+  margin: 0
+}
 
-              ul {
-                list-style: none
-              }
+ul {
+  list-style: none
+}
 
-              a:hover {
-                text-decoration: none
-              }
+a:hover {
+  text-decoration: none
+}
 
-              .brand__logo {
-                margin-top: 10px;
-                max-width: 180px
-              }
+.brand__logo {
+  margin-top: 10px;
+  max-width: 180px
+}
 
-              .brand__logo:hover {
-                opacity: .7
-              }
+.brand__logo:hover {
+  opacity: .7
+}
 
-              .brand__brand-text p {
-                font-family: "Helvetica Neue";
-                letter-spacing: 2.91px;
-                font-size: 10.2px;
-                color: #9b9b9b
-              }
+.brand__brand-text p {
+  font-family: "Helvetica Neue";
+  letter-spacing: 2.91px;
+  font-size: 10.2px;
+  color: #9b9b9b
+}
 
-              nav.header-nav {
-                float: right
-              }
+nav.header-nav {
+  float: right
+}
 
-              nav.header-nav ul {
-                font-size: 0
-              }
+nav.header-nav ul {
+  font-size: 0
+}
 
-              nav.header-nav ul li {
-                display: inline-block;
-                width: auto;
-                font-size: 16px
-              }
+nav.header-nav ul li {
+  display: inline-block;
+  width: auto;
+  font-size: 16px
+}
 
-              nav.header-nav ul li a:hover {
-                color: rgba(50,200,250,1);
-              }
+nav.header-nav ul li a:hover {
+  color: rgba(50,200,250,1);
+}
 
-              .search {
-                background-color: #efefef;
-                padding: 15px 0;
-                border-bottom: 1px solid #fff
-              }
+.search {
+  background-color: #efefef;
+  padding: 15px 0;
+  border-bottom: 1px solid #fff
+}
 
-              .search__search-form {
-                padding: 25px 0;
-                background-color: #fff
-              }
+.search__search-form {
+  padding: 25px 0;
+  background-color: #fff
+}
 
-              .search__search-form>div {
-                margin: 0;
-                padding: 0 25px
-              }
+.search__search-form>div {
+  margin: 0;
+  padding: 0 25px
+}
 
-              .search__search-form label {
-                text-transform: capitalize;
-                font-weight: 500
-              }
+.search__search-form label {
+  text-transform: capitalize;
+  font-weight: 500
+}
 
-              .search__search-form input {
-                background-color: #efefef;
-                border: 0;
-                font-size: 14px
-              }
+.search__search-form input {
+  background-color: #efefef;
+  border: 0;
+  font-size: 14px
+}
 
-              .search-result {
-                padding: 25px 0
-              }
+.search-result {
+  padding: 25px 0
+}
 
-              .search-result .result-content .sort-head {
-                font-weight: 500;
-                font-size: 20px;
-                margin-bottom: 35px
-              }
+.search-result .result-content .sort-head {
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 35px
+}
 
-              .search-result .result-content .sort-head span {
-                color: #9b9b9b;
-                font-weight: 400
-              }
+.search-result .result-content .sort-head span {
+  color: #9b9b9b;
+  font-weight: 400
+}
 
-              .result-item {
-                padding-right: 0;
-                position: relative;
-                margin-bottom: 15px
-              }
+.result-item {
+  padding-right: 0;
+  position: relative;
+  margin-bottom: 15px
+}
 
-              .result-item .tour-image {
-                width: 100%;
-                height: 180px;
-                transition-duration: .3s
-              }
+.result-item .tour-image {
+  width: 100%;
+  height: 180px;
+  transition-duration: .3s
+}
 
-              .result-item .tour-image:hover {
-                opacity: .7
-              }
+.result-item .tour-image:hover {
+  opacity: .7
+}
 
-              .result-item .tour-infor {
-                font-size: 18px;
-                padding: 5px 15px 15px;
-                box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .09)
-              }
+.result-item .tour-infor {
+  font-size: 18px;
+  padding: 5px 15px 15px;
+  box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .09)
+}
 
-              .result-item .tour-infor__name {
-                font-size: 18px;
-                letter-spacing: .36px;
-                color: #333
-              }
+.result-item .tour-infor__name {
+  font-size: 18px;
+  letter-spacing: .36px;
+  color: #333
+}
 
-              .result-item .tour-infor__route {
-                font-size: 13px;
-                color: #767676
-              }
+.result-item .tour-infor__route {
+  font-size: 13px;
+  color: #767676
+}
 
-              .result-item .tour-infor__route p {
-                padding-left: 25px
-              }
+.result-item .tour-infor__route p {
+  padding-left: 25px
+}
 
-              .result-item .tour-infor__route__start {
-                background: url(../images/destination-pointer.png) no-repeat 7px 3px;
-                padding-bottom: 5px
-              }
+.result-item .tour-infor__route__start {
+  background: url(../images/destination-pointer.png) no-repeat 7px 3px;
+  padding-bottom: 5px
+}
 
-              .result-item .tour-infor__route__des {
-                background: url(../images/location-pointer.png) no-repeat 7px 0;
-                padding-bottom: 5px
-              }
+.result-item .tour-infor__route__des {
+  background: url(../images/location-pointer.png) no-repeat 7px 0;
+  padding-bottom: 5px
+}
 
-              .result-item .tour-infor__price {
-                margin-top: 10px;
-                font-size: 16px
-              }
+.result-item .tour-infor__price {
+  margin-top: 10px;
+  font-size: 16px
+}
 
-              .result-item .tour-infor__price span {
-                color: red;
-                font-weight: 700
-              }
+.result-item .tour-infor__price span {
+  color: red;
+  font-weight: 700
+}
 
-              .result-item .tour-infor__discount {
-                position: absolute;
-                top: 0;
-                right: 15px;
-                background-color: #f17130;
-                color: #fff;
-                font-size: 12px;
-                padding: 5px 10px 2px;
-                font-weight: 700;
-                font-family: "SF UI Display"
-              }
+.result-item .tour-infor__discount {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  background-color: #f17130;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 10px 2px;
+  font-weight: 700;
+  font-family: "SF UI Display"
+}
 
-              .result-item .tour-infor__discount::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 0;
-                border-left: 22px solid transparent;
-                border-right: 22px solid transparent;
-                border-top: 11px solid #f17130;
-                clear: both;
-                left: 0;
-                top: 24px
-              }
+.result-item .tour-infor__discount::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 22px solid transparent;
+  border-right: 22px solid transparent;
+  border-top: 11px solid #f17130;
+  clear: both;
+  left: 0;
+  top: 24px
+}
 
-              .footer-container {
-                background-color: #303030;
-                color: #fff;
-                padding: 40px 0 20px
-              }
+.footer-container {
+  background-color: #303030;
+  color: #fff;
+  padding: 40px 0 20px
+}
 
-              .footer-container .footer .footer-title {
-                margin-bottom: 10px
-              }
+.footer-container .footer .footer-title {
+  margin-bottom: 10px
+}
