@@ -148,7 +148,7 @@ a:hover, a:active {
 # Hero Section
 --------------------------------------------------------------*/
 .hero-content-wrap {
-  min-height: 700px;
+  min-height: 500px;
   position: relative;
   color: #fff;
 
