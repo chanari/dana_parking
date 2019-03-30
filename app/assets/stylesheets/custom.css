@@ -33,6 +33,10 @@ a:hover, a:active {
   list-style: none;
 }
 
+nav.header-nav ul > li.active > a {
+  color: #18a3eb;
+}
+
 /* Site Header */
 
 .site-header {

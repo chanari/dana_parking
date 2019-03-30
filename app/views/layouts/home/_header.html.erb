@@ -6,19 +6,27 @@
     <div class="col-xs-12 col-md-9 col-lg-9">
       <nav class="header-nav nav-collapse">
         <ul style="margin-bottom: 0px;">
-          <li><a href="javascript:void(0)">Trang Chủ</a></li>
+          <li class="<%= 'active' if controller_name == 'home' && action_name == 'index' %>">
+            <a href="<%= root_path %>">Trang Chủ</a>
+          </li>
           <li><a href="javascript:void(0)">Bãi xe</a></li>
           <li><a href="javascript:void(0)">Đặt chỗ</a></li>
           <li><a href="javascript:void(0)">Thuê dài hạn</a></li>
           <li><a href="javascript:void(0)">Trợ giúp</a></li>
+          <% if current_user %>
+          <li>
+            <%= link_to  'Dang Xuat', destroy_user_session_path, method: :delete %>
+          </li>
+          <% else %>
           <li class="login-btn button gradient-bg mt-2 mt-md-0">
             <%= link_to new_user_session_path, class: 'd-flex justify-content-center align-items-center' do %>
             <i class="fa fa-2x fa-sign-in"></i>Login
             <% end %>
           </li>
-          <li>
+          <li class="<%= 'active' if controller_name == 'registrations' && action_name == 'new' %>">
             <%= link_to  'Dang Ky', new_user_registration_path %>
           </li>
+          <% end %>
         </ul>
       </nav>
     </div>
