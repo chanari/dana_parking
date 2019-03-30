@@ -6,14 +6,15 @@
         <li class="nav-item active">
           <a class="nav-link" href="<%= client_booking_index_path %>">Booking</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Dang Xuat', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-users"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -55px;">
+            <a class="dropdown-item" href="#">Thong tin ca nhan</a>
+            <a class="dropdown-item" href="#">Lich su gui xe</a>
+            <%= link_to 'Dang Xuat', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          </div>
         </li>
       </ul>
     </div>
