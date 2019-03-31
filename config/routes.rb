@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   namespace :client do
     resources :booking
+    resources :profile
   end
 end
