@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_one :profile, dependent: :destroy
+  has_one_attached :avatar
 
   def is_client?
     return self.role == '0'

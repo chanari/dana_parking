@@ -9,6 +9,10 @@ Rails.application.routes.draw do
       member do
         get 'create_profile'
       end
+      collection do
+        patch 'update_password'
+        patch 'upload_avatar'
+      end
     end
   end
 end

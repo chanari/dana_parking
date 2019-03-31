@@ -17,4 +17,8 @@ $(document).ready ->
     $(this).closest('div').toggle 500
     $('#div-change').toggle 500
     return
+
+  $('input[type=file]').change (e) ->
+    $(this).next('label').html e.target.files[0].name
+    return
   return
