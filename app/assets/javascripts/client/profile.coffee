@@ -1,3 +1,20 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready ->
+
+  $('.btn-change').click (e) ->
+    e.preventDefault()
+    $('.edit_profile .form-control').each ->
+      $(this).removeAttr('readonly')
+      return
+    $(this).closest('div').toggle 500
+    $('#div-update').toggle 500
+    return
+
+  $('.btn-cancel').click (e) ->
+    e.preventDefault()
+    $('.edit_profile .form-control').each ->
+      $(this).attr('readonly', 'readonly')
+      return
+    $(this).closest('div').toggle 500
+    $('#div-change').toggle 500
+    return
+  return

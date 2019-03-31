@@ -5,8 +5,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  has_one :profile
-  
+  has_one :profile, dependent: :destroy
+
+  def is_client?
+    return self.role == '0'
+  end
+
   private
 
   def set_role

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   namespace :client do
     resources :booking
-    resources :profile
+    resources :profile do
+      member do
+        get 'create_profile'
+      end
+    end
   end
 end

@@ -13,7 +13,7 @@
 <div class="container bootstrap snippet">
   <div class="row">
     <div class="col-sm-10">
-      <h2 style="margin-left: 10px;">User name</h2>
+      <h3 style="margin-left: 10px;">Hi, <%= @profile.first_name %> !</h3>
     </div>
   </div>
   <div class="row">
@@ -45,11 +45,36 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div id="home" class="container tab-pane active"><br>
-          <h3>HOME</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h3>Personal Information</h3>
+          <%= form_for @profile, url: client_profile_path, method: :put do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+            <div class="form-group">
+              <%= f.label :first_name %>
+              <%= f.text_field :first_name, class: 'form-control', readonly: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label :last_name %>
+              <%= f.text_field :last_name, class: 'form-control', readonly: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label :phone %>
+              <%= f.text_field :phone, class: 'form-control', readonly: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label :address %>
+              <%= f.text_field :address, class: 'form-control', readonly: true %>
+            </div>
+            <div id="div-update" style="display: none;">
+              <%= f.submit "Save Change", class: 'btn btn-primary' %>
+              <button class="btn btn-secondary btn-cancel" style="margin-left: 15px;">Cancel</button>
+            </div>
+            <div id="div-change">
+              <button class="btn btn-info btn-change">Change</button>
+            </div>
+          <% end %>
         </div>
         <div id="menu1" class="container tab-pane fade"><br>
-          <h3>Menu 1</h3>
+          <h3>Change your Password</h3>
           <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
         <div id="menu2" class="container tab-pane fade">

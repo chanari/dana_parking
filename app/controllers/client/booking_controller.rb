@@ -1,6 +1,5 @@
 class Client::BookingController < Client::BaseController
-  
-  def index
 
+  def index
   end
 end
