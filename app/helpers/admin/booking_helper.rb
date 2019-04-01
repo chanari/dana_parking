@@ -1,0 +1,2 @@
+module Admin::BookingHelper
+end
