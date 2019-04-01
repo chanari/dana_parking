@@ -4,13 +4,10 @@ $(document).ready(function() {
   // Select slot
   let selectedSlot = [];
   $('ul.slot-list-items li').on('click', 'a', function() {
+    $('ul.slot-list-items li a').each(function() {
+      $(this).removeClass('selected');
+    });
     $(this).toggleClass('selected');
-    if (selectedSlot.indexOf(this.text) !== -1) {
-      selectedSlot = selectedSlot.filter(elm => elm !== this.text);
-    } else {
-      selectedSlot.push(this.text);
-    }
-    console.log(selectedSlot);
   })
 
   $('select#selectPark').on('change', function() {
@@ -29,6 +26,6 @@ $(document).ready(function() {
     } else {
       $('.select-month').css({display: "none"});
       $('.select-day').css({display: "block"});
-    } 
+    }
   })
 })

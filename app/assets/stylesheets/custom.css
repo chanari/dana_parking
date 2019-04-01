@@ -2,7 +2,7 @@
 
 body {
   color: #404040;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   font-family: 'Open Sans', sans-serif;
 }
@@ -20,9 +20,9 @@ a:hover, a:focus, a:active {
   color: #262626;
 }
 
-a:focus {
+/* a:focus {
   outline: thin dotted;
-}
+} */
 
 a:hover, a:active {
   outline: 0;
@@ -397,6 +397,7 @@ ul.slot-list-items li.slot-item a.reservation {
 
 .result-parking {
   display: none;
+  margin-top: 35px;
 }
 
 .select-month, .select-day {
