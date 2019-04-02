@@ -1,0 +1,2 @@
+module Manager::BaseHelper
+end

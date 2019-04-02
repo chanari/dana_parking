@@ -16,6 +16,10 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
   Rails.application.config.assets.precompile += ["#{controller}.js"]
 end
 
-%w(admin/booking).each do |controller|
+%w(admin/booking admin/managers).each do |controller|
+  Rails.application.config.assets.precompile += ["#{controller}.js"]
+end
+
+%w(manager/booking).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js"]
 end

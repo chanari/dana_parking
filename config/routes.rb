@@ -18,5 +18,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :booking
+    resources :managers
+  end
+
+  namespace :manager do
+    resources :booking
   end
 end
