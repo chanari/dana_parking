@@ -1,4 +1,9 @@
 class Admin::ManagersController < Admin::BaseController
+  before_action :set_profile, only: %i(edit_profile update_profile)
+
+  def index
+    @managers = User.includes(:profile).where(role: '1')
+  end
 
   def new
     @user = User.new
@@ -23,12 +28,29 @@ class Admin::ManagersController < Admin::BaseController
     end
   end
 
+  def edit_profile
+  end
+
+  def update_profile
+    if @profile.update_attributes profile_params
+      flash[:success] = 'Updated.'
+      redirect_to edit_profile_admin_managers_path
+    else
+      flash[:errors] = @profile.errors.full_messages
+      redirect_to edit_profile_admin_managers_path
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:email)
   end
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :phone, :address)
+    params.require(:profile).permit(:first_name, :last_name, :phone, :address, :user_id)
+  end
+  def set_profile
+    @profile = Profile.find_by user_id: @admin.id
+    @profile = @admin.build_profile unless @profile.present?
   end
 end

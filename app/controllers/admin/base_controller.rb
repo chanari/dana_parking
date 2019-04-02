@@ -3,6 +3,7 @@ class Admin::BaseController < ApplicationController
 
   before_action :authenticate_user!
   before_action :is_admin?
+  before_action :set_admin
 
   private
 
@@ -11,5 +12,9 @@ class Admin::BaseController < ApplicationController
       flash[:error] = 'Access Denied !!!'
       redirect_to root_path
     end
+  end
+
+  def set_admin
+    @admin = User.includes(:profile).where(id: current_user.id).take
   end
 end

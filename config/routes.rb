@@ -18,7 +18,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :booking
-    resources :managers
+    resources :managers do
+      collection do
+        get 'edit_profile'
+        patch 'update_profile'
+      end
+    end
   end
 
   namespace :manager do

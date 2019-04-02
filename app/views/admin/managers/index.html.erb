@@ -1,0 +1,79 @@
+<style media="screen">
+  .pagination {
+    justify-content: center;
+  }
+</style>
+
+<div id="wrapper">
+
+  <%= render 'layouts/admin/sidebar' %>
+
+  <div id="content-wrapper">
+
+    <div class="container-fluid">
+
+      <%= render 'layouts/admin/menu' %>
+
+      <!-- DataTables Example -->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fas fa-table"></i>
+          Manager List</div>
+        <div class="card-body" style="padding-bottom: 0px;">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Email</th>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Phone</th>
+                  <th>Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @managers.each_with_index do |m,i| %>
+                <tr>
+                  <td><%= i+1 %></td>
+                  <td><%= m.email %></td>
+                  <td><%= m.profile.first_name %></td>
+                  <td><%= m.profile.last_name %></td>
+                  <td><%= m.profile.phone %></td>
+                  <td><%= m.profile.address %></td>
+                </tr>
+                <% end %>
+
+              </tbody>
+            </table>
+
+            <div style="padding-top: 10px;">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.container-fluid -->
+
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright © Your Website 2019</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!-- /.content-wrapper -->
+
+</div>
