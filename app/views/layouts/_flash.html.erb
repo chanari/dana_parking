@@ -1,16 +1,10 @@
 <% if flash.present? %>
 <script type="text/javascript">
   <% flash.each do |message_type, message| %>
-    <% if message_type == 'notice' %>
+    <% if ['notice', 'success'].include? message_type %>
       alertify.success("<%= message %>");
-    <% elsif message_type == 'success' %>
-      alertify.<%= message_type %>("<%= message %>")
-    <% elsif message_type == 'error' %>
+    <% elsif ['error', 'errors', 'alert'].include? message_type %>
       alertify.error("<%= message %>")
-    <% elsif message_type == 'errors' %>
-      <% message.each do |m| %>
-        alertify.error("<%= m %>")
-      <% end %>
     <% else %>
       alertify.<%= message_type %>("<%= message %>")
     <% end %>
