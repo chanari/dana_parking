@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         patch 'update_profile'
       end
     end
+    resources :parking, only: %i(index new)
   end
 
   namespace :manager do

@@ -2,4 +2,5 @@
  *= require admin/sb-admin
  *= require dataTables.bootstrap4
  *= require admin/booking
+ *= require admin/parking
  */

@@ -1,0 +1,60 @@
+ul.slot-list-items {
+  list-style-type: none;
+  padding: 20px;
+  margin-top: 25px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+ul.slot-list-items li.slot-item {
+  display: inline-block;
+  padding: 0;
+}
+
+ul.slot-list-items li.slot-item a {
+  color: black;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 5px 5px 0 0 black;
+  text-decoration: none;
+}
+
+ul.slot-list-items li.slot-item a.selected {
+  background-color: red;
+  color: white;
+}
+
+ul.slot-list-items li.slot-item a.selecting {
+  background-color: gray;
+  pointer-events: none;
+}
+
+ul.slot-list-items li.slot-item a.reservation {
+  background-color: #e5d315;
+  pointer-events: none;
+}
+
+.result-parking {
+  display: none;
+  margin-top: 35px;
+}
+
+.tab-wrapper {
+    margin-left: -15px;
+    border: 1px solid #33C4FF;
+    border-radius: 10px;
+}
+
+.nav-tabs {
+  border-bottom: 0;
+}
+
+div.status .row:not(:first-child) {
+  height: 30px;
+  margin-left: 10px;
+}
+
+li.slot-item {
+  margin-bottom: 45px;
+}
