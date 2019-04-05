@@ -3,28 +3,28 @@
     <div class="col-xs-12 col-md-3 col-lg-3">
 
     </div>
-    <div class="col-xs-12 col-md-9 col-lg-9">
+    <div class="col-xs-12 col-md-10 col-lg-10">
       <nav class="header-nav nav-collapse">
         <ul style="margin-bottom: 0px;">
           <li class="<%= 'active' if controller_name == 'home' && action_name == 'index' %>">
             <a href="<%= root_path %>">Trang Chủ</a>
           </li>
-          <li><a href="javascript:void(0)">Bãi xe</a></li>
-          <li><a href="javascript:void(0)">Đặt chỗ</a></li>
-          <li><a href="javascript:void(0)">Thuê dài hạn</a></li>
-          <li><a href="javascript:void(0)">Trợ giúp</a></li>
+          <li><a href="<%= parking_path%>">Bãi xe</a></li>
+          <li><a href="javascript:void(0)">Đặt chỗ/ Thuê dài hạn</a></li>
+          <li><a href="javascript:void(0)">Bảng giá</a></li>
+          <li><a href="<%= help_path %>">Trợ giúp</a></li>
           <% if current_user %>
           <li>
-            <%= link_to  'Dang Xuat', destroy_user_session_path, method: :delete %>
+            <%= link_to  'Đăng xuất', destroy_user_session_path, method: :delete %>
           </li>
           <% else %>
           <li class="login-btn button gradient-bg mt-2 mt-md-0">
             <%= link_to new_user_session_path, class: 'd-flex justify-content-center align-items-center' do %>
-            <i class="fa fa-2x fa-sign-in"></i>Login
+            <i class="fa fa-x fa-sign-in"></i>Đăng nhập
             <% end %>
           </li>
           <li class="<%= 'active' if controller_name == 'registrations' && action_name == 'new' %>">
-            <%= link_to  'Dang Ky', new_user_registration_path %>
+            <%= link_to  'Đăng kí', new_user_registration_path %>
           </li>
           <% end %>
         </ul>

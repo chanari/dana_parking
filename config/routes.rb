@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :home
+  resources :home, only: :index
   root 'home#index'
+  get 'parking', to: 'home#parking'
+  get 'help', to:'home#help'
 
   namespace :client do
     resources :booking
