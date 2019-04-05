@@ -11,7 +11,7 @@
         <div class="col-md-5">
           <label for="selectPark">Bãi: </label>
           <select id="selectPark" class="form-control">
-            <option value="0">Please select one</option>
+            <option value="0">Chọn bãi xe mà bạn muốn</option>
             <option value="1">Nguyễn Văn Linh</option>
             <option value="2">Hàm nghi</option>
           </select>
@@ -95,7 +95,7 @@
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">BKS:</label>
             <div class="col-sm-5">
-              <input type="password" class="form-control" placeholder="Biển kiểm soát">
+              <input type="text" class="form-control" placeholder="Biển kiểm soát">
             </div>
           </div>
           <div class="form-group row">
@@ -107,7 +107,7 @@
               </div>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" value="day">
-                <label class="form-check-label">Theo ngày</label>
+                <label class="form-check-label">Theo giờ</label>
               </div>
             </div>
           </div>
@@ -128,20 +128,28 @@
               <label class="col-sm-3 col-form-label">Giá: </label>
               <div class="col-sm-5">
                 <input type="text" readonly class="form-control-plaintext" value="200k/tháng" disabled>
+                <button type="button" >Đặt xe</button>
               </div>
             </div>
           </div>
           <div class="select-day">
             <div class="form-group row">
-              <label class="col-sm-3 col-form-label">Ngày thuê:</label>
+              <label class="col-sm-3 col-form-label">Giờ vào:</label>
               <div class="col-sm-5">
-                <input type="date" class="form-control" placeholder="Password">
+                <form action="">
+                 <input type="time" name="usr_time">
+                  <input type="date" class="form-control" placeholder="Password">
+                    <button type="button" >Đặt xe</button>
+                </form>
+
+                <p><strong>Chú ý:</strong> Chọn giờ mà bạn muốn vào.</p>
+
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Giá: </label>
               <div class="col-sm-5">
-                <input type="text" readonly class="form-control-plaintext" value="8k/ngày" disabled>
+                <input type="text" readonly class="form-control-plaintext" value="8k/giờ" disabled>
               </div>
             </div>
           </div>

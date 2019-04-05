@@ -8,7 +8,7 @@
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="<%= client_booking_index_path %>">Dana Booking</a>
+    <a class="navbar-brand" href="<%= client_booking_index_path %>">Chọn một chỗ cho xe của bạn nhé...</a>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item <%= 'active' if controller_name == 'booking' && action_name == 'index' %>">
@@ -19,8 +19,8 @@
             <i class="fas fa-users"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -55px;">
-            <a class="dropdown-item" href="<%= client_profile_path(current_user) %>">Thong tin ca nhan</a>
-            <a class="dropdown-item" href="#">Lich su gui xe</a>
+            <a class="dropdown-item" href="<%= client_profile_path(current_user) %>">Thông tin cá nhân</a>
+            <a class="dropdown-item" href="#">Lịch sử gửi xe</a>
             <%= link_to 'Dang Xuat', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           </div>
         </li>
