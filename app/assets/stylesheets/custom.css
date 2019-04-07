@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
 
 body {
-  color: #404040;
+  color: #dee2e6;
   font-size: 14px;
   line-height: 1.8;
   font-family: 'Open Sans', sans-serif;
@@ -206,14 +206,14 @@ nav.header-nav ul > li.active > a {
 
 .button.gradient-bg {
   border-color: transparent;
-  background: -webkit-linear-gradient(180deg, rgba(50,200,250,1) 0%, rgba(88,125,228,1) 100%); /* safari5.1+,chrome10+ */
+  background: -webkit-linear-gradient(180deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.9) 100%); /* safari5.1+,chrome10+ */
   color: #fff;
 }
 
 /* Subscribe Banner */
 .subscribe-banner {
   padding: 80px 0;
-  background-color: #1f3c88;
+  background-color: rgba(0,0,0,.9);
   background-size: cover;
   text-align: center;
 }
@@ -247,13 +247,13 @@ nav.header-nav ul > li.active > a {
 /* Our Services */
 .our-services {
   padding: 100px 0;
-  background-color: #070d59;
+  background-color: rgba(0,0,0,.9);
   background-size: cover;
 }
 
 .our-services-wrap {
   padding: 60px 80px 80px;
-  background: -webkit-linear-gradient(180deg, rgba(50,200,250,1) 0%, rgba(88,125,228,1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(0,0,0,.9) 0%, rgb(0, 0, 0) 100%);
 }
 
 .our-services-wrap h2 {
