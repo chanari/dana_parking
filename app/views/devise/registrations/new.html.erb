@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <div class="our-services-wrap">
-          <h2>Dang Ky</h2>
+          <h2>Đăng Ký</h2>
           <div class="login-page">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
               <fieldset>
@@ -19,12 +19,12 @@
                 </div>
 
                 <div class="form-group">
-                  <%= f.label :password_confirmation, class: 'control-label' %>
+                  <%= f.label :password_confirmation,  class: 'control-label' %>
                   <%= f.password_field :password_confirmation, autofocus: true, class: "form-control" %>
                 </div>
 
                 <div class="control-group">
-                  <%= f.submit "Sign up", class: 'btn btn-success' %>
+                  <%= f.submit "Đăng ký", class: 'btn btn-success' %>
                 </div>
               </fieldset>
             <% end %>

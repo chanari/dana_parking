@@ -4,10 +4,14 @@ $(document).ready(function() {
   // Select slot
   let selectedSlot = [];
   $('ul.slot-list-items li').on('click', 'a', function() {
-    $('ul.slot-list-items li a').each(function() {
+    if ($(this).hasClass('selected')) {
       $(this).removeClass('selected');
-    });
-    $(this).toggleClass('selected');
+    } else {
+      $('ul.slot-list-items li a').each(function() {
+        $(this).removeClass('selected');
+      });
+      $(this).addClass('selected');
+    }
   })
 
   $('select#selectPark').on('change', function() {
