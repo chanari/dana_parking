@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_070218) do
+ActiveRecord::Schema.define(version: 2019_04_07_123415) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,14 +33,32 @@ ActiveRecord::Schema.define(version: 2019_04_04_070218) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "parking_slots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "status", limit: 1
+  create_table "blocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.bigint "floor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["floor_id"], name: "index_blocks_on_floor_id"
+  end
+
+  create_table "floors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.string "size", limit: 1
-    t.datetime "date_in"
     t.bigint "parking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parking_id"], name: "index_parking_slots_on_parking_id"
+    t.decimal "price_by_hours", precision: 8, scale: 2
+    t.decimal "price_by_months", precision: 8, scale: 2
+    t.index ["parking_id"], name: "index_floors_on_parking_id"
+  end
+
+  create_table "parking_slots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "status", limit: 1
+    t.datetime "date_in"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "block_id"
+    t.index ["block_id"], name: "index_parking_slots_on_block_id"
   end
 
   create_table "parkings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -78,6 +96,8 @@ ActiveRecord::Schema.define(version: 2019_04_04_070218) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "parking_slots", "parkings"
+  add_foreign_key "blocks", "floors"
+  add_foreign_key "floors", "parkings"
+  add_foreign_key "parking_slots", "blocks"
   add_foreign_key "profiles", "users"
 end

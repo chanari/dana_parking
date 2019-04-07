@@ -58,3 +58,25 @@ div.status .row:not(:first-child) {
 li.slot-item {
   margin-bottom: 45px;
 }
+
+.main-form {
+  padding: 15px;
+  border: 1px solid #091D25;
+  border-radius: 10px;
+}
+
+div.form-inline {
+  border-radius: 10px;
+  border: 1px solid;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+div.form-inline span {
+  margin: 0px 10px;
+}
+div.form-inline .fa-trash {
+  position: absolute;
+  right: 40px;
+  color: #F23434;
+}

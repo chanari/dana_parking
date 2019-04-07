@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  date_in: 
+  floor: one
+
+two:
+  status: MyString
+  date_in: 
+  floor: two
