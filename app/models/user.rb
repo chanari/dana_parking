@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   before_save :set_role
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
