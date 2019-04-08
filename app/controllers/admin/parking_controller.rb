@@ -6,7 +6,7 @@ class Admin::ParkingController < Admin::BaseController
 
   def new
     @parking = Parking.new
-    @floor = @parking.floors.build
+    @floor = @parking.floors.build(name: '1')
     @block = @floor.blocks.build
   end
 

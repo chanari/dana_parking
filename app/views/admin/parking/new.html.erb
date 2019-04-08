@@ -45,23 +45,24 @@
             <div class="row">
               <div class="col-md-10"></div>
               <div class="col-md-2">
-                <button type="button" class="btn btn-primary">
-                  <i class="fas fa-plus-circle"></i> Them Tang
+                <button id="btn-floor" class="btn btn-primary">
+                  <i class="fas fa-plus-circle"></i> Them Tầng
                 </button>
               </div>
             </div>
 
             <%= f.fields_for :floors do |ff| %>
-            <div class="form-group">
+            <div class="form-group form-floors">
+              <%= ff.hidden_field :name %>
               <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                   <fieldset class="scheduler-border">
-                    <legend class="scheduler-border">Tang 1</legend>
+                    <legend class="scheduler-border">Tầng 1</legend>
                     <div class="row">
                       <div class="col-md-3">
                         <%= ff.label :size, 'So Cho Ngoi' %>
-                        <%= ff.select :size, options_for_select([['4 - 7', '1'], ['12 - 16', '2'], ['> 16', '3']]), {}, class: 'form-control' %>
+                        <%= ff.select :size, options_for_select([['4 - 7', '1'], ['12 - 16', '2'], ['> 16', '3']]), { include_blank: "Chon so cho ngoi"}, class: 'form-control' %>
                       </div>
                       <div class="col-md-3">
                         <%= ff.label :price_by_hours, 'Gia Tien Theo Gio' %>
@@ -81,35 +82,39 @@
                           <%= ff.number_field :price_by_months, class: 'form-control' %>
                         </div>
                       </div>
-                      <div class="col-md-3">
-                        <div class="input-group">
-                          <button type="button" class="btn btn-primary">
-                            <i class="fas fa-plus-circle"></i> Them khu
-                          </button>
-                        </div>
+                      <div class="col-md-2">
+                        <button class="btn btn-primary btn-block">
+                          <i class="fas fa-plus-circle"></i> Khu
+                        </button>
+                      </div>
+                      <div class="col-md-1" style="padding: 0px;">
+                        <button class="btn btn-info btn-reset">
+                          <i class="fas fa-redo"></i>
+                        </button>
                       </div>
                     </div>
 
                     <hr>
 
                     <%= ff.fields_for :blocks do |fff| %>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <b>Khu: </b>
+                    <div class="form-blocks">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <b>Khu: </b>
+                        </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-8">
-                        <div class="form-inline">
-                          <div class="form-group">
-                            <%= fff.text_field :name, class: 'form-control', placeholder: 'Ten Khu' %>
+                      <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-8">
+                          <div class="form-inline">
+                            <div class="form-group">
+                              <%= fff.text_field :name, class: 'form-control', placeholder: 'Ten Khu' %>
+                            </div>
+                            <span>-</span>
+                            <div class="form-group">
+                              <%= fff.text_field :slots, class: 'form-control', placeholder: 'So Luong Cho' %>
+                            </div>
                           </div>
-                          <span>-</span>
-                          <div class="form-group">
-                            <%= fff.text_field :slots, class: 'form-control', placeholder: 'So Luong Cho' %>
-                          </div>
-                          <i class="fas fa-trash"></i>
                         </div>
                       </div>
                     </div>

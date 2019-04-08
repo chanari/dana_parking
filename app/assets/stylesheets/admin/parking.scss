@@ -75,8 +75,17 @@ div.form-inline {
 div.form-inline span {
   margin: 0px 10px;
 }
+
 div.form-inline .fa-trash {
-  position: absolute;
-  right: 40px;
   color: #F23434;
+}
+
+.fa-minus-circle {
+  color: #F23434;
+}
+
+.rm-floors {
+  position: absolute;
+  top: 0px;
+  right: 5px;
 }
