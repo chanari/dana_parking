@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'parking', to: 'home#parking'
   get 'help', to:'home#help'
+  get 'price', to:'home#price'
+  
 
   namespace :client do
     resources :booking

@@ -31,5 +31,6 @@ $(document).ready(function() {
       $('.select-month').css({display: "none"});
       $('.select-day').css({display: "block"});
     }
-  })
+  });
+
 })
