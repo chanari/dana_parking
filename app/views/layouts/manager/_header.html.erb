@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-  <a class="navbar-brand mr-1" href="<%= manager_booking_index_path %>">Dana Parking</a>
+  <a class="navbar-brand mr-1" href="<%= manager_booking_index_path %>">DANA CAR PARKING</a>
 
   <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"></div>
 
@@ -10,10 +10,10 @@
         <i class="fas fa-user-circle fa-lg"></i> &nbsp; <i class="fas fa-caret-down"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-        <a class="dropdown-item" href="#">Account Settings</a>
+        <a class="dropdown-item" href="#">Chỉnh sửa tài khoản</a>
         <a class="dropdown-item" href="#">Activity Log</a>
         <div class="dropdown-divider"></div>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+        <%= link_to 'Đăng xuất', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
       </div>
     </li>
   </ul>

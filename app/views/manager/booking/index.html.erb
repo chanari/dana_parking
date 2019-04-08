@@ -5,14 +5,15 @@
         <div class="col-md-5">
           <label for="selectPark">Bãi: </label>
           <select id="selectPark" class="form-control">
-            <option value="0">Please select one</option>
+            <option value="0">Chọn bãi mà bạn muốn đậu</option>
             <option value="1">Nguyễn Văn Linh</option>
             <option value="2">Hàm nghi</option>
           </select>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <label for="selectSlot">Số chỗ: </label>
           <select id="selectSlot" class="form-control">
+            <option value="0">Loại xe của bạn</option>
             <option value="1">4-7</option>
             <option value="2">12-16</option>
             <option value="1">25-59</option>
@@ -83,8 +84,15 @@
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">Bãi xe: </label>
             <div class="col-sm-5">
-              <input type="text" readonly class="form-control-plaintext baixe" value='123' disabled>
+              <input type="text" readonly class="form-control-plaintext baixe" disabled>
             </div>
+          </div>
+
+          <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Vị trí: </label>
+                        <div class="col-sm-5">
+                            <input type="text" readonly class="form-control-plaintext vitri" disabled>
+                        </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">BKS:</label>
@@ -103,35 +111,36 @@
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" value="day">
                 <label class="form-check-label">Theo ngày</label>
               </div>
+
             </div>
           </div>
           <div class="select-month">
-            <div class="form-group row">
-              <label class="col-sm-3 col-form-label">Ngày thuê:</label>
-              <div class="col-sm-5">
-                <input type="date" class="form-control" placeholder="Password">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 col-form-label">Ngày trả:</label>
-              <div class="col-sm-5">
-                <input type="date" class="form-control" placeholder="Password">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-3 col-form-label">Giá: </label>
-              <div class="col-sm-5">
-                <input type="text" readonly class="form-control-plaintext" value="200k/tháng" disabled>
-              </div>
-            </div>
-          </div>
-          <div class="select-day">
-            <div class="form-group row">
-              <label class="col-sm-3 col-form-label">Ngày thuê:</label>
-              <div class="col-sm-5">
-                <input type="date" class="form-control" placeholder="Password">
-              </div>
-            </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Ngày thuê:</label>
+                            <div class="col-sm-5">
+                                <input type="date" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Ngày trả:</label>
+                            <div class="col-sm-5">
+                                <input type="date" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Giá: </label>
+                            <div class="col-sm-5">
+                                <input type="text" readonly class="form-control-plaintext" value="200k/tháng" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="select-day">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Ngày thuê:</label>
+                            <div class="col-sm-5">
+                                <input type="date" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Giá: </label>
               <div class="col-sm-5">
