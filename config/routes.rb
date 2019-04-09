@@ -26,7 +26,11 @@ Rails.application.routes.draw do
         patch 'update_profile'
       end
     end
-    resources :parking
+    resources :parking do
+      collection do
+        get 'get_floors'
+      end
+    end
   end
 
   namespace :manager do

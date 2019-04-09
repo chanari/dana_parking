@@ -1,3 +1,14 @@
+// $(document).on('click', 'ul.slot-list-items li a', function() {
+//   if ($(this).hasClass('selected')) {
+//     $(this).removeClass('selected');
+//   } else {
+//     $('ul.slot-list-items li a').each(function() {
+//       $(this).removeClass('selected');
+//     });
+//     $(this).addClass('selected');
+//   }
+// });
+
 (function($) {
   'use strict';
   return $('#sidebarToggle').on('click', function(e) {
@@ -39,9 +50,8 @@ function renameCloneIdsAndNames(objClone, name, number) {
   return objClone;
 }
 
-function loadingOverlay() {
-  $.LoadingOverlay("show");
+function delayLoading() {
   setTimeout((function() {
     $.LoadingOverlay('hide');
-  }), 2000);
+  }), 1000);
 }

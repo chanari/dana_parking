@@ -11,45 +11,9 @@
           <i class="fas fa-table"></i>
           Thong tin cac bai
         </div>
-        <div class="card-body" style="min-height: 500px;">
+        <div class="card-body">
 
-          <div class="form-group">
-            <div class="status">
-              <div class="row">
-                <div class="col-2">
-                  <h4>Trang thai</h4>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-2">
-                  <label>Dang dat:</label>
-                </div>
-                <div class="col-4">
-                  <p>1</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-2">
-                  <label>Dang cho:</label>
-                </div>
-                <div class="col-4">
-                  <p>1</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-2">
-                  <label>Con trong:</label>
-                </div>
-                <div class="col-4">
-                  <p>1</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <hr>
-
-          <div class="select-parking">
+          <div class="select-parking" style="min-height: 400px;">
             <div class="form-group">
               <div class="row">
                 <div class="col-md-5">
@@ -77,12 +41,12 @@
           <div class="result-parking container">
             <div class="form-group">
               <div class="row">
-                <div class="col-9 mx-auto">
+                <div class="col-9">
                   <ul class="nav nav-tabs" id="resultTab" role="tablist">
-                    <!-- <li class="nav-item">
-                      <a class="nav-link active" data-toggle="tab" role="tab" href="#home" aria-controls="home" aria-selected="true">401</a>
+                    <li class="nav-item" style="display: none;">
+                      <a class="nav-link" data-toggle="tab" role="tab" href="#" aria-controls="" aria-selected="false">401</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a class="nav-link" data-toggle="tab" role="tab" href="#profile" aria-controls="profile" aria-selected="false">402</a>
                     </li>
                     <li class="nav-item">
@@ -92,39 +56,15 @@
 
                   <div class="tab-wrapper">
                     <div class="tab-content" id="resultTabContent">
-                      <!-- <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                      <div class="tab-pane show" id="" role="tabpanel" aria-labelledby="" style="display: none;">
                         <div class="container">
                           <ul class="row slot-list-items">
-                            <li class="col-2 slot-item"> <a class="selected" href="javascript:void(0)">1</a></li>
+                            <!-- <li class="col-2 slot-item"> <a class="selected" href="javascript:void(0)">1</a></li>
                             <li class="col-2 slot-item"> <a class="selecting" href="javascript:void(0)">2</a></li>
-                            <li class="col-2 slot-item"> <a class="reservation" href="javascript:void(0)">3</a></li>
+                            <li class="col-2 slot-item"> <a class="reservation" href="javascript:void(0)">3</a></li> -->
                           </ul>
                         </div>
                       </div>
-                      <div class="tab-pane show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="container">
-                          <ul class="row slot-list-items">
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">1</a></li>
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">2</a></li>
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">3</a></li>
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">4</a></li>
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">5</a></li>
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">6</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="tab-pane show" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        <div class="container">
-                          <ul class="row slot-list-items">
-                            <li class="col-2 slot-item"> <a class="" href="javascript:void(0)">1</a></li>
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">2</a></li>
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">3</a></li>
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">4</a></li>
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">5</a></li>
-                            <li class="col-2 slot-item"> <a href="javascript:void(0)">6</a></li>
-                          </ul>
-                        </div>
-                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -132,10 +72,65 @@
               </div>
             </div>
           </div>
+        <hr>
 
+
+        <div class="form-group" style="margin-bottom: 0px;">
+            <div class="row">
+              <div class="col-4">
+                <h4>Thong Tin Quan Ly Cac Bai</h4>
+              </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="margin: 10px;">
+                <i class="fas fa-user-plus"></i> Them
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-9">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Ho Ten</th>
+                    <th>Bai dang quan ly</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>John</td>
+                    <td>john@example.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
 
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <footer class="sticky-footer">
       <div class="container my-auto">
