@@ -10,9 +10,9 @@
             <a href="<%= root_path %>">Trang Chủ</a>
           </li>
           <li><a href="<%= parking_path%>">Bãi xe</a></li>
-          <li><a href="javascript:void(0)">Đặt chỗ/ Thuê dài hạn</a></li>
-          <li><a href="javascript:void(0)">Bảng giá</a></li>
+          <li><a href="<%= price_path %>">Bảng giá</a></li>
           <li><a href="<%= help_path %>">Trợ giúp</a></li>
+
           <% if current_user %>
           <li>
             <% case current_user.role %>

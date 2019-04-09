@@ -25,10 +25,10 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-table"></i>
-          Bai dau moi
+          Thêm bãi đỗ
         </div>
         <div class="card-body">
-          <h4 class="text-center">Tao moi bai do</h4>
+          <h4 class="text-center">Tạo mới bãi đỗ</h4>
 
           <%= form_for @parking, url: admin_parking_index_path, html: { class: 'main-form' } do |f| %>
 
@@ -36,7 +36,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <%= f.label :address do %>
-                    <b>Dia Chi Bai Do:</b>
+                    <b>Tên bãi đỗ</b>
                   <% end %>
                   <%= f.text_field :address, class: 'form-control' %>
                 </div>
@@ -46,7 +46,7 @@
               <div class="col-md-10"></div>
               <div class="col-md-2">
                 <button id="btn-floor" class="btn btn-primary">
-                  <i class="fas fa-plus-circle"></i> Them Tầng
+                  <i class="fas fa-plus-circle"></i> Thêm tầng
                 </button>
               </div>
             </div>
@@ -65,7 +65,7 @@
                         <%= ff.select :size, options_for_select([['4 - 7', '1'], ['12 - 16', '2'], ['> 16', '3']]), { include_blank: "Chon so cho ngoi"}, class: 'form-control' %>
                       </div>
                       <div class="col-md-3">
-                        <%= ff.label :price_by_hours, 'Gia Tien Theo Gio' %>
+                        <%= ff.label :price_by_hours, 'Giá tiền theo giờ' %>
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text">VND</span>
@@ -74,7 +74,7 @@
                         </div>
                       </div>
                       <div class="col-md-3">
-                        <%= ff.label :price_by_months, 'Gia Tien Theo Thang' %>
+                        <%= ff.label :price_by_months, 'Giá tiền theo tháng' %>
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text">VND</span>
@@ -108,11 +108,11 @@
                         <div class="col-md-8">
                           <div class="form-inline">
                             <div class="form-group">
-                              <%= fff.text_field :name, class: 'form-control', placeholder: 'Ten Khu' %>
+                              <%= fff.text_field :name, class: 'form-control', placeholder: 'Tên khu' %>
                             </div>
                             <span>-</span>
                             <div class="form-group">
-                              <%= fff.text_field :slots, class: 'form-control', placeholder: 'So Luong Cho' %>
+                              <%= fff.text_field :slots, class: 'form-control', placeholder: 'Số lượng chỗ' %>
                             </div>
                           </div>
                         </div>
@@ -128,7 +128,7 @@
             <% end %>
 
             <div class="col-3">
-              <%= f.submit 'Save', class: 'btn btn-primary' %>
+              <%= f.submit 'Lưu', class: 'btn btn-primary' %>
             </div>
 
           <% end %>
@@ -139,7 +139,7 @@
     <footer class="sticky-footer">
       <div class="container my-auto">
         <div class="copyright text-center my-auto">
-          <span>Copyright © Your Website 2019</span>
+          <span>Copyright © DANA CAR PARKING 2019</span>
         </div>
       </div>
     </footer>

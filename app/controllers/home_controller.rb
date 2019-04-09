@@ -4,4 +4,9 @@ class HomeController < ApplicationController
 
   def help
   end
+
+  def price
+  end
+
+
 end
