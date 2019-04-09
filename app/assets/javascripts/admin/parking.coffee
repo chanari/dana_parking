@@ -72,7 +72,7 @@ $(document).ready ->
           $.each floor.blocks, (ii, blocks) ->
             nav_tab = $('#resultTab').find('.nav-item').eq(0).clone()
             nav_tab.removeAttr('style')
-            nav_tab.find('a').attr('href', '#'+blocks.id)
+            nav_tab.find('a').attr('href', '#block'+blocks.id)
             nav_tab.find('a').attr('aria-controls', blocks.id)
             if n == 0
               nav_tab.find('a').attr('aria-selected','true')
@@ -83,7 +83,7 @@ $(document).ready ->
 
             result_tab = $('#resultTabContent').find('.tab-pane').eq(0).clone()
             result_tab.removeAttr('style')
-            result_tab.attr('id', blocks.id)
+            result_tab.attr('id', 'block'+blocks.id)
             result_tab.attr('aria-labelledby', blocks.id + '-tab')
             if n == 1
               result_tab.addClass('active')

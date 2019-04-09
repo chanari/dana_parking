@@ -13,7 +13,7 @@
         </div>
         <div class="card-body">
 
-          <div class="select-parking" style="min-height: 400px;">
+          <div class="select-parking">
             <div class="form-group">
               <div class="row">
                 <div class="col-md-5">
@@ -21,7 +21,7 @@
                   <select id="selectPark" class="form-control">
                     <option value="0">Please select one</option>
                     <% @parkings.each do |p| %>
-                      <option value="<%= p[0] %>"><%= p[1] %></option>
+                    <option value="<%= p[0] %>"><%= p[1] %></option>
                     <% end %>
                   </select>
                 </div>
@@ -36,109 +36,110 @@
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="result-parking container">
-            <div class="form-group">
-              <div class="row">
-                <div class="col-9">
-                  <ul class="nav nav-tabs" id="resultTab" role="tablist">
-                    <li class="nav-item" style="display: none;">
-                      <a class="nav-link" data-toggle="tab" role="tab" href="#" aria-controls="" aria-selected="false">401</a>
-                    </li>
-                    <!-- <li class="nav-item">
+
+            <div class="result-parking container">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-9">
+                    <ul class="nav nav-tabs" id="resultTab" role="tablist">
+                      <li class="nav-item" style="display: none;">
+                        <a class="nav-link" data-toggle="tab" role="tab" href="#" aria-controls="" aria-selected="false">401</a>
+                      </li>
+                      <!-- <li class="nav-item">
                       <a class="nav-link" data-toggle="tab" role="tab" href="#profile" aria-controls="profile" aria-selected="false">402</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" role="tab" href="#contact" aria-controls="contact" aria-selected="false">403</a>
-                    </li> -->
-                  </ul>
+                    <a class="nav-link" data-toggle="tab" role="tab" href="#contact" aria-controls="contact" aria-selected="false">403</a>
+                  </li> -->
+                </ul>
 
-                  <div class="tab-wrapper">
-                    <div class="tab-content" id="resultTabContent">
-                      <div class="tab-pane show" id="" role="tabpanel" aria-labelledby="" style="display: none;">
-                        <div class="container">
-                          <ul class="row slot-list-items">
-                            <!-- <li class="col-2 slot-item"> <a class="selected" href="javascript:void(0)">1</a></li>
-                            <li class="col-2 slot-item"> <a class="selecting" href="javascript:void(0)">2</a></li>
-                            <li class="col-2 slot-item"> <a class="reservation" href="javascript:void(0)">3</a></li> -->
-                          </ul>
-                        </div>
+                <div class="tab-wrapper">
+                  <div class="tab-content" id="resultTabContent">
+                    <div class="tab-pane show" id="" role="tabpanel" aria-labelledby="" style="display: none;">
+                      <div class="container">
+                        <ul class="row slot-list-items">
+                          <!-- <li class="col-2 slot-item"> <a class="selected" href="javascript:void(0)">1</a></li>
+                          <li class="col-2 slot-item"> <a class="selecting" href="javascript:void(0)">2</a></li>
+                          <li class="col-2 slot-item"> <a class="reservation" href="javascript:void(0)">3</a></li> -->
+                        </ul>
                       </div>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
-          </div>
-        <hr>
 
-
-        <div class="form-group" style="margin-bottom: 0px;">
-            <div class="row">
-              <div class="col-4">
-                <h4>Thong Tin Quan Ly Cac Bai</h4>
-              </div>
           </div>
         </div>
-        <div class="form-group">
-          <div class="row">
-            <div class="col-4">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="margin: 10px;">
-                <i class="fas fa-user-plus"></i> Them
-              </button>
-            </div>
+      </div>
+      <hr>
+
+
+      <div class="form-group" style="margin-bottom: 0px;">
+        <div class="row">
+          <div class="col-4">
+            <h4>Thong Tin Quan Ly Cac Bai</h4>
           </div>
-          <div class="row">
-            <div class="col-9">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Ho Ten</th>
-                    <th>Bai dang quan ly</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>John</td>
-                    <td>john@example.com</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-4">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="margin: 10px;">
+              <i class="fas fa-user-plus"></i> Them
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-9">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Ho Ten</th>
+                  <th>Bai dang quan ly</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>john@example.com</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer class="sticky-footer">
-      <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-          <span>Copyright © Your Website 2019</span>
-        </div>
-      </div>
-    </footer>
-
   </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="sticky-footer">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright © Your Website 2019</span>
+    </div>
+  </div>
+</footer>
+
+</div>
 </div>
