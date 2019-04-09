@@ -5,7 +5,7 @@
       <span>Thống kê</span>
     </a>
   </li>
-  <li class="nav-item <%= 'active' if ['managers', 'parking'].include?controller_name %> dropdown">
+  <li class="nav-item <%= 'active' if ['managers', 'parking'].include?(controller_name) && !['edit_password', 'edit_profile'].include?(action_name) %> dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fas fa-fw fa-folder"></i>
       <span>Quản lí</span>

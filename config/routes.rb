@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'parking', to: 'home#parking'
   get 'help', to:'home#help'
   get 'price', to:'home#price'
-  
+
 
   namespace :client do
     resources :booking
@@ -26,6 +26,11 @@ Rails.application.routes.draw do
       collection do
         get 'edit_profile'
         patch 'update_profile'
+        get 'edit_password'
+        patch 'update_password'
+        get 'update_parking'
+        get 'remove_parking'
+        get 'get_manager'
       end
     end
     resources :parking do

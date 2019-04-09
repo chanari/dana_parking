@@ -11,13 +11,13 @@ class Block < ApplicationRecord
   private
 
   def update_name
-    self.name = "#{self.floor_id}-#{self.name}"
+    self.name = "#{self.floor.name}-#{self.name}"
   end
-  
+
   def build_parking_slots
     if self.slots.present?
       self.slots.to_i.times do |n|
-        if n < 10
+        if n < 9
           self.parking_slots.build(name: "#{self.name}0#{n+1}")
         else
           self.parking_slots.build(name: "#{self.name}#{n+1}")

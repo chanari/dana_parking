@@ -46,6 +46,23 @@ $(document).ready ->
 
   $('#selectPark').change ->
     $('#selectSlot').val('0')
+    parking_id = $(this).val()
+    if parking_id > 0
+      $.ajax
+        url: '/admin/managers/get_manager'
+        type: 'GET'
+        dataType: 'JSON'
+        data:
+          parking_id: parking_id
+        success: (data) ->
+          console.log data
+          $('#manager-name').html(data.first_name + ' ' + data.last_name)
+          return
+        error: (data) ->
+          $('#manager-name').html 'Chua co'
+          return
+    else
+      $('#manager-name').empty()
     $('.result-parking').css({display: 'none'})
     return
 
@@ -96,7 +113,7 @@ $(document).ready ->
                   slots.status = 'reservation'
                 when '2'
                   slots.status = 'selecting'
-              result_tab.find('.slot-list-items').append '<li class="col-2 slot-item"> <a class="'+slots.status+'" href="javascript:void(0)">'+slots.name+'</a></li>'
+              result_tab.find('.slot-list-items').append '<li class="col-2 slot-item"> <a id="slot-'+slots.id+'" class="'+slots.status+'" href="javascript:void(0)">'+slots.name+'</a></li>'
               return
             $('#resultTabContent').append result_tab
             return

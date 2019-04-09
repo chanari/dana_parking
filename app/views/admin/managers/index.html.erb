@@ -14,7 +14,6 @@
 
       <%= render 'layouts/admin/menu' %>
 
-      <!-- DataTables Example -->
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-table"></i>
@@ -26,10 +25,9 @@
                 <tr>
                   <th>#</th>
                   <th>Email</th>
-                  <th>First name</th>
-                  <th>Last name</th>
-                  <th>Phone</th>
-                  <th>Address</th>
+                  <th>Ho va Ten</th>
+                  <th>Dien Thoai</th>
+                  <th>Bai Dang Quan Ly</th>
                 </tr>
               </thead>
               <tbody>
@@ -37,17 +35,27 @@
                 <tr>
                   <td><%= i+1 %></td>
                   <td><%= m.email %></td>
-                  <td><%= m.profile.first_name %></td>
-                  <td><%= m.profile.last_name %></td>
+                  <td><%= m.profile.first_name + ' ' + m.profile.last_name %></td>
                   <td><%= m.profile.phone %></td>
-                  <td><%= m.profile.address %></td>
+
+                  <td>
+                    <% if m.parking_id.nil? %>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#managerParking" data-mid="<%= m.id %>">
+                      <i class="fas fa-plus"></i> Them Bai
+                    </a>
+                    <% else %>
+                    <%= m.get_parking.address %> |
+                    <a id="rm-parking" href="javascript:void(0)" data-mid="<%= m.id %>"><i class="fas fa-trash" style="color: #F12A2A;"></i></a>
+                    <% end %>
+                  </td>
+
                 </tr>
                 <% end %>
 
               </tbody>
             </table>
 
-            <div style="padding-top: 10px;">
+            <!-- <div style="padding-top: 10px;">
               <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -55,16 +63,46 @@
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
               </ul>
-            </div>
+            </div> -->
 
           </div>
         </div>
       </div>
 
+      <div class="modal fade" id="managerParking" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Quan Ly</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="padding-bottom: 0px;">
+              <%= hidden_field_tag :user_id %>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-3" style="margin-top: 5px;">
+                    <p>Chon Bai: </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <%= select_tag :parking, options_from_collection_for_select(Parking.all, :id, :address), class: 'form-control', prompt: "Select something" %>
+                  </div>
+                  <!-- <div class="col-sm-3">
+                    <a href="javascript:void(0)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button id="btn-modal-luu" class="btn btn-primary">Luu</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Dong</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- /.container-fluid -->
 
-    <!-- Sticky Footer -->
     <footer class="sticky-footer">
       <div class="container my-auto">
         <div class="copyright text-center my-auto">
@@ -74,6 +112,5 @@
     </footer>
 
   </div>
-  <!-- /.content-wrapper -->
 
 </div>

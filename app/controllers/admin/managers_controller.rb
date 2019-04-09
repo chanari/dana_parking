@@ -41,6 +41,48 @@ class Admin::ManagersController < Admin::BaseController
     end
   end
 
+  def update_parking
+    @manager = User.find_by(id: params[:user_id], role: '1')
+    respond_to do |format|
+      if params[:parking_id].nil? || params[:user_id].nil? || @manager.nil?
+        format.json { render json: false, status: 404 }
+      else
+        if @manager.update_attribute(:parking_id, params[:parking_id])
+          format.json { render json: @manager, status: :ok }
+        else
+          format.json { render json: @manager.errors, status: 500 }
+        end
+      end
+    end
+  end
+
+  def remove_parking
+    @manager = User.find_by(id: params[:user_id], role: '1')
+    respond_to do |format|
+      if params[:user_id].nil? || @manager.nil?
+        format.json { render json: false, status: 404 }
+      else
+        if @manager.update_attribute(:parking_id, nil)
+          format.json { render json: @manager, status: :ok }
+        else
+          format.json { render json: @manager.errors, status: 500 }
+        end
+      end
+    end
+  end
+
+  def get_manager
+    @manager = User.find_by(parking_id: params[:parking_id], role: '1')
+    @profile = Profile.find_by(user_id: @manager.id) if @manager.present?
+    respond_to do |format|
+      if params[:parking_id].nil? || @manager.nil? || @profile.nil?
+        format.json { render json: false, status: 404 }
+      else
+        format.json { render json: @profile.as_json(only: [:first_name, :last_name]), status: :ok }
+      end
+    end
+  end
+
   private
 
   def user_params

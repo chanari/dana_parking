@@ -11,6 +11,18 @@ class User < ApplicationRecord
     return self.role == '0'
   end
 
+  def is_manager?
+    return self.role == '1'
+  end
+
+  def is_admin?
+    return self.role == '2'
+  end
+
+  def get_parking
+    Parking.select(:id, :address).where(id: self.parking_id).take()
+  end
+
   private
 
   def set_role

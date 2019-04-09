@@ -9,6 +9,13 @@
 //   }
 // });
 
+$(document).on('ready', function() {
+  var url = window.location.href;
+  if (/#OK/.test(url)) {
+    alertify.success('Thanh Cong !');
+  }
+});
+
 (function($) {
   'use strict';
   return $('#sidebarToggle').on('click', function(e) {
