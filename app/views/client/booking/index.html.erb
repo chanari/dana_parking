@@ -12,17 +12,18 @@
           <label for="selectPark">Bãi: </label>
           <select id="selectPark" class="form-control">
             <option value="0">Chọn bãi mà bạn muốn đậu</option>
-            <option value="1">Nguyễn Văn Linh</option>
-            <option value="2">Hàm nghi</option>
+            <% @parkings.each do |p| %>
+            <option value="<%= p[0] %>"><%= p[1] %></option>
+            <% end %>
           </select>
         </div>
         <div class="col-md-3">
           <label for="selectSlot">Số chỗ: </label>
           <select id="selectSlot" class="form-control">
             <option value="0">Loại xe của bạn</option>
-            <option value="1">4-7</option>
-            <option value="2">12-16</option>
-            <option value="1"> Trên 16 chỗ</option>
+            <option value="1">4 - 7</option>
+            <option value="2">12 - 16</option>
+            <option value="3"> Trên 16 chỗ</option>
           </select>
         </div>
       </div>
@@ -31,82 +32,36 @@
 
   <div class="result-parking container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-7">
         <ul class="nav nav-tabs" id="resultTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" role="tab" href="#home" aria-controls="home" aria-selected="true">4a</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" role="tab" href="#profile" aria-controls="profile" aria-selected="false">4b</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" role="tab" href="#contact" aria-controls="contact" aria-selected="false">4c</a>
+          <li class="nav-item" style="display: none;">
+            <a class="nav-link" data-toggle="tab" role="tab" href="#" aria-controls="" aria-selected="false"></a>
           </li>
         </ul>
         <div class="tab-content" id="resultTabContent">
-          <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="tab-pane show" id="" role="tabpanel" aria-labelledby="" style="display: none;">
             <div class="container">
               <ul class="row slot-list-items">
-                <li class="col-2 slot-item"> <a class="selected" href="javascript:void(0)">4a01</a></li>
-                <li class="col-2 slot-item"> <a class="selecting" href="javascript:void(0)">4a02</a></li>
-                <li class="col-2 slot-item"> <a class="reservation" href="javascript:void(0)">4a03</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4a04</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4a05</a></li>
-
-              </ul>
-              <ul class="row slot-list-items">
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4a06</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4a07</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4a08</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4a09</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4a10</a></li>
-
-              </ul>
-            </div>
-          </div>
-          <div class="tab-pane show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="container">
-              <ul class="row slot-list-items">
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4b1</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4b2</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4b3</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4b4</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4b5</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4b6</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="tab-pane show" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-            <div class="container">
-              <ul class="row slot-list-items">
-                <li class="col-2 slot-item"> <a class="selected" href="javascript:void(0)">4c1</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4c2</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4c3</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4c4</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4c5</a></li>
-                <li class="col-2 slot-item"> <a href="javascript:void(0)">4c6</a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-1"></div>
-
       <div class="col-5">
         <form>
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">Bãi xe: </label>
             <div class="col-sm-5">
-                            <input type="text" readonly class="form-control-plaintext baixe" disabled>
+              <input type="text" readonly class="form-control-plaintext baixe" disabled>
             </div>
           </div>
 
           <div class="form-group row">
-                       <label class="col-sm-3 col-form-label">Vị trí: </label>
-                       <div class="col-sm-5">
-                           <input type="text" readonly class="form-control-plaintext vitri" disabled>
-                       </div>
+            <label class="col-sm-3 col-form-label">Vị trí: </label>
+            <div class="col-sm-5">
+              <input type="text" readonly class="form-control-plaintext vitri" disabled>
+            </div>
           </div>
 
           <div class="form-group row">
@@ -116,24 +71,26 @@
             </div>
           </div>
 
-            <div class="form-group row">
-              <label class="col-sm-3 col-form-label">Giờ vào:</label>
-              <div class="col-sm-5">
-                <form action="">
-                 <input type="time" class="form-control" name="usr_time">
-                    <button type="button" class="form-control btn btn-dark" >Đặt xe</button>
-                </form>
-                <p><b> <strong>Chú ý:</strong> Bạn chỉ được đặt xe trước 30 phút !!!</b></p>
-              </div>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Giờ vào:</label>
+            <div class="col-sm-5">
+              <input type="time" class="form-control" name="usr_time">
             </div>
+          </div>
 
-            <div class="form-group row">
-              <label class="col-sm-3 col-form-label">Giá: </label>
-              <div class="col-sm-5">
-                <input type="text" readonly class="form-control-plaintext" value="8k/giờ" disabled>
-              </div>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Giá: </label>
+            <div class="col-sm-5">
+              <input id="price-hours" readonly class="form-control-plaintext" disabled>
             </div>
+          </div>
 
+          <div class="form-group">
+            <div class="col-sm-9">
+              <button type="button" class="form-control btn btn-dark" >Đặt xe</button>
+              <p><b> <strong>Chú ý:</strong> Bạn chỉ được đặt xe trước 30 phút !!!</b></p>
+            </div>
+          </div>
         </form>
       </div>
     </div>

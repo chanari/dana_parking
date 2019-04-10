@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
 
   namespace :client do
-    resources :booking
+    resources :booking do
+      collection do
+        get 'get_floors'
+      end
+    end
     resources :profile do
       member do
         get 'create_profile'

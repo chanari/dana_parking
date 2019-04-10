@@ -83,10 +83,29 @@ class Admin::ManagersController < Admin::BaseController
     end
   end
 
+  def edit_password
+    @user = current_user
+  end
+
+  def update_password
+    @user = current_user
+    if @user.update_with_password(user_password_params)
+      bypass_sign_in(@user)
+      flash[:success] = 'Da Cap Nhat.'
+      redirect_to edit_password_admin_managers_path
+    else
+      flash[:error] = 'That Bai !'
+      redirect_to edit_password_admin_managers_path
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:email)
+  end
+  def user_password_params
+    params.require(:user).permit(:current_password, :password, :password_confirmation)
   end
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :phone, :address, :user_id)
