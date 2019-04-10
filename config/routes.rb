@@ -41,6 +41,11 @@ Rails.application.routes.draw do
   end
 
   namespace :manager do
-    resources :booking
+    resources :booking, only: [:index] do
+      collection do
+        get 'load_park'
+      end
+    end
+    resources :profile, only: [:edit, :update]
   end
 end

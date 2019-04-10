@@ -4,6 +4,6 @@ class Floor < ApplicationRecord
 
   accepts_nested_attributes_for :blocks, reject_if: :all_blank
 
-  scope :get_floors, -> (park_id, size) { where(parking_id: park_id, size: size) }
+  scope :get_floors, -> (park_id, size) { select(:id, :name, :price_by_hours, :price_by_months).where(parking_id: park_id, size: size) }
 
 end

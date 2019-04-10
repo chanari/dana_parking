@@ -20,6 +20,6 @@ end
   Rails.application.config.assets.precompile += ["#{controller}.js"]
 end
 
-%w(manager/booking).each do |controller|
+%w(manager/booking manager/profile).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js"]
 end
