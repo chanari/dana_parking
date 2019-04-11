@@ -33,7 +33,7 @@ class Admin::ManagersController < Admin::BaseController
 
   def update_profile
     if @profile.update_attributes profile_params
-      flash[:success] = 'Updated.'
+      flash[:success] = 'Đã cập nhật!'
       redirect_to edit_profile_admin_managers_path
     else
       flash[:errors] = @profile.errors.full_messages
@@ -91,10 +91,10 @@ class Admin::ManagersController < Admin::BaseController
     @user = current_user
     if @user.update_with_password(user_password_params)
       bypass_sign_in(@user)
-      flash[:success] = 'Da Cap Nhat.'
+      flash[:success] = 'Đã cập nhật'
       redirect_to edit_password_admin_managers_path
     else
-      flash[:error] = 'That Bai !'
+      flash[:error] = 'Thất bại !'
       redirect_to edit_password_admin_managers_path
     end
   end

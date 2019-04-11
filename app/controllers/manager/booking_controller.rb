@@ -5,7 +5,7 @@ class Manager::BookingController < Manager::BaseController
     if current_user.parking_id > 0 && @parking.present?
       @parking_address = @parking.address
     else
-      @parking_address = 'Ban chua quan ly bai nao'
+      @parking_address = 'Bạn chưa quản lý bãi nào'
     end
   end
 

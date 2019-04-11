@@ -25,9 +25,9 @@
                 <tr>
                   <th>#</th>
                   <th>Email</th>
-                  <th>Ho va Ten</th>
-                  <th>Dien Thoai</th>
-                  <th>Bai Dang Quan Ly</th>
+                  <th>Họ và Tên</th>
+                  <th>Số điện thoại</th>
+                  <th>Bãi đỗ đang quản lý</th>
                 </tr>
               </thead>
               <tbody>
@@ -41,7 +41,7 @@
                   <td>
                     <% if m.parking_id.nil? %>
                     <a href="javascript:void(0)" data-toggle="modal" data-target="#managerParking" data-mid="<%= m.id %>">
-                      <i class="fas fa-plus"></i> Them Bai
+                      <i class="fas fa-plus"></i> Cấp bãi
                     </a>
                     <% else %>
                     <%= m.get_parking.address %> |
@@ -73,7 +73,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Quan Ly</h5>
+              <h5 class="modal-title">Quản lý</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -83,7 +83,7 @@
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm-3" style="margin-top: 5px;">
-                    <p>Chon Bai: </p>
+                    <p>Chọn bãi: </p>
                   </div>
                   <div class="col-sm-6">
                     <%= select_tag :parking, options_from_collection_for_select(Parking.all, :id, :address), class: 'form-control', prompt: "Select something" %>
@@ -95,8 +95,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button id="btn-modal-luu" class="btn btn-primary">Luu</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Dong</button>
+              <button id="btn-modal-luu" class="btn btn-primary">Lưu</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@
     <footer class="sticky-footer">
       <div class="container my-auto">
         <div class="copyright text-center my-auto">
-          <span>Copyright © Your Website 2019</span>
+          <span>Copyright © DANA CAR PARKING 2019</span>
         </div>
       </div>
     </footer>

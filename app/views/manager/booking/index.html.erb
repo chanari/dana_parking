@@ -63,11 +63,9 @@
             </div>
           </div>
           <div class="form-group row">
-            <div class="col-sm-4">
-              <p>BKS:</p>
-            </div>
+            <label class="col-sm-4 col-form-label" for="bks" >BKS:</label>
             <div class="col-sm-5">
-              <input class="form-control" placeholder="Biển kiểm soát">
+              <input type="text" class="form-control" id="bks" placeholder="Biển kiểm soát">
             </div>
           </div>
           <div class="form-group row options" style="display: none;">
@@ -95,11 +93,11 @@
               </div>
             </div>
             <div class="form-group row">
-              <div class="col-sm-4">
-                <p>Ngày trả:</p>
+              <div class="col-sm-4 ">
+                <p>Số tháng thuê:</p>
               </div>
               <div class="col-sm-5">
-                <input type="date" class="form-control" placeholder="Password">
+                <input type="number" class="form-control" name="quantity" min="1" max="">
               </div>
             </div>
             <div class="form-group row">
@@ -110,14 +108,18 @@
                 <input id="price-month" type="text" readonly class="form-control-plaintext" disabled>
               </div>
             </div>
+            <div class="form-group">
+              <div class="col-sm-9">
+                <button type="button" class="form-control btn btn-dark" >Xác nhận</button>
+                <p><b> <strong>Chú ý:</strong> Xác nhận cho khách thuê dài hạn !!!</b></p>
+              </div>
+            </div>
           </div>
           <div class="select-day">
             <div class="form-group row">
-              <div class="col-sm-4">
-                <p>Ngày thuê:</p>
-              </div>
+              <label class="col-sm-4 col-form-label" for="time">Giờ vào:</label>
               <div class="col-sm-5">
-                <input type="date" class="form-control" placeholder="Password">
+                <input type="time" id="time" class="form-control" name="usr_time">
               </div>
             </div>
             <div class="form-group row">
@@ -127,7 +129,14 @@
               <div class="col-sm-5">
                 <input type="text" id="price-hours" readonly class="form-control-plaintext" disabled>
               </div>
-            </div>
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <button type="button" class="form-control btn btn-dark" >Nhận khách vãng lai</button>
+                  <p><b> <strong>Chú ý:</strong> Bạn đang nhận khách vãng lai !!!</b></p>
+                </div>
+              </div>
+          </div>
           </div>
         </form>
       </div>

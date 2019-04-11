@@ -6,18 +6,18 @@ class Manager::ProfileController < Manager::BaseController
   end
 
   def update
-    if params[:commit] == 'Cap nhat'
+    if params[:commit] == 'Cập nhật'
       if @user.update_with_password(user_params)
         bypass_sign_in(@user)
-        flash[:success] = 'Da Cap Nhat.'
+        flash[:success] = 'Đã cập nhật.'
         redirect_to edit_manager_profile_path(@user)
       else
-        flash[:error] = 'That Bai !'
+        flash[:error] = 'Thất bại !'
         redirect_to edit_manager_profile_path(@user)
       end
-    elsif params[:commit] == 'Luu'
+    elsif params[:commit] == 'Lưu'
       if @profile.update_attributes profile_params
-        flash[:success] = 'Da Luu.'
+        flash[:success] = 'Đã lưu.'
         redirect_to edit_manager_profile_path(@user)
       else
         flash[:errors] = @profile.errors.full_messages

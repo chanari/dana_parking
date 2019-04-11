@@ -35,14 +35,14 @@ class Client::ProfileController < Client::BaseController
   def upload_avatar
     if params[:user] && params[:user][:avatar].present?
       @user.avatar.attach(params[:user][:avatar])
-      flash[:success] = 'Updated.'
+      flash[:success] = 'Đã cập nhật.'
       redirect_to client_profile_path(@user)
     elsif params[:user].nil? || params[:user][:avatar].nil?
       @user.avatar.purge_later
-      flash[:success] = 'Updated.'
+      flash[:success] = 'Đã cập nhật.'
       redirect_to client_profile_path(@user)
     else
-      flash[:error] = 'Failed !'
+      flash[:error] = 'Không thành công !'
       redirect_to client_profile_path(@user)
     end
   end
