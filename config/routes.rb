@@ -35,6 +35,7 @@ Rails.application.routes.draw do
         get 'update_parking'
         get 'remove_parking'
         get 'get_manager'
+        get 'clients'
       end
     end
     resources :parking do

@@ -99,6 +99,10 @@ class Admin::ManagersController < Admin::BaseController
     end
   end
 
+  def clients
+    @clients = User.includes(:profile).where(role: '0')
+  end
+
   private
 
   def user_params

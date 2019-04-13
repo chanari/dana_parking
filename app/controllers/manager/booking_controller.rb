@@ -2,7 +2,7 @@ class Manager::BookingController < Manager::BaseController
   before_action :set_park, only: %i(index load_park)
 
   def index
-    if current_user.parking_id > 0 && @parking.present?
+    if @parking.present?
       @parking_address = @parking.address
     else
       @parking_address = 'Bạn chưa quản lý bãi nào'

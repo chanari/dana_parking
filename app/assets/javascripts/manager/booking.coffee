@@ -7,6 +7,7 @@ $(document).ready ->
 
     $('#form-detail').find('.form-check-input').prop('checked', false)
     $('#form-detail').find('.select-month, .select-day').css('display', 'none')
+    $('#form-detail').find('.vitri').val('')
     $.LoadingOverlay('show');
     n = 0
     size = $(this).val()

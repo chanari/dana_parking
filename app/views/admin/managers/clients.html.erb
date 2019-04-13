@@ -1,0 +1,77 @@
+<style media="screen">
+  .pagination {
+    justify-content: center;
+  }
+</style>
+
+<div id="wrapper">
+
+  <%= render 'layouts/admin/sidebar' %>
+
+  <div id="content-wrapper">
+
+    <div class="container-fluid">
+
+      <%= render 'layouts/admin/menu' %>
+
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fas fa-table"></i>
+          Danh Sach Khach Hang
+        </div>
+        <div class="card-body" style="padding-bottom: 0px;">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Email</th>
+                  <th>Họ và Tên</th>
+                  <th>Số điện thoại</th>
+                  <th>Chi tieu</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @clients.each_with_index do |m,i| %>
+                <tr>
+                  <td><%= i+1 %></td>
+                  <td><%= m.email %></td>
+                  <td><%= m.profile.first_name + ' ' + m.profile.last_name if m.profile.present? %></td>
+                  <td><%= m.profile.phone if m.profile.present? %></td>
+                  <td>
+                    <a href="javascript:void(0)">Thang nay</a> | 
+                    <a href="javascript:void(0)">Tong</a>
+                  </td>
+                </tr>
+                <% end %>
+
+              </tbody>
+            </table>
+
+            <!-- <div style="padding-top: 10px;">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="sticky-footer">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright © DANA CAR PARKING 2019</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</div>

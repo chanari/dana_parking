@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: Figaro.env.GMAIL_USERNAME
+  default from: 'quangdanang2@gmail.com'
   layout 'mailer'
 end

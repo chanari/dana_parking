@@ -32,7 +32,8 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = 'http://assets.example.com'
+  config.action_controller.asset_host = 'https://blooming-peak-34925.herokuapp.com'
+  config.action_mailer.asset_host = 'https://blooming-peak-34925.herokuapp.com'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -88,6 +89,18 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+
+  config.action_mailer.default_url_options = { host: 'https://blooming-peak-34925.herokuapp.com' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :address        =>     'smtp.gmail.com',
+    :port           =>     587,
+    :domain         =>     'gmail.com',
+    :user_name      =>     'quangdanang2@gmail.com',
+    :password       =>     'khung123',
+    :authentication =>      'plain' }
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
