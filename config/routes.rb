@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'parking', to: 'home#parking'
   get 'help', to:'home#help'
   get 'price', to:'home#price'
+  get 'home/floors', to:'home#get_floors'
 
 
   namespace :client do
