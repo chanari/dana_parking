@@ -1,3 +1,7 @@
+$(document).on('click', 'ul.slot-list-items li a', function() {
+  alertify.error("Bạn cần đăng nhập để đặt chỗ");
+});
+
 function delayLoading() {
   setTimeout((function() {
     $.LoadingOverlay('hide');
