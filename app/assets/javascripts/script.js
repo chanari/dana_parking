@@ -10,10 +10,10 @@
 // });
 
 $(document).ready(function() {
-  let parks = ['','Nguyễn Văn Linh', 'Hàm Nghi'];
-  $('.baixe').val(parks[parseInt(this.value)]);
+  // let parks = ['','Nguyễn Văn Linh', 'Hàm Nghi'];
+  // $('.baixe').val(parks[parseInt(this.value)]);
   // Select slot
-  let selectedSlot = [];
+  // let selectedSlot = [];
 
   // $('select#selectPark').on('change', function() {
   //   if (this.value !== '') {
