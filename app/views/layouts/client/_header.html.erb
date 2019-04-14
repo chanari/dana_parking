@@ -5,9 +5,14 @@
   a.dropdown-item:hover {
     color: #007bff;
   }
+  .dropdown-item:active {
+    color:white;
+    text-decoration:none;
+    background-color:white;
+  }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-  <div class="container">
+<nav class="navbar navbar-expand-md navbar-light bg-light shadow fixed-top">
+  <div class="container-fluid">
     <a class="navbar-brand" href="<%= client_booking_index_path %>">DANA CAR PARKING</a>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
@@ -16,9 +21,9 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-users"></i>
+            <i class="fas fa-users fa-lg"></i>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -55px;">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -115px;">
             <a class="dropdown-item" href="<%= client_profile_path(current_user) %>">Thông tin cá nhân</a>
             <a class="dropdown-item" href="#">Lịch sử gửi xe</a>
             <%= link_to 'Đăng xuất', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
