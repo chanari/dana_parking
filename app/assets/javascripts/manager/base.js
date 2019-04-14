@@ -1,4 +1,5 @@
 $(document).on('click', 'ul.slot-list-items li a', function() {
+  $('#slot-id').val('');
   if ($(this).hasClass('selected')) {
     $(this).removeClass('selected');
     $('#form-detail').find('input.vitri').val('');
@@ -14,6 +15,7 @@ $(document).on('click', 'ul.slot-list-items li a', function() {
     $('#form-detail').find('.options').removeAttr('style');
     $('#price-month').val((($(this).attr('data-p-months').split(".")[0])/1000).toFixed(3) + ' VND');
     $('#price-hours').val((($(this).attr('data-p-hours').split(".")[0])/1000).toFixed(3) + ' VND');
+    $('#slot-id').val($(this).attr('id').match(/\d+/));
   }
 });
 
@@ -22,3 +24,13 @@ function delayLoading() {
     $.LoadingOverlay('hide');
   }), 1000);
 }
+
+$(document).ready(function(){
+  $('.bks').mask('00Z-000.00', {
+    translation: {
+      'Z': {
+        pattern: /[a-z]/, optional: true
+      }
+    }
+  });
+});

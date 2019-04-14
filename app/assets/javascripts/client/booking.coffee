@@ -3,6 +3,7 @@ $(document).ready ->
   $('#selectPark').change ->
     $('#selectSlot').val('0')
     $('#price-hours').val('')
+    $('#slot-id').val('')
     $('.result-parking').css({display: 'none'})
     if parseInt($('#selectPark').val(), 10) > 0
       $('.result-parking').find('input.baixe').val($(this).find('option:selected').text())
@@ -14,6 +15,7 @@ $(document).ready ->
   $('#selectSlot').change ->
     $('.result-parking').find('input.vitri').val('')
     $('#price-hours').val('')
+    $('#slot-id').val('')
     n = 0
     park_id = $('#selectPark').val()
     block_size = $('#selectSlot').val()
