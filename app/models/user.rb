@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_save :set_role
+  has_many :parking_slot_reservations
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable

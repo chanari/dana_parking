@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_120407) do
+ActiveRecord::Schema.define(version: 2019_04_14_081109) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,19 @@ ActiveRecord::Schema.define(version: 2019_04_09_120407) do
     t.index ["parking_id"], name: "index_floors_on_parking_id"
   end
 
+  create_table "parking_slot_reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "number_plate"
+    t.datetime "timein"
+    t.datetime "timeout"
+    t.boolean "is_paid"
+    t.bigint "user_id"
+    t.bigint "parking_slot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parking_slot_id"], name: "index_parking_slot_reservations_on_parking_slot_id"
+    t.index ["user_id"], name: "index_parking_slot_reservations_on_user_id"
+  end
+
   create_table "parking_slots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "status", limit: 1
     t.datetime "date_in"
@@ -59,6 +72,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_120407) do
     t.datetime "updated_at", null: false
     t.bigint "block_id"
     t.string "name"
+    t.string "number_plate"
     t.index ["block_id"], name: "index_parking_slots_on_block_id"
   end
 
@@ -100,6 +114,8 @@ ActiveRecord::Schema.define(version: 2019_04_09_120407) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "blocks", "floors"
   add_foreign_key "floors", "parkings"
+  add_foreign_key "parking_slot_reservations", "parking_slots"
+  add_foreign_key "parking_slot_reservations", "users"
   add_foreign_key "parking_slots", "blocks"
   add_foreign_key "profiles", "users"
 end
