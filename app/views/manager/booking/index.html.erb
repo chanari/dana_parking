@@ -2,6 +2,19 @@
   .form-control-plaintext {
     padding-top: 0px;
   }
+  .form-btn {
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+  .bks {
+    text-transform: uppercase
+  }
+  ::placeholder {
+    text-transform: none;
+  }
+  .modal-body {
+    padding: 10px;
+  }
 </style>
 <div class="container" style="margin-top: 30px;">
   <div class="select-parking">
@@ -46,19 +59,15 @@
 
       <div class="col-5" style="padding-top: 40px;">
         <form id="form-detail">
-          <input id="slot-id" type="text" readonly>
+          <input id="slot-id" type="text" readonly hidden>
           <div class="form-group row">
-            <div class="col-sm-4">
-              <p>Bãi xe: </p>
-            </div>
-            <div class="col-sm-5">
+            <label class="col-sm-4 col-form-label">Bãi xe:</label>
+            <div class="col-sm-5" style="padding-top: 8px;">
               <b><%= @parking_address %></b>
             </div>
           </div>
           <div class="form-group row">
-            <div class="col-sm-4">
-              <p>Vị trí:</p>
-            </div>
+            <label class="col-sm-4 col-form-label">Vị trí:</label>
             <div class="col-sm-5">
               <input type="text" readonly class="form-control-plaintext vitri" disabled>
             </div>
@@ -69,21 +78,20 @@
               <input type="text" class="form-control bks" id="bks" placeholder="Biển kiểm soát">
             </div>
           </div>
-          <div class="form-group row options" style="display: none;">
-            <div class="col-sm-4">
-              <p>Thể loại thuê:</p>
-            </div>
-            <div class="col-sm-8">
+          <div class="form-group row options">
+            <label class="col-sm-4 col-form-label">Thể loại thuê:</label>
+            <div class="col-sm-8" style="padding-top: 8px;">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="day">
+                <label class="form-check-label">Theo gio</label>
+              </div>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" value="month">
                 <label class="form-check-label">Theo tháng</label>
               </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="day">
-                <label class="form-check-label">Theo ngày</label>
-              </div>
             </div>
           </div>
+
           <div class="select-month">
             <div class="form-group row">
               <div class="col-sm-4 ">
@@ -101,20 +109,15 @@
                 <input id="price-month" type="text" readonly class="form-control-plaintext" disabled>
               </div>
             </div>
-            <div class="form-group">
-              <div class="col-sm-9">
-                <button type="button" class="form-control btn btn-dark" >Xác nhận</button>
+            <div class="form-group form-btn">
+              <div class="col-sm-12">
+                <!-- <button class="form-control btn btn-dark btn-booking" >Xác nhận</button> -->
+                <a href="javascript:void(0)" class="btn btn-dark btn-booking">Xác nhận</a>
                 <p><b> <strong>Chú ý:</strong> Xác nhận cho khách thuê dài hạn !!!</b></p>
               </div>
             </div>
           </div>
           <div class="select-day">
-            <!-- <div class="form-group row">
-              <label class="col-sm-4 col-form-label" for="time">Giờ vào:</label>
-              <div class="col-sm-5">
-                <input type="time" id="time" class="form-control" name="usr_time">
-              </div>
-            </div> -->
             <div class="form-group row">
               <div class="col-sm-4">
                 <p>Giá:</p>
@@ -122,17 +125,60 @@
               <div class="col-sm-5">
                 <input type="text" id="price-hours" readonly class="form-control-plaintext" disabled>
               </div>
-
-              <div class="form-group">
+              <div class="form-group form-btn">
                 <div class="col-sm-12">
-                  <button type="button" class="form-control btn btn-dark" >Nhận khách vãng lai</button>
+                  <!-- <button class="form-control btn btn-dark btn-booking" >Nhận khách vãng lai</button> -->
+                  <a href="javascript:void(0)" class="btn btn-dark btn-booking">Nhận khách vãng lai</a>
                   <p><b> <strong>Chú ý:</strong> Bạn đang nhận khách vãng lai !!!</b></p>
                 </div>
               </div>
+            </div>
           </div>
-          </div>
+
         </form>
       </div>
+
+      <div class="modal fade" id="slot-detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Thong tin cho dau xe</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info">Thanh Toan</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Dong</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="slot-reserve" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Thong tin dat truoc</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info">Nhan xe</button>
+              <button type="button" class="btn btn-danger">Huy dat truoc</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Dong</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

@@ -6,7 +6,14 @@ $(document).on('click', 'ul.slot-list-items li a', function() {
     $('#form-detail').find('.options').css('display','none');
     $('#price-month').val('');
     $('#price-hours').val('');
-  } else {
+  }
+  else if ($(this).hasClass('selecting')) {
+    $('#slot-detail').modal('show');
+  }
+  else if ($(this).hasClass('reservation')) {
+    $('#slot-reserve').modal('show');
+  }
+  else {
     $('ul.slot-list-items li a').each(function() {
       $(this).removeClass('selected');
     });

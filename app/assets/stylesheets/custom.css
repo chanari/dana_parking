@@ -388,8 +388,7 @@ ul.slot-list-items li.slot-item a.selected {
   color: white;
 }
 ul.slot-list-items li.slot-item a.selecting {
-  background-color: gray;
-  pointer-events: none;
+  background-color: #af9999;
 }
 ul.slot-list-items li.slot-item a.reservation {
   background-color: #e5d315;

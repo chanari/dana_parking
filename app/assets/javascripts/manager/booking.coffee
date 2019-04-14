@@ -1,5 +1,36 @@
 $(document).ready ->
 
+  $('.btn-booking').click (e) ->
+    e.preventDefault()
+    slot_id = $('#slot-id').val()
+    bks = $('#bks').val()
+    number_plate = $('#bks').val()
+    if slot_id == ''
+      alertify.error("Ban chua chon cho")
+      return
+    if bks == ''
+      alertify.error("Ban chua nhap BKS")
+      return
+    $.LoadingOverlay('show');
+    $.ajax
+      url: '/manager/booking/slot_book'
+      type: 'POST'
+      dataType: 'JSON'
+      data:
+        slot_id: slot_id
+        number_plate: number_plate
+      success: (data) ->
+        $('#slot-' + slot_id).removeAttr('class')
+        $('#slot-' + slot_id).addClass('selecting')
+        $('#form-detail').trigger("reset")
+        alertify.success("Thanh Cong !")
+        return
+      error: (data) ->
+        alertify.error("That bai !!!")
+        return
+    $.LoadingOverlay('hide');
+    return
+
   $('#selectSlot').change ->
     if $(this).val() == '0'
       $('.result-parking').css('display', 'none')
