@@ -16,10 +16,31 @@ class Manager::BookingController < Manager::BaseController
       unless @slot.present? || @slot.status != '2'
         format.json { render json: false, status: 404 }
       end
-      if @slot.update(status: '2')
-        format.json { render json: false, status: :ok }
+      if params[:type] == 'day'
+        if @slot.update(status: '2') && @parking_slot_reservation.update(price: @slot.price_by_hours )
+          format.json { render json: false, status: :ok }
+        else
+          format.json { render json: false, status: 404 }
+        end
       else
+        subtotal = @slot.price_by_months.to_i * params[:quantity].to_i
+        timeout = DateTime.now + params[:quantity].to_i.month
+        if @slot.update(status: '2') && @parking_slot_reservation.update(is_paid: true, price: @slot.price_by_months, subtotal: subtotal, timeout: timeout)
+          format.json { render json: false, status: :ok }
+        else
+          format.json { render json: false, status: 404 }
+        end
+      end
+    end
+  end
+
+  def get_slot_detail
+    @parking_slot_reservation = ParkingSlotReservation.where(parking_slot_id: params[:slot_id]).order("id DESC").first
+    respond_to do |format|
+      unless @parking_slot_reservation.present?
         format.json { render json: false, status: 404 }
+      else
+        format.json { render json: @parking_slot_reservation.as_json(except: %i(created_at updated_at user_id), methods: [:total_time]), status: :ok }
       end
     end
   end
@@ -31,6 +52,23 @@ class Manager::BookingController < Manager::BaseController
         format.json { render json: @floors.as_json(include: { blocks: { except: %i(created_at updated_at), include: { parking_slots: { except: %i(block_id created_at updated_at) } } }}), status: :ok }
       else
         format.json { render json: false, status: 404 }
+      end
+    end
+  end
+
+  def pay
+    @parking_slot_reservation = ParkingSlotReservation.find_by id: params[:reserve_id]
+    respond_to do |format|
+      unless @parking_slot_reservation.present?
+        format.json { render json: false, status: 404 }
+      else
+        @slot = @parking_slot_reservation.parking_slot
+        subtotal = @slot.price_by_hours.to_i * @parking_slot_reservation.total_time
+        if @parking_slot_reservation.update(is_paid: true, timeout: DateTime.now, subtotal: subtotal)
+          format.json { render json: @parking_slot_reservation, status: :ok }
+        else
+          format.json { render json: false, status: 404 }
+        end
       end
     end
   end

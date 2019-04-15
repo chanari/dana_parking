@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_14_081109) do
+ActiveRecord::Schema.define(version: 2019_04_15_043617) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2019_04_14_081109) do
     t.bigint "parking_slot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
+    t.integer "subtotal"
     t.index ["parking_slot_id"], name: "index_parking_slot_reservations_on_parking_slot_id"
     t.index ["user_id"], name: "index_parking_slot_reservations_on_user_id"
   end

@@ -8,22 +8,30 @@ $(document).on('click', 'ul.slot-list-items li a', function() {
     $('#price-hours').val('');
   }
   else if ($(this).hasClass('selecting')) {
-    $('#slot-detail').modal('show');
+    removeSelected();
+    $('#form-detail').trigger("reset");
+    $('#form-detail').find('.options').css('display', 'none');
+    return;
   }
-  else if ($(this).hasClass('reservation')) {
-    $('#slot-reserve').modal('show');
-  }
+  // else if ($(this).hasClass('reservation')) {
+  //   $('#slot-reserve').modal('show');
+  // }
   else {
-    $('ul.slot-list-items li a').each(function() {
-      $(this).removeClass('selected');
-    });
+    removeSelected()
     $(this).addClass('selected');
     $('#form-detail').find('input.vitri').val($(this).text());
-    $('#form-detail').find('.options').removeAttr('style');
-    $('#price-month').val((($(this).attr('data-p-months').split(".")[0])/1000).toFixed(3) + ' VND');
-    $('#price-hours').val((($(this).attr('data-p-hours').split(".")[0])/1000).toFixed(3) + ' VND');
+    $('#form-detail').find('.options').css('display', '');
+    $('#price-month').val((($(this).attr('data-p-months').split(".")[0])/1000).toFixed(3));
+    $('#price-hours').val((($(this).attr('data-p-hours').split(".")[0])/1000).toFixed(3));
     $('#slot-id').val($(this).attr('id').match(/\d+/));
   }
+});
+
+$('#quantity').bind('keyup mouseup', function() {
+  var count = $(this).val();
+  var slot_id = $('#slot-id').val();
+  var price = $('#slot-'+slot_id).attr('data-p-months').split(".")[0] * count
+  $('#price-month').val((price/1000).toFixed(3));
 });
 
 function delayLoading() {
@@ -32,11 +40,25 @@ function delayLoading() {
   }), 1000);
 }
 
+function dateFormat(string) {
+  return string.split('.')[0].replace('T', ' ')
+}
+
+function removeSelected(){
+  $('ul.slot-list-items li a').each(function() {
+    $(this).removeClass('selected');
+  });
+}
+
+function monthFormat(string) {
+  return string.split('T')[0]
+}
+
 $(document).ready(function(){
   $('.bks').mask('00Z-000.00', {
     translation: {
       'Z': {
-        pattern: /[a-z]/, optional: true
+        pattern: /[a-z]/
       }
     }
   });

@@ -50,7 +50,9 @@ Rails.application.routes.draw do
     resources :booking, only: [:index] do
       collection do
         get 'load_park'
+        get 'get_slot_detail'
         post 'slot_book'
+        put 'pay'
       end
     end
     resources :profile, only: [:edit, :update]
