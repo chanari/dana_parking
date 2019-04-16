@@ -64,7 +64,7 @@ class Manager::BookingController < Manager::BaseController
       else
         @slot = @parking_slot_reservation.parking_slot
         subtotal = @slot.price_by_hours.to_i * @parking_slot_reservation.total_time
-        if @parking_slot_reservation.update(is_paid: true, timeout: DateTime.now, subtotal: subtotal)
+        if @slot.update(status: '0') && @parking_slot_reservation.update(is_paid: true, timeout: DateTime.now, subtotal: subtotal)
           format.json { render json: @parking_slot_reservation, status: :ok }
         else
           format.json { render json: false, status: 404 }
