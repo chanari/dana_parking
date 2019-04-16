@@ -796,6 +796,28 @@ nav.header-nav ul li a:hover {
     border: 1px solid green;
 }
 
+
+.form-gop-y {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.form-gop-y input {
+    margin: 20px 0;
+}
+
+.form-gop-y .btn-ok {
+    margin-top: 20px;
+    padding: 0 20px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+.form-gop-y i {
+    margin: 0 5px;
+}
+.form-gop-y span {
+    margin: 0 10px;
+}
 .form-gop-y {
     max-width: 70%;
     margin: 0 auto;
