@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       collection do
         patch 'update_password'
         patch 'upload_avatar'
+        post 'create_vehicle'
       end
     end
   end

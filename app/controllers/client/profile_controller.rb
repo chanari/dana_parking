@@ -1,9 +1,11 @@
 class Client::ProfileController < Client::BaseController
-  before_action :set_user, only: %i(show update_password upload_avatar)
+  before_action :set_user, only: %i(show update_password upload_avatar create_vehicle)
   before_action :set_profile, except: %i(upload_avatar)
   skip_before_action :profile?, only: %i(update create_profile)
 
   def show
+    @vehicle = Vehicle.new
+    @vehicles = @user.vehicles
   end
 
   def update
@@ -47,6 +49,17 @@ class Client::ProfileController < Client::BaseController
     end
   end
 
+  def create_vehicle
+    @vehicle = @user.vehicles.build vehical_params
+    if @vehicle.save
+      flash[:success] = 'Đã cập nhật.'
+      redirect_to client_profile_path(@user)
+    else
+      flash[:error] = 'Không thành công !'
+      redirect_to client_profile_path(@user)
+    end
+  end
+
   private
 
   def set_profile
@@ -64,5 +77,9 @@ class Client::ProfileController < Client::BaseController
 
   def user_params
     params.require(:user).permit(:current_password, :password, :password_confirmation)
+  end
+
+  def vehical_params
+    params.require(:vehicle).permit(:number_plate, :vehicle_name, :vehicle_type)
   end
 end

@@ -25,7 +25,7 @@ $(document).ready(function(){
   $('.bks').mask('00Z-000.00', {
     translation: {
       'Z': {
-        pattern: /[a-z]/, optional: true
+        pattern: /[a-z]/
       }
     }
   });

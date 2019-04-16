@@ -13,6 +13,9 @@
     width: 202px;
     height: 202px;
   }
+  body {
+    color: black;
+  }
 </style>
 <div class="container bootstrap snippet">
   <div class="row">
@@ -58,7 +61,7 @@
       <div class="tab-content">
         <div id="home" class="container tab-pane active"><br>
           <h3>Thông tin của bạn</h3>
-          <%= form_for @profile, url: client_profile_path, method: :put do |f| %>
+          <%= form_for @profile, url: client_profile_path, method: :put, html: { id: 'change_profile' } do |f| %>
           <%= f.hidden_field :user_id, value: current_user.id %>
             <div class="form-group">
               <%= f.label :first_name,"Họ và tên lót" %>
@@ -87,7 +90,7 @@
         </div>
         <div id="menu1" class="container tab-pane fade"><br>
           <h3>Thay đổi mật khẩu</h3>
-          <%= form_for @user, url: update_password_client_profile_index_path, method: :patch do |f| %>
+          <%= form_for @user, url: update_password_client_profile_index_path, method: :patch, html: { id: 'change_password' } do |f| %>
           <div class="form-group">
             <%= f.label :current_password, "Mật khẩu hiện tại: " %>
             <%= f.password_field :current_password, :autocomplete => "off", class: 'form-control'  %>
@@ -106,27 +109,27 @@
           <% end %>
         </div>
         <div id="menu2" class="container tab-pane fade">
-          <h3 style="padding: 10px;">Phương tiện</h3>
-          <table class="table">
+          <button class="btn btn-outline-primary" style="margin: 10px;" data-toggle="modal" data-target="#vehicleModal">
+            <i class="fas fa-plus-circle"></i>
+          </button>
+          <table class="table table-hover">
             <thead>
               <tr>
-                <th>Loại xe</th>
+                <th>#</th>
+                <th>Ten xe</th>
+                <th>So cho ngoi</th>
                 <th>Biển số</th>
-                <th>Entry</th>
-                <th>Entry</th>
-                <th>Entry</th>
-                <th>Entry</th>
               </tr>
             </thead>
             <tbody>
+              <% @vehicles.each_with_index do |v,i| %>
               <tr>
-                <td>4-7 chỗ</td>
-                <td>43A-00511</td>
-                <td>%</td>
-                <td>&</td>
-                <td>/</td>
-                <td>!</td>
+                <td><%= i+1 %></td>
+                <td><%= v.vehicle_name %></td>
+                <td><%= v.vehicle_type %></td>
+                <td><%= v.number_plate %></td>
               </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
@@ -159,6 +162,57 @@
         <%= f.submit 'Save Change', class: 'btn btn-primary' %>
         <% end %>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="vehicleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Them phuong tien</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for @vehicle, url: create_vehicle_client_profile_index_path do |f| %>
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.label :number_plate, 'Bien Kiem Soat:' %>
+            </div>
+            <div class="col-md-7">
+              <%= f.text_field :number_plate, class: 'form-control bks', style: 'text-transform: uppercase;' %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.label :vehicle_name, 'Loai Phuong Tien:' %>
+            </div>
+            <div class="col-md-7">
+              <%= f.text_field :vehicle_name, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.label :vehicle_type, 'So cho ngoi:' %>
+            </div>
+            <div class="col-md-7">
+              <%= f.select :vehicle_type, options_for_select(['4 - 7', '12 - 16', '> 16']), {}, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit 'Luu', class: 'btn btn-primary' %>
+        <% end %>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Dong</button>
       </div>
     </div>
   </div>
