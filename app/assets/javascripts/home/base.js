@@ -2,6 +2,16 @@ $(document).on('click', 'ul.slot-list-items li a', function() {
   alertify.error("Bạn cần đăng nhập để đặt chỗ");
 });
 
+$('.places ul li i').on('click', function() {
+ $('.places ul li i').each(function() {
+   $(this).removeClass('selected');
+   $(this).parent().siblings('p').css('color', 'black');
+ });
+ $(this).addClass('selected');
+ $(this).parent().siblings('p').css('color', 'green');
+ $('.places-des').html($(this).parent().siblings('p').html());
+});
+
 function delayLoading() {
   setTimeout((function() {
     $.LoadingOverlay('hide');
