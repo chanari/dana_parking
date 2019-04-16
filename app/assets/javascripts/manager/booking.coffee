@@ -1,3 +1,42 @@
+$('.modal').on 'hidden.bs.modal', ->
+  $(this).find('form').trigger('reset')
+  return
+
+$(document).on 'click', 'ul.slot-list-items li a', ->
+  if $(this).hasClass('selecting')
+    slot_id = $(this).attr('id').split('-')[1]
+    $.LoadingOverlay('show')
+    $.ajax
+      url: '/manager/booking/get_slot_detail'
+      type: 'GET'
+      dataType: 'JSON'
+      data:
+        slot_id: slot_id
+      success: (data) ->
+        if data.is_paid == true
+          $('#slot-paid').find('form input.bks').val(data.number_plate)
+          $('#slot-paid').find('form input.timein').val(monthFormat(data.timein))
+          $('#slot-paid').find('form input.timeout').val(monthFormat(data.timeout))
+          $('#slot-paid').find('form input.price').val(data.price)
+          $('#slot-paid').find('form input.subtotal').val(data.subtotal)
+          $('#slot-paid').modal('show')
+          return
+        $('#slot-detail').find('form input.reserve-id').val(data.id)
+        $('#slot-detail').find('form input.bks').val(data.number_plate)
+        $('#slot-detail').find('form input.timein').val(dateFormat(data.timein))
+        $('#slot-detail').find('form input.price').val(data.price)
+        $('#slot-detail').find('form input.alltime').val(data.total_time)
+        $('#slot-detail').find('form input.subtotal').val(data.total_time * data.price)
+        $('#slot-detail').modal('show')
+        # console.log data
+        return
+      error: (data) ->
+        alertify.error("That bai !!!")
+        return
+    $.LoadingOverlay('hide')
+    return
+  return
+
 $(document).ready ->
 
   $('.btn-booking').click (e) ->
@@ -11,7 +50,9 @@ $(document).ready ->
     if bks == ''
       alertify.error("Ban chua nhap BKS")
       return
-    $.LoadingOverlay('show');
+    $.LoadingOverlay('show')
+    quantity = $('input[name=quantity]').val()
+    type = $('input[name=inlineRadioOptions]:checked').val()
     $.ajax
       url: '/manager/booking/slot_book'
       type: 'POST'
@@ -19,16 +60,40 @@ $(document).ready ->
       data:
         slot_id: slot_id
         number_plate: number_plate
+        quantity: quantity
+        type: type
       success: (data) ->
         $('#slot-' + slot_id).removeAttr('class')
         $('#slot-' + slot_id).addClass('selecting')
         $('#form-detail').trigger("reset")
         alertify.success("Thanh Cong !")
+        $('.select-month, .select-day').css('display', 'none')
+        $('#form-detail').find('.options').css('display','none')
         return
       error: (data) ->
         alertify.error("That bai !!!")
         return
-    $.LoadingOverlay('hide');
+    $.LoadingOverlay('hide')
+    return
+
+  $('#btn-pay').click ->
+    reserve_id = $(this).closest('.modal').find('input.reserve-id').val()
+    $.LoadingOverlay('show')
+    $.ajax
+      url: '/manager/booking/pay'
+      type: 'PUT'
+      dataType: 'JSON'
+      data:
+        reserve_id: reserve_id
+      success: (data) ->
+        $('#slot-' + data.parking_slot_id).removeAttr('class')
+        $('#slot-detail').modal('hide')
+        alertify.success("Thanh Cong !")
+        return
+      error: (data) ->
+        alertify.error("That bai !!!")
+        return
+    $.LoadingOverlay('hide')
     return
 
   $('#selectSlot').change ->
@@ -36,10 +101,9 @@ $(document).ready ->
       $('.result-parking').css('display', 'none')
       return
 
-    $('#form-detail').find('.form-check-input').prop('checked', false)
+    $('#form-detail').find('.options').css('display','none')
+    $('#form-detail').trigger("reset")
     $('#form-detail').find('.select-month, .select-day').css('display', 'none')
-    $('#form-detail').find('.vitri').val('')
-    $('#slot-id').val('')
     $.LoadingOverlay('show');
     n = 0
     size = $(this).val()
