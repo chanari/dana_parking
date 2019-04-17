@@ -99,6 +99,7 @@ $(document).ready ->
         alertify.success("Thanh Cong !")
         return
       error: (data) ->
+        $('#client-booking').trigger('reset')
         $.LoadingOverlay('hide')
         alertify.error("That Bai !")
         return
