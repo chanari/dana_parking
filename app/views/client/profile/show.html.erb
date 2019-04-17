@@ -113,8 +113,8 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Ten xe</th>
-                <th>So cho ngoi</th>
+                <th>Tên xe</th>
+                <th>Số chỗ ngồi</th>
                 <th>Biển số</th>
               </tr>
             </thead>
@@ -156,9 +156,9 @@
         </div>
       </div>
       <div class="modal-footer">
-        <%= f.submit 'Save Change', class: 'btn btn-primary' %>
+        <%= f.submit 'Cập nhật', class: 'btn btn-primary' %>
         <% end %>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
       </div>
     </div>
   </div>
@@ -168,7 +168,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Them phuong tien</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Thêm Phương Tiện</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -178,7 +178,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-md-4">
-              <%= f.label :number_plate, 'Bien Kiem Soat:' %>
+              <%= f.label :number_plate, 'Biển kiểm soát:' %>
             </div>
             <div class="col-md-7">
               <%= f.text_field :number_plate, class: 'form-control bks', style: 'text-transform: uppercase;' %>
@@ -188,7 +188,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-md-4">
-              <%= f.label :vehicle_name, 'Loai Phuong Tien:' %>
+              <%= f.label :vehicle_name, 'Loại phương tiện:' %>
             </div>
             <div class="col-md-7">
               <%= f.text_field :vehicle_name, class: 'form-control' %>
@@ -198,7 +198,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-md-4">
-              <%= f.label :vehicle_type, 'So cho ngoi:' %>
+              <%= f.label :vehicle_type, 'Số chỗ ngồi:' %>
             </div>
             <div class="col-md-7">
               <%= f.select :vehicle_type, options_for_select(['4 - 7', '12 - 16', '> 16']), {}, class: 'form-control' %>
@@ -207,9 +207,9 @@
         </div>
       </div>
       <div class="modal-footer">
-        <%= f.submit 'Luu', class: 'btn btn-primary' %>
+        <%= f.submit 'Lưu', class: 'btn btn-primary' %>
         <% end %>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Dong</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
       </div>
     </div>
   </div>
