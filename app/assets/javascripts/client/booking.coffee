@@ -96,11 +96,19 @@ $(document).ready ->
         $('#slot-'+slot_id).removeAttr('class')
         $('#slot-'+slot_id).addClass('reservation')
         $('#client-booking').trigger('reset')
+        if $('#selectPark').val() == 0
+          $('.result-parking').find('input.baixe').val('')
+        else
+          $('.result-parking').find('input.baixe').val($('#selectPark').find('option:selected').text())
         delayLoading()
         alertify.success("Thành Công !")
         return
       error: (data) ->
         $('#client-booking').trigger('reset')
+        if $('#selectPark').val() == 0
+          $('.result-parking').find('input.baixe').val('')
+        else
+          $('.result-parking').find('input.baixe').val($('#selectPark').find('option:selected').text())
         $.LoadingOverlay('hide')
         alertify.error("Thất Bại !")
         return

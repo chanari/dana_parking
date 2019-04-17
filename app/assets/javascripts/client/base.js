@@ -3,6 +3,11 @@ $(document).on('click', 'ul.slot-list-items li a', function() {
   if ($(this).hasClass('selected')) {
     $(this).removeClass('selected');
     $('#client-booking').trigger('reset');
+    if ($('#selectPark').val() === 0) {
+      $('.result-parking').find('input.baixe').val('');
+    } else {
+      $('.result-parking').find('input.baixe').val($('#selectPark').find('option:selected').text());
+    }
   } else if ($(this).hasClass('reservation') || $(this).hasClass('selecting')) {
     return;
   } else {

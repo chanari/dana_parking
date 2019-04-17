@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   resources :home, only: :index
   root 'home#index'
   get 'parking', to: 'home#parking'
@@ -58,4 +59,6 @@ Rails.application.routes.draw do
     end
     resources :profile, only: [:edit, :update]
   end
+
+  mount ActionCable.server => '/cable'
 end
