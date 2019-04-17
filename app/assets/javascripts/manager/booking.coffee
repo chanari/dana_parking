@@ -3,7 +3,9 @@ $('.modal').on 'hidden.bs.modal', ->
   return
 
 $(document).on 'click', 'ul.slot-list-items li a', ->
-  if $(this).hasClass('selecting')
+  if $(this).hasClass('reservation')
+    $('#slot-reserve').modal('show')
+  else if $(this).hasClass('selecting')
     slot_id = $(this).attr('id').split('-')[1]
     $.LoadingOverlay('show')
     $.ajax
