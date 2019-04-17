@@ -23,7 +23,7 @@ $(document).ready ->
       $('.result-parking').css({display: 'none'})
       return
 
-    $.LoadingOverlay('show');
+    $.LoadingOverlay('show')
     $.ajax
       url: '/client/booking/get_floors'
       type: 'GET'
@@ -72,8 +72,36 @@ $(document).ready ->
         $('.result-parking').css({display: 'block'})
         return
       error: (data) ->
-        alertify.error("Failed !")
+        alertify.error("That Bai !")
         return
-
     return
+
+  $('#btn-booking').click (e) ->
+    e.preventDefault()
+    slot_id = $('#slot-id').val()
+    number_plate = $('#client-booking').find('input.bks').val()
+    if slot_id < 0
+      alertify.error("That Bai !")
+      return
+    $.LoadingOverlay('show')
+    $.ajax
+      url: '/client/booking'
+      type: 'POST'
+      dataType: 'JSON'
+      data:
+        slot_id: slot_id
+        number_plate: number_plate
+      success: (data) ->
+        $('#slot-'+slot_id).removeAttr('class')
+        $('#slot-'+slot_id).addClass('reservation')
+        $('#client-booking').trigger('reset')
+        delayLoading()
+        alertify.success("Thanh Cong !")
+        return
+      error: (data) ->
+        $.LoadingOverlay('hide')
+        alertify.error("That Bai !")
+        return
+    return
+
   return

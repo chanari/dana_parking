@@ -4,6 +4,20 @@ class Client::BookingController < Client::BaseController
     @parkings = Parking.all.pluck(:id, :address)
   end
 
+  def create
+    @parking_slot = ParkingSlot.find_by id: params[:slot_id]
+    respond_to do |format|
+      unless @parking_slot.present? || params[:number_plate].nil?
+        format.json { render json: false, status: 404 }
+      end
+      if @parking_slot.reserve(params[:number_plate], current_user.id)
+        format.json { render json: false, status: :ok }
+      else
+        format.json { render json: @parking_slot.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def get_floors
     @floors = Floor.get_floors(params[:park_id], params[:block_size])
     respond_to do |format|

@@ -2,8 +2,9 @@ $(document).on('click', 'ul.slot-list-items li a', function() {
   $('#slot-id').val('');
   if ($(this).hasClass('selected')) {
     $(this).removeClass('selected');
-    $('#price-hours').val('');
-    $('.result-parking').find('input.vitri').val('');
+    $('#client-booking').trigger('reset');
+  } else if ($(this).hasClass('reservation') || $(this).hasClass('selecting')) {
+    return;
   } else {
     $('ul.slot-list-items li a').each(function() {
       $(this).removeClass('selected');
