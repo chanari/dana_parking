@@ -72,7 +72,8 @@ $(document).ready ->
         $('.result-parking').css({display: 'block'})
         return
       error: (data) ->
-        alertify.error("That Bai !")
+        $.LoadingOverlay('hide')
+        alertify.error("Thất Bại !")
         return
     return
 
@@ -81,7 +82,7 @@ $(document).ready ->
     slot_id = $('#slot-id').val()
     number_plate = $('#client-booking').find('input.bks').val()
     if slot_id < 0
-      alertify.error("That Bai !")
+      alertify.error("Thất Bại !")
       return
     $.LoadingOverlay('show')
     $.ajax
@@ -96,12 +97,12 @@ $(document).ready ->
         $('#slot-'+slot_id).addClass('reservation')
         $('#client-booking').trigger('reset')
         delayLoading()
-        alertify.success("Thanh Cong !")
+        alertify.success("Thành Công !")
         return
       error: (data) ->
         $('#client-booking').trigger('reset')
         $.LoadingOverlay('hide')
-        alertify.error("That Bai !")
+        alertify.error("Thất Bại !")
         return
     return
 
