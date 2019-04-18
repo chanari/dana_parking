@@ -1,44 +1,23 @@
-<header class="header-container container">
-  <div class="main-header row">
-    <div class="col-xs-12 col-md-3 col-lg-3">
+<div class="header-container">
 
-    </div>
-    <div class="col-xs-12 col-md-10 col-lg-10">
-      <nav class="header-nav nav-collapse">
-        <ul style="margin-bottom: 0px;">
-          <li class="<%= 'active' if controller_name == 'home' && action_name == 'index' %>">
-            <a href="<%= root_path %>">Trang Chủ</a>
-          </li>
-          <li><a href="<%= parking_path%>">Bãi xe</a></li>
-          <li><a href="<%= price_path %>">Bảng giá</a></li>
-          <li><a href="<%= help_path %>">Trợ giúp</a></li>
-
-          <% if current_user %>
-          <li>
-            <% case current_user.role %>
-              <% when '0' %>
-                <%= link_to  'Dashboard', client_booking_index_path %>
-              <% when '1' %>
-                <%= link_to  'Dashboard', manager_booking_index_path %>
-              <% when '2' %>
-                <%= link_to  'Dashboard', admin_booking_index_path %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to  'Đăng xuất', destroy_user_session_path, method: :delete %>
-          </li>
-          <% else %>
-          <li class="login-btn button gradient-bg mt-2 mt-md-0">
-            <%= link_to new_user_session_path, class: 'd-flex justify-content-center align-items-center' do %>
-            <i class="fa fa-x fa-sign-in"></i>Đăng nhập
-            <% end %>
-          </li>
-          <li class="<%= 'active' if controller_name == 'registrations' && action_name == 'new' %>">
-            <%= link_to  'Đăng kí', new_user_registration_path %>
-          </li>
-          <% end %>
-        </ul>
-      </nav>
+  <div class="top-header">
+    <div class="right-nav float-right">
+      <ul>
+        <li><a href="<%= new_user_session_path %>">Đăng nhập</a></li>
+        <li><a href="<%= new_user_registration_path %>">Đăng ký</a></li>
+      </ul>
     </div>
   </div>
-</header>
+
+  <div class="bot-header">
+    <a class="brand-logo" href="<%= root_path %>"><img src="https://github.com/hmtoan96/theme-parking/raw/master/logo.png"></a>
+    <div class="navigation float-right">
+      <ul>
+        <li><a href="<%= root_path %>">Trang Chủ</a></li>
+        <li><a href="<%= parking_path%>">Bãi xe</a></li>
+        <li><a href="<%= price_path %>">Bảng giá</a></li>
+        <li><a href="<%= help_path %>">Trợ giúp</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
