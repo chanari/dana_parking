@@ -17,7 +17,7 @@ class ParkingSlotReservation < ApplicationRecord
     if diff < 3600
       self.total_time = 1
     else
-      self.total_time = (diff/3600).round(1)
+      self.total_time = ((diff/3600).round(1)).ceil
     end
   end
 end

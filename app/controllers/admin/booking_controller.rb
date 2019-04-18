@@ -1,5 +1,3 @@
 class Admin::BookingController < Admin::BaseController
-  def index
-
-  end
+  def index; end
 end

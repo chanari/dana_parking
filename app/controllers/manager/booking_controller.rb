@@ -65,12 +65,45 @@ class Manager::BookingController < Manager::BaseController
       else
         @slot = @parking_slot_reservation.parking_slot
         subtotal = @slot.price_by_hours.to_i * @parking_slot_reservation.total_time
-        if @slot.update(status: '0') && @parking_slot_reservation.update(is_paid: true, timeout: DateTime.now, subtotal: subtotal)
-          ActionCable.server.broadcast 'booking_channel', @slot.as_json(only: [:id, :status])
+        if @slot.reserve_expired && @parking_slot_reservation.update(is_paid: true, timeout: DateTime.now, subtotal: subtotal)
           format.json { render json: @parking_slot_reservation, status: :ok }
         else
           format.json { render json: false, status: 404 }
         end
+      end
+    end
+  end
+
+  def get_reserve_detail
+    @slot = ParkingSlot.find_by id: params[:slot_id]
+    respond_to do |format|
+      unless @slot.present?
+        format.json { render json: false, status: 404 }
+      else
+        format.json { render json: @slot.as_json(only: [:id, :date_in, :number_plate]), status: :ok }
+      end
+    end
+  end
+
+  def cancel_reserve
+    @slot = ParkingSlot.find_by id: params[:slot_id]
+    respond_to do |format|
+      if @slot.present? && @slot.reserve_expired
+        format.json { render json: false, status: :ok }
+      else
+        format.json { render json: false, status: 404 }
+      end
+    end
+  end
+
+  def accept_reserve
+    @slot = ParkingSlot.find_by id: params[:slot_id]
+    @parking_slot_reservation = @slot.parking_slot_reservations.build(number_plate: params[:bks], timein: DateTime.now, user_id: current_user.id, price: @slot.price_by_hours)
+    respond_to do |format|
+      if @parking_slot_reservation.save && @slot.update(status: '2')
+        format.json { render json: false, status: :ok }
+      else
+        format.json { render json: false, status: 404 }
       end
     end
   end

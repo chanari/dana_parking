@@ -58,7 +58,7 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                   <fieldset class="scheduler-border">
-                    <legend class="scheduler-border">Tầng 1</legend>
+                    <legend class="scheduler-border">Bãi 1</legend>
                     <div class="row">
                       <div class="col-md-3">
                         <%= ff.label :size, 'So Cho Ngoi' %>
@@ -105,15 +105,20 @@
                       </div>
                       <div class="row">
                         <div class="col-md-1"></div>
-                        <div class="col-md-8">
+                        <div class="col-md-9">
                           <div class="form-inline">
                             <div class="form-group">
-                              <%= fff.text_field :name, class: 'form-control', placeholder: 'Tên khu' %>
+                              <div class="row">
+                                <div class="col-md-4">
+                                  <%= fff.text_field :name, class: 'form-control', placeholder: 'Tên khu' %>
+                                </div>
+                                <span></span>
+                                <div class="col-md-4">
+                                  <%= fff.text_field :slots, class: 'form-control', placeholder: 'Số lượng chỗ' %>
+                                </div>
+                              </div>
                             </div>
-                            <span>-</span>
-                            <div class="form-group">
-                              <%= fff.text_field :slots, class: 'form-control', placeholder: 'Số lượng chỗ' %>
-                            </div>
+
                           </div>
                         </div>
                       </div>

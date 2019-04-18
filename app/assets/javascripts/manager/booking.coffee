@@ -3,8 +3,27 @@ $('.modal').on 'hidden.bs.modal', ->
   return
 
 $(document).on 'click', 'ul.slot-list-items li a', ->
-  if $(this).hasClass('selecting')
-    slot_id = $(this).attr('id').split('-')[1]
+  slot_id = $(this).attr('id').split('-')[1]
+  if $(this).hasClass('reservation')
+    $.LoadingOverlay('show')
+    $.ajax
+      url: '/manager/booking/get_reserve_detail'
+      type: 'GET'
+      dataType: 'JSON'
+      data:
+        slot_id: slot_id
+      success: (data) ->
+        $('#slot-reserve').find('input.slot-id').val(data.id)
+        $('#slot-reserve').find('input.bks').val(data.number_plate)
+        $('#slot-reserve').find('input.timein').val(monthFormat(data.date_in))
+        $('#slot-reserve').modal('show')
+        return
+      error: (data) ->
+        alertify.error("Thất bại !!!")
+        return
+    $.LoadingOverlay('hide')
+
+  else if $(this).hasClass('selecting')
     $.LoadingOverlay('show')
     $.ajax
       url: '/manager/booking/get_slot_detail'
@@ -31,7 +50,7 @@ $(document).on 'click', 'ul.slot-list-items li a', ->
         # console.log data
         return
       error: (data) ->
-        alertify.error("That bai !!!")
+        alertify.error("Thất bại !!!")
         return
     $.LoadingOverlay('hide')
     return
@@ -45,10 +64,10 @@ $(document).ready ->
     bks = $('#bks').val()
     number_plate = $('#bks').val()
     if slot_id == ''
-      alertify.error("Ban chua chon cho")
+      alertify.error("Bạn chưa chọn chỗ")
       return
     if bks == ''
-      alertify.error("Ban chua nhap BKS")
+      alertify.error("Bạn chưa nhập BKS")
       return
     $.LoadingOverlay('show')
     quantity = $('input[name=quantity]').val()
@@ -71,7 +90,7 @@ $(document).ready ->
         $('#form-detail').find('.options').css('display','none')
         return
       error: (data) ->
-        alertify.error("That bai !!!")
+        alertify.error("Thất bại !!!")
         return
     $.LoadingOverlay('hide')
     return
@@ -88,10 +107,10 @@ $(document).ready ->
       success: (data) ->
         $('#slot-' + data.parking_slot_id).removeAttr('class')
         $('#slot-detail').modal('hide')
-        alertify.success("Thanh Cong !")
+        alertify.success("Thành Công !")
         return
       error: (data) ->
-        alertify.error("That bai !!!")
+        alertify.error("Thất bại !!!")
         return
     $.LoadingOverlay('hide')
     return
@@ -104,7 +123,7 @@ $(document).ready ->
     $('#form-detail').find('.options').css('display','none')
     $('#form-detail').trigger("reset")
     $('#form-detail').find('.select-month, .select-day').css('display', 'none')
-    $.LoadingOverlay('show');
+    $.LoadingOverlay('show')
     n = 0
     size = $(this).val()
     $.ajax
@@ -157,4 +176,56 @@ $(document).ready ->
       error: (data) ->
         return
     return
+
+  $('#btn-cancel').click ->
+    slot_id = $('#slot-reserve').find('input.slot-id').val()
+    if slot_id < 0
+      alertify.error("Thất bại !!!")
+      return
+    $.LoadingOverlay('show')
+    $.ajax
+      url: '/manager/booking/cancel_reserve'
+      type: 'PUT'
+      data:
+        slot_id: slot_id
+      dataType: 'JSON'
+      success: (data) ->
+        $('#slot-'+slot_id).removeAttr('class')
+        $('#slot-reserve').trigger('reset')
+        $('#slot-reserve').modal('hide')
+        alertify.success("Thành Công !")
+        return
+      error: ->
+        alertify.error("Thất bại !!!")
+        return
+    $.LoadingOverlay('hide')
+    return
+
+  $('#btn-accept').click ->
+    slot_id = $('#slot-reserve').find('input.slot-id').val()
+    bks = $('#slot-reserve').find('input.bks').val()
+    if slot_id < 0 || bks == ''
+      alertify.error("Thất bại !!!")
+      return
+    $.LoadingOverlay('show')
+    $.ajax
+      url: '/manager/booking/accept_reserve'
+      type: 'POST'
+      data:
+        slot_id: slot_id
+        bks: bks
+      dataType: 'JSON'
+      success: (data) ->
+        $('#slot-'+slot_id).removeAttr('class')
+        $('#slot-'+slot_id).addClass('selecting')
+        $('#slot-reserve').trigger('reset')
+        $('#slot-reserve').modal('hide')
+        alertify.success("Thành Công !")
+        return
+      error: ->
+        alertify.error("Thất bại !!!")
+        return
+    $.LoadingOverlay('hide')
+    return
+
   return

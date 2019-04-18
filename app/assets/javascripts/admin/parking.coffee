@@ -1,7 +1,7 @@
 $(document).on 'click', '.btn-block', (e) ->
   e.preventDefault()
   rm_block =
-    '<div class="form-group" style="margin-left: 20px;">
+    '<div class="form-group">
     <a href="javascript:void(0)" class="btn-rm-blocks">
     <i class="fas fa-trash"></i>
     </a>

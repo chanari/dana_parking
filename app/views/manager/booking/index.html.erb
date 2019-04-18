@@ -116,7 +116,7 @@
               <div class="col-sm-3" style="margin-top: 5px;">
                 <input id="price-month" type="text" readonly class="form-control-plaintext" disabled>
               </div>
-              <div class="col-sm-2" style="padding-left: 0px; margin-top: 6px;">VND/Thang</div>
+              <div class="col-sm-2" style="padding-left: 0px; margin-top: 6px;">VND/Tháng</div>
             </div>
             <div class="form-group form-btn">
               <div class="col-sm-12" style="padding-left: 0px;">
@@ -131,7 +131,7 @@
               <div class="col-sm-3" style="margin-top: 5px;">
                 <input type="text" id="price-hours" readonly class="form-control-plaintext" disabled>
               </div>
-              <div class="col-sm-2" style="padding-left: 0px; margin-top: 6px;">VND/Gio</div>
+              <div class="col-sm-2" style="padding-left: 0px; margin-top: 6px;">VND/Giờ</div>
             </div>
             <div class="form-group form-btn">
               <div class="col-sm-12" style="padding-left: 0px;">
@@ -148,7 +148,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Thong tin cho dau xe</h5>
+              <h5 class="modal-title">Thông tin</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -166,7 +166,7 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-md-4">
-                    <label>Gio vao:</label>
+                    <label>Giờ vào:</label>
                   </div>
                   <div class="col-md-7">
                     <input type="text" class="form-control-plaintext timein" disabled>
@@ -174,7 +174,7 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-md-4">
-                    <label>Gia cuoc:</label>
+                    <label>Giá cước:</label>
                   </div>
                   <div class="col-md-7">
                     <input type="text" class="form-control-plaintext price" disabled>
@@ -182,7 +182,7 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-md-4">
-                    <label>Gio da thue:</label>
+                    <label>Giờ đã thuê:</label>
                   </div>
                   <div class="col-md-7">
                     <input type="text" class="form-control-plaintext alltime" disabled>
@@ -190,7 +190,7 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-md-4">
-                    <label>Tam Tinh:</label>
+                    <label>Tạm tính:</label>
                   </div>
                   <div class="col-md-3" style="max-width: 20%;">
                     <input type="text" class="form-control-plaintext subtotal" disabled>
@@ -200,8 +200,8 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" id="btn-pay" class="btn btn-info">Thanh Toan</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Dong</button>
+              <button type="button" id="btn-pay" class="btn btn-info">Thanh Toán</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
             </div>
           </div>
         </div>
@@ -211,7 +211,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Thong tin xe thue theo thang</h5>
+              <h5 class="modal-title">Thuê Theo Tháng</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -229,7 +229,7 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-md-4">
-                    <label>Ngay vao:</label>
+                    <label>Ngày vào:</label>
                   </div>
                   <div class="col-md-7">
                     <input type="text" class="form-control-plaintext timein" disabled>
@@ -237,7 +237,7 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-md-4">
-                    <label>Het han:</label>
+                    <label>Hết hạn:</label>
                   </div>
                   <div class="col-md-7">
                     <input type="text" class="form-control-plaintext timeout" disabled>
@@ -245,7 +245,7 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-md-4">
-                    <label>Gia/Thanh:</label>
+                    <label>Giá/Tháng:</label>
                   </div>
                   <div class="col-md-7">
                     <input type="text" class="form-control-plaintext price" disabled>
@@ -253,7 +253,7 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-md-4">
-                    <label>Tong Tien:</label>
+                    <label>Tổng tiền:</label>
                   </div>
                   <div class="col-md-3" style="max-width: 20%;">
                     <input type="text" class="form-control-plaintext subtotal" disabled>
@@ -263,7 +263,7 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Dong</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
             </div>
           </div>
         </div>
@@ -280,12 +280,28 @@
             </div>
             <div class="modal-body">
               <form>
-                <input class="modal-slot-id" readonly hidden>
+                <input class="slot-id" readonly hidden>
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <label>BKS:</label>
+                  </div>
+                  <div class="col-md-7">
+                    <input type="text" class="form-control-plaintext bks" disabled>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-md-4">
+                    <label>Ngày vào:</label>
+                  </div>
+                  <div class="col-md-7">
+                    <input type="text" class="form-control-plaintext timein" disabled>
+                  </div>
+                </div>
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-info">Nhận xe</button>
-              <button type="button" class="btn btn-danger">Hủy đặt trước</button>
+              <button id="btn-cancel" class="btn btn-danger">Hủy đặt trước</button>
+              <button id="btn-accept" class="btn btn-info">Nhận xe</button>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
             </div>
           </div>

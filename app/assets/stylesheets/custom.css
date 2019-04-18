@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
 
 body {
-  /* color: #6c757d; */
-  font-size: 14px;
-  line-height: 1.8;
-  font-family: 'Open Sans', sans-serif;
+    /* color: #404040; */
+    font-size: 16px;
+    line-height: 1.8;
+    font-family: 'Open Sans', sans-serif;
 }
-
-
 
 img {
   vertical-align: baseline;
@@ -22,10 +20,6 @@ a:hover, a:focus, a:active {
   color: #262626;
 }
 
-/* a:focus {
-  outline: thin dotted;
-} */
-
 a:hover, a:active {
   outline: 0;
   list-style: none;
@@ -33,6 +27,11 @@ a:hover, a:active {
 
 nav.header-nav ul > li.active > a {
   color: #18a3eb;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
 }
 
 /* Site Header */
@@ -121,24 +120,6 @@ nav.header-nav ul > li.active > a {
   font-weight: 600;
   color: #fff !important;
 
-}
-
-@media screen and (min-width: 992px) {
-  .site-navigation ul {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    padding: 0;
-    overflow: auto;
-    background: transparent;
-  }
-
-  .site-navigation ul li a {
-    padding: 30px 0;
-  }
 }
 
 .site-navigation ul li a:hover,
@@ -394,7 +375,6 @@ ul.slot-list-items li.slot-item a.selecting {
 }
 ul.slot-list-items li.slot-item a.reservation {
   background-color: #e5d315;
-  pointer-events: none;
 }
 
 .result-parking {
@@ -483,10 +463,6 @@ nav.header-nav ul li a {
 .pagination-container .pagination__item a {
   margin: 0 25px;
   color: #333
-}
-
-.header-container {
-  padding: 0 45px
 }
 
 p {

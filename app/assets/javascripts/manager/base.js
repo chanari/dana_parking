@@ -7,15 +7,13 @@ $(document).on('click', 'ul.slot-list-items li a', function() {
     $('#price-month').val('');
     $('#price-hours').val('');
   }
-  else if ($(this).hasClass('selecting')) {
+  else if ($(this).hasClass('selecting') || $(this).hasClass('reservation')) {
     removeSelected();
     $('#form-detail').trigger("reset");
     $('#form-detail').find('.options').css('display', 'none');
+    $('#slot-id').val($(this).attr('id').match(/\d+/));
     return;
   }
-  // else if ($(this).hasClass('reservation')) {
-  //   $('#slot-reserve').modal('show');
-  // }
   else {
     removeSelected()
     $(this).addClass('selected');

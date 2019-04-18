@@ -6,10 +6,9 @@ App.booking = App.cable.subscriptions.create "BookingChannel",
     console.log 'Disconnected'
 
   received: (data) ->
+    $('#slot-'+data.id).removeAttr('class')
     switch data.status
       when '1'
         $('#slot-'+data.id).addClass('reservation')
       when '2'
         $('#slot-'+data.id).addClass('selecting')
-      else
-        $('#slot-'+data.id).removeAttr('class')

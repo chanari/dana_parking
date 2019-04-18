@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-md-3 ">
         <div class="list-group">
-          <a href="javascript:void(0)" id="a-profile" class="list-group-item list-group-item-action active">Thong tin</a>
-          <a href="javascript:void(0)" id="a-password" class="list-group-item list-group-item-action">Mat Khau</a>
+          <a href="javascript:void(0)" id="a-profile" class="list-group-item list-group-item-action active">Thông tin</a>
+          <a href="javascript:void(0)" id="a-password" class="list-group-item list-group-item-action">Mật Khẩu</a>
         </div>
       </div>
       <div class="col-md-9">
@@ -12,7 +12,7 @@
           <div class="card-body" id="tab-profile">
             <div class="row">
               <div class="col-md-12">
-                <h4>Thong tin ca nhan</h4>
+                <h4>Thông tin cá nhân</h4>
                 <hr>
               </div>
             </div>
@@ -20,32 +20,32 @@
               <div class="col-md-12">
                 <%= form_for @profile, url: manager_profile_path, method: :put do |f| %>
                   <div class="form-group row">
-                    <label class="col-4 col-form-label">Ho</label>
+                    <label class="col-4 col-form-label">Họ</label>
                     <div class="col-8">
-                      <%= f.text_field :first_name, class: 'form-control', placeholder: 'Ho' %>
+                      <%= f.text_field :first_name, class: 'form-control', placeholder: 'Họ' %>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-4 col-form-label">Ten</label>
+                    <label class="col-4 col-form-label">Tên</label>
                     <div class="col-8">
-                      <%= f.text_field :last_name, class: 'form-control', placeholder: 'Ten' %>
+                      <%= f.text_field :last_name, class: 'form-control', placeholder: 'Tên' %>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-4 col-form-label">Dien Thoai</label>
+                    <label class="col-4 col-form-label">Điện thoại</label>
                     <div class="col-8">
-                      <%= f.text_field :phone, class: 'form-control', placeholder: 'Dien Thoai' %>
+                      <%= f.text_field :phone, class: 'form-control', placeholder: 'Điện thoại' %>
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-4 col-form-label">Dia Chi</label>
+                    <label class="col-4 col-form-label">Địa chỉ</label>
                     <div class="col-8">
-                      <%= f.text_field :address, class: 'form-control', placeholder: 'Dia Chi' %>
+                      <%= f.text_field :address, class: 'form-control', placeholder: 'Địa chỉ' %>
                     </div>
                   </div>
                   <div class="form-group row">
                     <div class="offset-4 col-8">
-                      <%= f.submit 'Luu', class: 'btn btn-primary' %>
+                      <%= f.submit 'Lưu', class: 'btn btn-primary', value: 'Save' %>
                     </div>
                   </div>
                 <% end %>
@@ -56,7 +56,7 @@
           <div class="card-body"  id="tab-password" style="display: none;">
             <div class="row">
               <div class="col-md-12">
-                <h4>Thay doi Mat Khau</h4>
+                <h4>Thay đổi Mật Khẩu</h4>
                 <hr>
               </div>
             </div>
@@ -83,7 +83,7 @@
                   </div>
                   <div class="form-group row">
                     <div class="offset-4 col-8">
-                      <%= f.submit 'Cap nhat', class: 'btn btn-primary' %>
+                      <%= f.submit 'Cập nhật', class: 'btn btn-primary', value: 'Update' %>
                     </div>
                   </div>
                 <% end %>
