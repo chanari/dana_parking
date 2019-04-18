@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
   resources :home, only: :index
   root 'home#index'
   get 'parking', to: 'home#parking'
@@ -55,9 +55,16 @@ Rails.application.routes.draw do
         get 'get_slot_detail'
         post 'slot_book'
         put 'pay'
+        get 'get_reserve_detail'
+        put 'cancel_reserve'
+        post 'accept_reserve'
       end
     end
-    resources :profile, only: [:edit, :update]
+    resources :profile, only: [:edit, :update] do
+      member do
+        get 'payment_history'
+      end
+    end
   end
 
   mount ActionCable.server => '/cable'

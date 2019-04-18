@@ -30,6 +30,6 @@ class ParkingSlot < ApplicationRecord
   end
 
   def send_update_slot
-    UpdateSlotJob.perform_later(self.id)
+    UpdateSlotJob.perform_later(self.id, self.status)
   end
 end

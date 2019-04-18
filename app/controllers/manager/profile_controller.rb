@@ -26,6 +26,10 @@ class Manager::ProfileController < Manager::BaseController
     end
   end
 
+  def payment_history
+
+  end
+
   private
 
   def set_user_profile
