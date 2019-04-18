@@ -1,12 +1,12 @@
 class Manager::ProfileController < Manager::BaseController
 
-  before_action :set_user_profile, only: %i(edit update)
+  before_action :set_user_profile
 
   def edit
   end
 
   def update
-    if params[:commit] == 'Cap nhat'
+    if params[:commit] == 'Update'
       if @user.update_with_password(user_params)
         bypass_sign_in(@user)
         flash[:success] = 'Đã cập nhật.'
@@ -15,7 +15,7 @@ class Manager::ProfileController < Manager::BaseController
         flash[:error] = 'Thất bại !'
         redirect_to edit_manager_profile_path(@user)
       end
-    elsif params[:commit] == 'Luu'
+    elsif params[:commit] == 'Save'
       if @profile.update_attributes profile_params
         flash[:success] = 'Đã lưu.'
         redirect_to edit_manager_profile_path(@user)
@@ -27,7 +27,7 @@ class Manager::ProfileController < Manager::BaseController
   end
 
   def payment_history
-
+    @payments = ParkingSlotReservation.where(user_id: @user.id, is_paid: true).order('id DESC').paginate(page: params[:page], per_page: 5)
   end
 
   private
