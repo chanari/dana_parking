@@ -14,9 +14,6 @@ $(document).on('click', 'ul.slot-list-items li a', function() {
     $('#slot-id').val($(this).attr('id').match(/\d+/));
     return;
   }
-  // else if ($(this).hasClass('reservation')) {
-  //   $('#slot-reserve').modal('show');
-  // }
   else {
     removeSelected()
     $(this).addClass('selected');
