@@ -32,7 +32,7 @@
   <div class="select-parking">
     <div class="form-group">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-3">
           <label for="selectPark">Bãi: </label> <br>
           <b><%= @parking_address %></b>
         </div>
@@ -47,9 +47,18 @@
           </select>
         </div>
         <% end %>
+        <div class="col-md-1">
+          </div>
+        <div class="col-md-4">
+          <form action="">
+            <input type="text" name="timkiem" placeholder="Nhập BKS">
+            <input type="button"  value="Tìm kiếm">
+          </form>
+        </div>
+        </div>
       </div>
     </div>
-  </div>
+
 
   <div class="result-parking container">
     <div class="row">
