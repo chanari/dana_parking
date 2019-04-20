@@ -10,7 +10,7 @@ class Client::ProfileController < Client::BaseController
 
   def update
     if @profile.update_attributes profile_params
-      flash[:success] = 'Updated.'
+      flash[:success] = 'Đã cập nhật.'
       redirect_to client_profile_path
     else
       flash[:errors] = @profile.errors.full_messages
@@ -21,10 +21,10 @@ class Client::ProfileController < Client::BaseController
   def update_password
     if @user.update_with_password(user_params)
       bypass_sign_in(@user)
-      flash[:success] = 'Updated.'
+      flash[:success] = 'Đã cập nhật.'
       redirect_to client_profile_path(@user)
     else
-      flash[:error] = 'Failed !'
+      flash[:error] = 'Không thành công!'
       redirect_to client_profile_path(@user)
     end
   end
