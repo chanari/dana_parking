@@ -37,7 +37,7 @@
           <b><%= @parking_address %></b>
         </div>
         <% if @parking.present? %>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <label for="selectSlot">Số chỗ: </label>
           <select id="selectSlot" class="form-control">
             <option value="0">Số chỗ của xe</option>
@@ -47,13 +47,12 @@
           </select>
         </div>
         <% end %>
-        <div class="col-md-1">
-          </div>
-        <div class="col-md-4">
-          <form action="">
-            <input type="text" name="timkiem" placeholder="Nhập BKS">
-            <input type="button"  value="Tìm kiếm">
-          </form>
+        <div class="col-md-3">
+          <label for="search">Tìm Xe theo BKS: </label>
+          <input id="search" class="form-control" placeholder="Nhập BKS">
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-outline-primary" style="margin-top: 32px;">Tìm kiếm</button>
         </div>
         </div>
       </div>

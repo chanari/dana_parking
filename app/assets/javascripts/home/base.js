@@ -101,3 +101,10 @@ $('#selectSlot').change(function() {
     }
   });
 });
+
+// $(document).ready(function() {
+//   $("li").hover(function(){
+//     var color = $(this).find("a").css("color");
+//     console.log(color);
+//   });
+// });
