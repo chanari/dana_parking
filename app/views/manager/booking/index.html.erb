@@ -47,275 +47,281 @@
           </select>
         </div>
         <% end %>
-        <div class="col-md-3">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
           <label for="search">Tìm Xe theo BKS: </label>
-          <input id="search" class="form-control" placeholder="Nhập BKS">
+          <input id="search" class="form-control bks" placeholder="Nhập BKS">
         </div>
         <div class="col-md-2">
           <button class="btn btn-outline-primary" style="margin-top: 32px;">Tìm kiếm</button>
         </div>
-        </div>
       </div>
-    </div>
-
-
-  <div class="result-parking container">
-    <div class="row">
-      <div class="col-7">
-        <ul class="nav nav-tabs" id="resultTab" role="tablist">
-          <li class="nav-item" style="display: none;">
-            <a class="nav-link" data-toggle="tab" role="tab" href="#" aria-controls="" aria-selected="false">401</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="resultTabContent">
-          <div class="tab-pane show" id="" role="tabpanel" aria-labelledby="" style="display: none;">
-            <div class="container">
-              <ul class="row slot-list-items">
-              </ul>
-            </div>
-          </div>
-        </div>
+      <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4" style="margin-top: 10px;"></div>
       </div>
-
-      <div class="col-5" style="padding-top: 40px;">
-        <form id="form-detail">
-          <input id="slot-id" type="text" readonly hidden>
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Bãi xe:</label>
-            <div class="col-sm-5" style="padding-top: 8px;">
-              <b><%= @parking_address %></b>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label">Vị trí:</label>
-            <div class="col-sm-5">
-              <input type="text" readonly class="form-control-plaintext vitri" disabled>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-sm-4 col-form-label" for="bks" >BKS:</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control bks" id="bks" placeholder="Biển kiểm soát">
-            </div>
-          </div>
-          <div class="form-group row options">
-            <label class="col-sm-4 col-form-label">Thể loại thuê:</label>
-            <div class="col-sm-8" style="padding-top: 8px;">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="day">
-                <label class="form-check-label">Theo giờ</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="month">
-                <label class="form-check-label">Theo tháng</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="select-month">
-            <div class="form-group row">
-              <label class="col-sm-4 col-form-label">Số tháng thuê:</label>
-              <div class="col-sm-5">
-                <input type="number" id="quantity" class="form-control" name="quantity" min="1" max="24" value="1">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-4 col-form-label">Giá:</label>
-              <div class="col-sm-3" style="margin-top: 5px;">
-                <input id="price-month" type="text" readonly class="form-control-plaintext" disabled>
-              </div>
-              <div class="col-sm-2" style="padding-left: 0px; margin-top: 6px;">VND/Tháng</div>
-            </div>
-            <div class="form-group form-btn">
-              <div class="col-sm-12" style="padding-left: 0px;">
-                <a href="javascript:void(0)" class="btn btn-dark btn-booking">Xác nhận</a>
-                <p><b> <strong>Chú ý:</strong> Xác nhận cho khách thuê dài hạn !!!</b></p>
-              </div>
-            </div>
-          </div>
-          <div class="select-day">
-            <div class="form-group row">
-              <label class="col-sm-4 col-form-label">Giá:</label>
-              <div class="col-sm-3" style="margin-top: 5px;">
-                <input type="text" id="price-hours" readonly class="form-control-plaintext" disabled>
-              </div>
-              <div class="col-sm-2" style="padding-left: 0px; margin-top: 6px;">VND/Giờ</div>
-            </div>
-            <div class="form-group form-btn">
-              <div class="col-sm-12" style="padding-left: 0px;">
-                <a href="javascript:void(0)" class="btn btn-dark btn-booking">Nhận khách vãng lai</a>
-                <p><b> <strong>Chú ý:</strong> Bạn đang nhận khách vãng lai !!!</b></p>
-              </div>
-            </div>
-          </div>
-
-        </form>
-      </div>
-
-      <div class="modal fade" id="slot-detail" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Thông tin</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <input class="reserve-id" readonly hidden>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>BKS:</label>
-                  </div>
-                  <div class="col-md-7">
-                    <input type="text" class="form-control-plaintext bks" disabled>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>Giờ vào:</label>
-                  </div>
-                  <div class="col-md-7">
-                    <input type="text" class="form-control-plaintext timein" disabled>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>Giá cước:</label>
-                  </div>
-                  <div class="col-md-7">
-                    <input type="text" class="form-control-plaintext price" disabled>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>Giờ đã thuê:</label>
-                  </div>
-                  <div class="col-md-7">
-                    <input type="text" class="form-control-plaintext alltime" disabled>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>Tạm tính:</label>
-                  </div>
-                  <div class="col-md-3" style="max-width: 20%;">
-                    <input type="text" class="form-control-plaintext subtotal" disabled>
-                  </div>
-                  <div class="col-md-1" style="padding-left: 0px; padding-top: 6px;">VND</div>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" id="btn-pay" class="btn btn-info">Thanh Toán</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="slot-paid" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Thuê Theo Tháng</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <input class="reserve-id" readonly hidden>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>BKS:</label>
-                  </div>
-                  <div class="col-md-7">
-                    <input type="text" class="form-control-plaintext bks" disabled>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>Ngày vào:</label>
-                  </div>
-                  <div class="col-md-7">
-                    <input type="text" class="form-control-plaintext timein" disabled>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>Hết hạn:</label>
-                  </div>
-                  <div class="col-md-7">
-                    <input type="text" class="form-control-plaintext timeout" disabled>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>Giá/Tháng:</label>
-                  </div>
-                  <div class="col-md-7">
-                    <input type="text" class="form-control-plaintext price" disabled>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>Tổng tiền:</label>
-                  </div>
-                  <div class="col-md-3" style="max-width: 20%;">
-                    <input type="text" class="form-control-plaintext subtotal" disabled>
-                  </div>
-                  <div class="col-md-1" style="padding-left: 0px; padding-top: 6px;">VND</div>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="slot-reserve" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Thông tin đặt trước</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <input class="slot-id" readonly hidden>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>BKS:</label>
-                  </div>
-                  <div class="col-md-7">
-                    <input type="text" class="form-control-plaintext bks" disabled>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-4">
-                    <label>Ngày vào:</label>
-                  </div>
-                  <div class="col-md-7">
-                    <input type="text" class="form-control-plaintext timein" disabled>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button id="btn-cancel" class="btn btn-danger">Hủy đặt trước</button>
-              <button id="btn-accept" class="btn btn-info">Nhận xe</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
+</div>
+
+
+<div class="result-parking container">
+  <div class="row">
+    <div class="col-7">
+      <ul class="nav nav-tabs" id="resultTab" role="tablist">
+        <li class="nav-item" style="display: none;">
+          <a class="nav-link" data-toggle="tab" role="tab" href="#" aria-controls="" aria-selected="false">401</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="resultTabContent">
+        <div class="tab-pane show" id="" role="tabpanel" aria-labelledby="" style="display: none;">
+          <div class="container">
+            <ul class="row slot-list-items">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-5" style="padding-top: 40px;">
+      <form id="form-detail">
+        <input id="slot-id" type="text" readonly hidden>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Bãi xe:</label>
+          <div class="col-sm-5" style="padding-top: 8px;">
+            <b><%= @parking_address %></b>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Vị trí:</label>
+          <div class="col-sm-5">
+            <input type="text" readonly class="form-control-plaintext vitri" disabled>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="bks" >BKS:</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control bks" id="bks" placeholder="Biển kiểm soát">
+          </div>
+        </div>
+        <div class="form-group row options">
+          <label class="col-sm-4 col-form-label">Thể loại thuê:</label>
+          <div class="col-sm-8" style="padding-top: 8px;">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" value="day">
+              <label class="form-check-label">Theo giờ</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" value="month">
+              <label class="form-check-label">Theo tháng</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="select-month">
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Số tháng thuê:</label>
+            <div class="col-sm-5">
+              <input type="number" id="quantity" class="form-control" name="quantity" min="1" max="24" value="1">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Giá:</label>
+            <div class="col-sm-3" style="margin-top: 5px;">
+              <input id="price-month" type="text" readonly class="form-control-plaintext" disabled>
+            </div>
+            <div class="col-sm-2" style="padding-left: 0px; margin-top: 6px;">VND/Tháng</div>
+          </div>
+          <div class="form-group form-btn">
+            <div class="col-sm-12" style="padding-left: 0px;">
+              <a href="javascript:void(0)" class="btn btn-dark btn-booking">Xác nhận</a>
+              <p><b> <strong>Chú ý:</strong> Xác nhận cho khách thuê dài hạn !!!</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="select-day">
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">Giá:</label>
+            <div class="col-sm-3" style="margin-top: 5px;">
+              <input type="text" id="price-hours" readonly class="form-control-plaintext" disabled>
+            </div>
+            <div class="col-sm-2" style="padding-left: 0px; margin-top: 6px;">VND/Giờ</div>
+          </div>
+          <div class="form-group form-btn">
+            <div class="col-sm-12" style="padding-left: 0px;">
+              <a href="javascript:void(0)" class="btn btn-dark btn-booking">Nhận khách vãng lai</a>
+              <p><b> <strong>Chú ý:</strong> Bạn đang nhận khách vãng lai !!!</b></p>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="modal fade" id="slot-detail" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Thông tin</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input class="reserve-id" readonly hidden>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>BKS:</label>
+                </div>
+                <div class="col-md-7">
+                  <input type="text" class="form-control-plaintext bks" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>Giờ vào:</label>
+                </div>
+                <div class="col-md-7">
+                  <input type="text" class="form-control-plaintext timein" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>Giá cước:</label>
+                </div>
+                <div class="col-md-7">
+                  <input type="text" class="form-control-plaintext price" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>Giờ đã thuê:</label>
+                </div>
+                <div class="col-md-7">
+                  <input type="text" class="form-control-plaintext alltime" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>Tạm tính:</label>
+                </div>
+                <div class="col-md-3" style="max-width: 20%;">
+                  <input type="text" class="form-control-plaintext subtotal" disabled>
+                </div>
+                <div class="col-md-1" style="padding-left: 0px; padding-top: 6px;">VND</div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btn-pay" class="btn btn-info">Thanh Toán</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="slot-paid" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Thuê Theo Tháng</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input class="reserve-id" readonly hidden>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>BKS:</label>
+                </div>
+                <div class="col-md-7">
+                  <input type="text" class="form-control-plaintext bks" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>Ngày vào:</label>
+                </div>
+                <div class="col-md-7">
+                  <input type="text" class="form-control-plaintext timein" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>Hết hạn:</label>
+                </div>
+                <div class="col-md-7">
+                  <input type="text" class="form-control-plaintext timeout" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>Giá/Tháng:</label>
+                </div>
+                <div class="col-md-7">
+                  <input type="text" class="form-control-plaintext price" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>Tổng tiền:</label>
+                </div>
+                <div class="col-md-3" style="max-width: 20%;">
+                  <input type="text" class="form-control-plaintext subtotal" disabled>
+                </div>
+                <div class="col-md-1" style="padding-left: 0px; padding-top: 6px;">VND</div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="slot-reserve" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Thông tin đặt trước</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input class="slot-id" readonly hidden>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>BKS:</label>
+                </div>
+                <div class="col-md-7">
+                  <input type="text" class="form-control-plaintext bks" disabled>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <label>Ngày vào:</label>
+                </div>
+                <div class="col-md-7">
+                  <input type="text" class="form-control-plaintext timein" disabled>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button id="btn-cancel" class="btn btn-danger">Hủy đặt trước</button>
+            <button id="btn-accept" class="btn btn-info">Nhận xe</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 </div>
