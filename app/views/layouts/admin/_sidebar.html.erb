@@ -2,34 +2,34 @@
   <li class="nav-item <%= active_class? admin_booking_index_path %>">
     <a class="nav-link" href="<%= admin_booking_index_path %>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Tong Quan</span>
+      <span>Tổng Quan</span>
     </a>
   </li>
-  <li class="nav-item <%= 'active' if ['managers', 'parking'].include?(controller_name) && !['edit_password', 'edit_profile'].include?(action_name) %> dropdown">
+  <li class="nav-item <%= 'active' if ['managers', 'parking'].include?(controller_name) && !['edit_password', 'edit_profile', 'clients'].include?(action_name) %> dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fas fa-fw fa-folder"></i>
-      <span>Quản lí</span>
+      <span>Quản Lý</span>
     </a>
     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-      <h6 class="dropdown-header">Quản lí nhân viên :</h6>
+      <h6 class="dropdown-header">Quản lý nhân viên :</h6>
       <a class="dropdown-item" href="<%= new_admin_manager_path %>">Tạo mới nhân viên</a>
       <a class="dropdown-item" href="<%= admin_managers_path %>">Danh sách nhân viên</a>
       <div class="dropdown-divider"></div>
-      <h6 class="dropdown-header">Quản lí bãi đỗ :</h6>
+      <h6 class="dropdown-header">Quản lý bãi đỗ :</h6>
       <a class="dropdown-item" href="<%= new_admin_parking_path %>">Thêm mới bãi đỗ</a>
       <a class="dropdown-item" href="<%= admin_parking_index_path %>">Trạng thái bãi đỗ</a>
     </div>
   </li>
-  <li class="nav-item">
+  <li class="nav-item <%= 'active' if action_name == 'clients' %>">
     <a class="nav-link" href="<%= clients_admin_managers_path %>">
       <i class="fas fa-fw fa-table"></i>
-      <span>Khach Hang</span>
+      <span>Khách Hàng</span>
     </a>
   </li>
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link" href="charts.html">
       <i class="fas fa-fw fa-chart-area"></i>
       <span>Charts</span>
     </a>
-  </li>
+  </li> -->
 </ul>

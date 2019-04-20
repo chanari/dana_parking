@@ -1205,7 +1205,7 @@ ul.slot-list-items li.slot-item a.reservation {
 
 .result-parking {
   display: none;
-  margin-top: 35px;
+  margin-top: 20px;
 }
 
 .select-month, .select-day {
@@ -1518,7 +1518,7 @@ nav.header-nav ul li a:hover {
     font-weight: 500;
 }
 .bot-header .navigation ul li a:hover {
-    color: rgba(50,200,250,1);
+    color: #347720;
 }
 
 .maps {
