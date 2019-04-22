@@ -25,7 +25,7 @@ class Manager::BookingController < Manager::BaseController
       else
         subtotal = @slot.price_by_months.to_i * params[:quantity].to_i
         timeout = DateTime.now + params[:quantity].to_i.month
-        if @slot.update(status: '2', number_plate: params[:number_plate], date_in: DateTime.now) && @parking_slot_reservation.update(is_paid: true, price: @slot.price_by_months, subtotal: subtotal, timeout: timeout)
+        if @slot.update(status: '2', number_plate: params[:number_plate], date_in: DateTime.now) && @parking_slot_reservation.update(is_paid: true, price: @slot.price_by_months, subtotal: subtotal, timeout: timeout, type: 'Tháng')
           SlotExpiredJob.set(wait: params[:quantity].to_i.minutes).perform_later(@slot.id)
           format.json { render json: false, status: :ok }
         else

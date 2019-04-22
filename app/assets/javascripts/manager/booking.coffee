@@ -34,6 +34,7 @@ $(document).on 'click', 'ul.slot-list-items li a', ->
       success: (data) ->
         if data.is_paid == true
           $('#slot-paid').find('form input.bks').val(data.number_plate)
+          $('#slot-paid').find('form input.type').val(data.type)
           $('#slot-paid').find('form input.timein').val(monthFormat(data.timein))
           $('#slot-paid').find('form input.timeout').val(monthFormat(data.timeout))
           $('#slot-paid').find('form input.price').val(data.price)
@@ -42,6 +43,7 @@ $(document).on 'click', 'ul.slot-list-items li a', ->
           return
         $('#slot-detail').find('form input.reserve-id').val(data.id)
         $('#slot-detail').find('form input.bks').val(data.number_plate)
+        $('#slot-detail').find('form input.type').val(data.type)
         $('#slot-detail').find('form input.timein').val(dateFormat(data.timein))
         $('#slot-detail').find('form input.price').val(data.price)
         $('#slot-detail').find('form input.alltime').val(data.total_time)
