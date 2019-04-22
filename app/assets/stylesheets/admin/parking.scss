@@ -65,7 +65,7 @@ li.slot-item {
   border-radius: 10px;
 }
 
-div.form-inline {
+div.form-sub-blocks {
   border-radius: 10px;
   border: 1px solid;
   margin: 10px 0px;
@@ -76,8 +76,13 @@ div.form-inline span {
   margin: 0px 20px;
 }
 
-div.form-inline .fa-trash {
+div.form-sub-blocks .fa-trash {
   color: #F23434;
+}
+
+div.form-sub-blocks .btn-rm-blocks {
+  position: absolute;
+  top: 5px;
 }
 
 .fa-minus-circle {

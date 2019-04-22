@@ -27,7 +27,7 @@ $(document).on('ready', function() {
 
 function updateFloors(className) {
   $('.' + className).each(function(index) {
-    $(this).find('legend.scheduler-border').html('Tầng ' + (index+1));
+    $(this).find('legend.scheduler-border').html('Bãi ' + (index+1));
     $(this).find("input[name^='parking[floors_attributes]']").eq(0).val((index+1));
   });
 }
@@ -62,3 +62,7 @@ function delayLoading() {
     $.LoadingOverlay('hide');
   }), 1000);
 }
+
+$('input[type="checkbox"]').on('change', function() {
+   $(this).siblings('input[type="checkbox"]').prop('checked', false);
+});

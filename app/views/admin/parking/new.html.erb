@@ -46,7 +46,7 @@
               <div class="col-md-10"></div>
               <div class="col-md-2">
                 <button id="btn-floor" class="btn btn-primary">
-                  <i class="fas fa-plus-circle"></i> Thêm tầng
+                  <i class="fas fa-plus-circle"></i> Thêm Bãi
                 </button>
               </div>
             </div>
@@ -61,7 +61,7 @@
                     <legend class="scheduler-border">Bãi 1</legend>
                     <div class="row">
                       <div class="col-md-3">
-                        <%= ff.label :size, 'So Cho Ngoi' %>
+                        <%= ff.label :size, 'Số chỗ ngồi' %>
                         <%= ff.select :size, options_for_select([['4 - 7', '1'], ['12 - 16', '2'], ['> 16', '3']]), { include_blank: "Chon so cho ngoi"}, class: 'form-control' %>
                       </div>
                       <div class="col-md-3">
@@ -87,8 +87,8 @@
                           <i class="fas fa-plus-circle"></i> Khu
                         </button>
                       </div>
-                      <div class="col-md-1" style="padding: 0px;">
-                        <button class="btn btn-info btn-reset">
+                      <div class="col-md-1">
+                        <button class="btn btn-info btn-reset" style="margin-top: 0px;">
                           <i class="fas fa-redo"></i>
                         </button>
                       </div>
@@ -106,19 +106,17 @@
                       <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-9">
-                          <div class="form-inline">
-                            <div class="form-group">
-                              <div class="row">
-                                <div class="col-md-4">
-                                  <%= fff.text_field :name, class: 'form-control', placeholder: 'Tên khu' %>
-                                </div>
-                                <span></span>
-                                <div class="col-md-4">
-                                  <%= fff.text_field :slots, class: 'form-control', placeholder: 'Số lượng chỗ' %>
-                                </div>
+                          <div class="form-group form-sub-blocks">
+                            <div class="row">
+                              <div class="col-md-5">
+                                <%= fff.text_field :name, class: 'form-control', placeholder: 'Tên khu' %>
                               </div>
+                              <span></span>
+                              <div class="col-md-5">
+                                <%= fff.text_field :slots, class: 'form-control', placeholder: 'Số lượng chỗ' %>
+                              </div>
+                              <div class="col-md-2"></div>
                             </div>
-
                           </div>
                         </div>
                       </div>

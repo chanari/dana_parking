@@ -1,14 +1,12 @@
 $(document).on 'click', '.btn-block', (e) ->
   e.preventDefault()
   rm_block =
-    '<div class="form-group">
-    <a href="javascript:void(0)" class="btn-rm-blocks">
+    '<a href="javascript:void(0)" class="btn-rm-blocks">
     <i class="fas fa-trash"></i>
-    </a>
-    </div>'
+    </a>'
   obj = $(this).closest('.form-floors').find('.form-blocks').eq(0).clone()
   obj.find('.row').eq(0).remove()
-  obj.find('.form-inline').append rm_block
+  obj.find('.form-sub-blocks div.col-md-2').append rm_block
   clearInputs(obj)
   renameCloneIdsAndNames(obj, 'parking[floors_attributes]', 2)
   $(this).closest('fieldset.scheduler-border').find('.form-blocks').last().after obj

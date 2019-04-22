@@ -17,7 +17,7 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-table"></i>
-          Danh Sach Khach Hang
+          Danh Sách Khách Hàng
         </div>
         <div class="card-body" style="padding-bottom: 0px;">
           <div class="table-responsive">
@@ -28,7 +28,7 @@
                   <th>Email</th>
                   <th>Họ và Tên</th>
                   <th>Số điện thoại</th>
-                  <th>Chi tieu</th>
+                  <th>Chi tiêu</th>
                 </tr>
               </thead>
               <tbody>
@@ -39,8 +39,7 @@
                   <td><%= m.profile.first_name + ' ' + m.profile.last_name if m.profile.present? %></td>
                   <td><%= m.profile.phone if m.profile.present? %></td>
                   <td>
-                    <a href="javascript:void(0)">Thang nay</a> | 
-                    <a href="javascript:void(0)">Tong</a>
+                    <a href="javascript:void(0)">Xem</a>
                   </td>
                 </tr>
                 <% end %>

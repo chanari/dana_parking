@@ -8,25 +8,116 @@
 
       <%= render 'layouts/admin/menu' %>
 
-      <!-- Area Chart Example-->
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-chart-area"></i>
-          Area Chart Example</div>
+          Thống Kê
+        </div>
         <div class="card-body">
-          <canvas id="myAreaChart" width="100%" height="30"></canvas>
+          <div class="container">
+            <div class="row">
+              <div class="col-3">
+                <label for="park">Bai do:</label>
+                <%= select_tag :park, options_for_select(@parks), class: 'form-control' %>
+              </div>
+              <div class="col-2">
+                <label>Loai Thue:</label>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="Check1">
+                  <label class="custom-control-label" for="Check1">Theo Ngay</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="Check2">
+                  <label class="custom-control-label" for="Check2">Theo Thang</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="Check3">
+                  <label class="custom-control-label" for="Check3">Tat ca</label>
+                </div>
+              </div>
+              <!-- <aside class="col-sm-4">
+
+                <div class="card">
+                  <article class="card-group-item">
+                    <header class="card-header">
+                      <h6 class="title">Selection </h6>
+                    </header>
+                    <div class="filter-content">
+                      <div class="card-body">
+                        <div class="custom-control custom-checkbox">
+                          <span class="float-right badge badge-light round">52</span>
+                          <input type="checkbox" class="custom-control-input" id="Check1">
+                          <label class="custom-control-label" for="Check1">Samsung</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                          <span class="float-right badge badge-light round">132</span>
+                          <input type="checkbox" class="custom-control-input" id="Check2">
+                          <label class="custom-control-label" for="Check2">Black berry</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                          <span class="float-right badge badge-light round">17</span>
+                          <input type="checkbox" class="custom-control-input" id="Check3">
+                          <label class="custom-control-label" for="Check3">Samsung</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                          <span class="float-right badge badge-light round">7</span>
+                          <input type="checkbox" class="custom-control-input" id="Check4">
+                          <label class="custom-control-label" for="Check4">Other Brand</label>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </aside> -->
+            </div>
+
+            <hr>
+            <h4 class="text-center">Thống Kê</h4>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-12">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
 
     </div>
-
-    <footer class="sticky-footer">
-      <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-          <span>Copyright © Your Website 2019</span>
-        </div>
-      </div>
-    </footer>
 
   </div>
 
