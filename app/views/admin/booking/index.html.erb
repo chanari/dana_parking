@@ -17,61 +17,42 @@
           <div class="container">
             <div class="row">
               <div class="col-3">
-                <label for="park">Bai do:</label>
-                <%= select_tag :park, options_for_select(@parks), class: 'form-control' %>
+                <label for="park">Bãi:</label>
+                <select id="park" class="form-control" name="park">
+                  <option value="0">Tất cả</option>
+                  <% @parks.each do |p| %>
+                  <option value="<%= p[1] %>"><%= p[0] %></option>
+                  <% end %>
+                </select>
               </div>
               <div class="col-2">
-                <label>Loai Thue:</label>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="Check1">
-                  <label class="custom-control-label" for="Check1">Theo Ngay</label>
+                <label>Thuê theo:</label>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" id="all" name="type" checked>
+                  <label class="form-check-label" for="all">Tất cả</label>
                 </div>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="Check2">
-                  <label class="custom-control-label" for="Check2">Theo Thang</label>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" id="months" name="type">
+                  <label class="form-check-label" for="months">Theo tháng</label>
                 </div>
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="Check3">
-                  <label class="custom-control-label" for="Check3">Tat ca</label>
+                <div class="form-check">
+                  <input type="radio" class="form-check-input" id="days" name="type">
+                  <label class="form-check-label" for="days">Theo giờ</label>
                 </div>
               </div>
-              <!-- <aside class="col-sm-4">
+              <div class="col-3">
+                <label>Từ:</label>
+                <input id="datepicker1" class="form-control">
+              </div>
+              <div class="col-3">
+                <label>Đến:</label>
+                <input id="datepicker2"class="form-control">
+              </div>
+              <div class="col-1">
+                <br>
+                <button class="btn btn-info" style="margin-left: 0px; width: 75px;">Xem</button>
+              </div>
 
-                <div class="card">
-                  <article class="card-group-item">
-                    <header class="card-header">
-                      <h6 class="title">Selection </h6>
-                    </header>
-                    <div class="filter-content">
-                      <div class="card-body">
-                        <div class="custom-control custom-checkbox">
-                          <span class="float-right badge badge-light round">52</span>
-                          <input type="checkbox" class="custom-control-input" id="Check1">
-                          <label class="custom-control-label" for="Check1">Samsung</label>
-                        </div>
-
-                        <div class="custom-control custom-checkbox">
-                          <span class="float-right badge badge-light round">132</span>
-                          <input type="checkbox" class="custom-control-input" id="Check2">
-                          <label class="custom-control-label" for="Check2">Black berry</label>
-                        </div>
-
-                        <div class="custom-control custom-checkbox">
-                          <span class="float-right badge badge-light round">17</span>
-                          <input type="checkbox" class="custom-control-input" id="Check3">
-                          <label class="custom-control-label" for="Check3">Samsung</label>
-                        </div>
-
-                        <div class="custom-control custom-checkbox">
-                          <span class="float-right badge badge-light round">7</span>
-                          <input type="checkbox" class="custom-control-input" id="Check4">
-                          <label class="custom-control-label" for="Check4">Other Brand</label>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              </aside> -->
             </div>
 
             <hr>
@@ -84,9 +65,9 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">BKS</th>
+                        <th scope="col">Ngày vào</th>
+                        <th scope="col">Ngày ra</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -95,17 +76,6 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
                       </tr>
                     </tbody>
                   </table>
