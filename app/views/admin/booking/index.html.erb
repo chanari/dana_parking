@@ -53,7 +53,7 @@
 
             <hr>
             <h4 class="text-center">Thống Kê</h4>
-            <% if @histoty %>
+            <% if @histoty && @histoty.size > 0 %>
             <div class="form-group row">
               <div class="col-3">
                 <button type="button" class="btn btn-primary">Xuất Excel</button>
@@ -76,7 +76,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <% unless @histoty %>
+                      <% unless @histoty || @histoty.size < 0 %>
                       <tr>
                         <td colspan="6" class="text-center">Chưa có thông tin nào</td>
                       </tr>
@@ -90,7 +90,7 @@
                         <td><%= h.is_monthly ? 'Tháng' : 'Ngày' %></td>
                         <td><%= h.subtotal %> VND</td>
                       </tr>
-                      <% end if @histoty %>
+                      <% end if @histoty && @histoty.size > 0 %>
                     </tbody>
                   </table>
                 </div>
