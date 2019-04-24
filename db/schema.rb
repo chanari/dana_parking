@@ -72,7 +72,8 @@ ActiveRecord::Schema.define(version: 2019_04_22_012846) do
     t.datetime "updated_at", null: false
     t.integer "price"
     t.integer "subtotal"
-    t.string "type", default: "Ngày"
+    t.boolean "is_monthly", default: false
+    t.bigint "park_id"
     t.index ["parking_slot_id"], name: "index_parking_slot_reservations_on_parking_slot_id"
     t.index ["user_id"], name: "index_parking_slot_reservations_on_user_id"
   end

@@ -15,48 +15,51 @@
         </div>
         <div class="card-body">
           <div class="container">
+            <%= form_tag admin_booking_index_path, enforce_utf8: false, method: :get do %>
             <div class="row">
               <div class="col-3">
                 <label for="park">Bãi:</label>
-                <select id="park" class="form-control" name="park">
-                  <option value="0">Tất cả</option>
-                  <% @parks.each do |p| %>
-                  <option value="<%= p[1] %>"><%= p[0] %></option>
-                  <% end %>
-                </select>
+                <%= select_tag :park, options_for_select([["Tất cả", 0]] + Parking.all.pluck(:address, :id)), class: 'form-control' %>
               </div>
               <div class="col-2">
                 <label>Thuê theo:</label>
                 <div class="form-check">
-                  <input type="radio" class="form-check-input" id="all" name="type" checked>
+                  <input type="radio" class="form-check-input" id="all" name="type" value="0" checked>
                   <label class="form-check-label" for="all">Tất cả</label>
                 </div>
                 <div class="form-check">
-                  <input type="radio" class="form-check-input" id="months" name="type">
-                  <label class="form-check-label" for="months">Theo tháng</label>
+                  <input type="radio" class="form-check-input" id="days" name="type" value="1">
+                  <label class="form-check-label" for="days">Theo giờ</label>
                 </div>
                 <div class="form-check">
-                  <input type="radio" class="form-check-input" id="days" name="type">
-                  <label class="form-check-label" for="days">Theo giờ</label>
+                  <input type="radio" class="form-check-input" id="months" name="type" value="2">
+                  <label class="form-check-label" for="months">Theo tháng</label>
                 </div>
               </div>
               <div class="col-3">
                 <label>Từ:</label>
-                <input id="datepicker1" class="form-control">
+                <input id="datepicker1" class="form-control" name="from_day">
               </div>
               <div class="col-3">
                 <label>Đến:</label>
-                <input id="datepicker2"class="form-control">
+                <input id="datepicker2"class="form-control" name="to_day">
               </div>
               <div class="col-1">
                 <br>
                 <button class="btn btn-info" style="margin-left: 0px; width: 75px;">Xem</button>
               </div>
-
             </div>
+            <% end %>
 
             <hr>
             <h4 class="text-center">Thống Kê</h4>
+            <% if @histoty %>
+            <div class="form-group row">
+              <div class="col-3">
+                <button type="button" class="btn btn-primary">Xuất Excel</button>
+              </div>
+            </div>
+            <% end %>
 
             <div class="form-group">
               <div class="row">
@@ -67,16 +70,27 @@
                         <th scope="col">#</th>
                         <th scope="col">BKS</th>
                         <th scope="col">Ngày vào</th>
-                        <th scope="col">Ngày ra</th>
+                        <th scope="col">Ngày ra/Hết hạn</th>
+                        <th scope="col">Thuê theo</th>
+                        <th scope="col">Tổng tiền</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <% unless @histoty %>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td colspan="6" class="text-center">Chưa có thông tin nào</td>
                       </tr>
+                      <% end %>
+                      <% @histoty.each_with_index do |h,i| %>
+                      <tr>
+                        <th scope="row"><%= i+1 %></th>
+                        <td><%= h.number_plate %></td>
+                        <td><%= date_format(h.timein) %></td>
+                        <td><%= date_format(h.timeout) %></td>
+                        <td><%= h.is_monthly ? 'Tháng' : 'Ngày' %></td>
+                        <td><%= h.subtotal %> VND</td>
+                      </tr>
+                      <% end if @histoty %>
                     </tbody>
                   </table>
                 </div>
