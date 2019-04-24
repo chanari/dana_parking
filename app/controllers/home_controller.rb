@@ -4,7 +4,10 @@ class HomeController < ApplicationController
   end
 
   def help
+    @helper = Helper.new
   end
+
+  
 
   def price
   end
@@ -19,5 +22,4 @@ class HomeController < ApplicationController
       end
     end
   end
-
 end

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_04_22_012846) do
+=======
+ActiveRecord::Schema.define(version: 2019_04_20_030248) do
+>>>>>>> 47ca3e3feecb28a62a634e6180994fff3e22d6c5
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +54,15 @@ ActiveRecord::Schema.define(version: 2019_04_22_012846) do
     t.decimal "price_by_hours", precision: 8, scale: 2
     t.decimal "price_by_months", precision: 8, scale: 2
     t.index ["parking_id"], name: "index_floors_on_parking_id"
+  end
+
+  create_table "helpers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "content"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "parking_slot_reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
