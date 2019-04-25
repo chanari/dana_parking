@@ -38,11 +38,11 @@
               </div>
               <div class="col-3">
                 <label>Từ:</label>
-                <input id="datepicker1" class="form-control" name="from_day">
+                <input type="date" id="from_day" class="form-control" onchange="TDate()" name="from_day">
               </div>
               <div class="col-3">
                 <label>Đến:</label>
-                <input id="datepicker2"class="form-control" name="to_day">
+                <input type="date" id="to_day" class="form-control" onchange="TDate()" name="to_day">
               </div>
               <div class="col-1">
                 <br>
@@ -106,3 +106,22 @@
   </div>
 
 </div>
+
+<script>
+  function TDate() {
+    var from_day = document.getElementById("from_day").value;
+    var to_day = document.getElementById("to_day").value;
+    var ToDate = new Date();
+
+    if (new Date(from_day).getTime() > ToDate.getTime()) {
+      alert("Xin chọn lại ngày !");
+      document.getElementById("from_day").value = "";
+      return false;
+    } else if (new Date(from_day).getTime() >new Date(to_day).getTime()) {
+      alert("Xin chọn lại ngày !");
+      document.getElementById("to_day").value = "";
+      return false;
+    }
+    return true;
+  }
+</script>
