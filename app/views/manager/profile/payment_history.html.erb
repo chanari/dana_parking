@@ -24,8 +24,8 @@
             <td><%= p.number_plate %></td>
             <td><%= p.timein.strftime("%d-%m-%Y %H:%M:%S") %></td>
             <td><%= p.timeout.strftime("%d-%m-%Y %H:%M:%S") %></td>
-            <td>0</td>
-            <td><%= p.subtotal %></td>
+            <td><%= p.is_monthly ? 'Tháng' : 'Ngày' %></td>
+            <td><%= number_with_delimiter(p.subtotal, delimiter: ".") %>đ</td>
           </tr>
           <% end %>
         </tbody>

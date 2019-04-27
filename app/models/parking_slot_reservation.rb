@@ -13,6 +13,28 @@ class ParkingSlotReservation < ApplicationRecord
     where(park_id: park, is_monthly: hash[type], timeout: from..to)
   end
 
+  # def self.export_file
+  #   @payments = ParkingSlotReservation.all
+  #   workbook = RubyXL::Workbook.new
+  #   worksheet = workbook.worksheets[0]
+  #   worksheet.sheet_name = "Lich Su Thanh Toan"
+  #   worksheet.add_cell(0, 0, '#')
+  #   worksheet.add_cell(0, 1, 'BKS')
+  #   worksheet.add_cell(0, 2, 'Giờ vào')
+  #   worksheet.add_cell(0, 3, 'Giờ ra/Hết hạn')
+  #   worksheet.add_cell(0, 4, 'Thuê theo')
+  #   worksheet.add_cell(0, 5, 'Tổng tiền')
+  #   @payments.each_with_index do |h,i|
+  #     worksheet.add_cell(i+1, 0, i+1)
+  #     worksheet.add_cell(i+1, 1, h.number_plate)
+  #     worksheet.add_cell(i+1, 2, h.timein.strftime("%d-%m-%Y %H:%M:%S"))
+  #     worksheet.add_cell(i+1, 3, h.timeout.strftime("%d-%m-%Y %H:%M:%S"))
+  #     worksheet.add_cell(i+1, 4, h.is_monthly ? 'Tháng' : 'Ngày')
+  #     worksheet.add_cell(i+1, 5, h.subtotal)
+  #   end
+  #   workbook.stream
+  # end
+
   private
   def set_is_paid
     self.is_paid = false if self.is_paid.nil?
