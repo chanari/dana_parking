@@ -2,6 +2,10 @@ require_relative 'boot'
 
 require 'rails/all'
 require 'rubyXL'
+require 'rubyXL/convenience_methods/cell'
+require 'rubyXL/convenience_methods/font'
+require 'rubyXL/convenience_methods/workbook'
+require 'rubyXL/convenience_methods/worksheet'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

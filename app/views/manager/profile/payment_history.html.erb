@@ -1,6 +1,14 @@
 <h3 class="text-center" style="margin: 15px">Lịch sử thanh toán</h3>
 <div class="form-group">
   <div class="row">
+    <div class="col-2" style="max-width: 12%"></div>
+    <div class="col-3">
+      <%= link_to 'Xuất file', payment_history_manager_profile_path(@user, format: :xlsx), class: 'btn btn-outline-info' %>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="row">
     <div class="col-9 mx-auto">
       <table class="table table-hover">
         <thead>

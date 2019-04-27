@@ -2,15 +2,6 @@ class Manager::ProfileController < Manager::BaseController
 
   before_action :set_user_profile
 
-  def index
-    # respond_to do |format|
-    #   format.html { send_data ParkingSlotReservation.export_file }
-    #   format.xlsx do
-    #     send_data ParkingSlotReservation.export_file
-    #   end
-    # end
-  end
-
   def edit
   end
 
@@ -37,8 +28,12 @@ class Manager::ProfileController < Manager::BaseController
 
   def payment_history
     @payments = ParkingSlotReservation.where(user_id: @user.id, is_paid: true).order('id DESC').paginate(page: params[:page], per_page: 5)
-    # byebug
-    # export_file @payments
+    respond_to do |format|
+      format.html {}
+      format.xlsx do
+        send_data(ParkingSlotReservation.export_file, :disposition => 'attachment', :type => 'application/excel', :filename => "ThongKe.xlsx")
+      end
+    end
   end
 
   private
