@@ -58,6 +58,7 @@ Rails.application.routes.draw do
         get 'get_reserve_detail'
         put 'cancel_reserve'
         post 'accept_reserve'
+        get 'find_bks'
       end
     end
     resources :profile, only: [:edit, :update] do

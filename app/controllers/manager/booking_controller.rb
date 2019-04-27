@@ -108,6 +108,26 @@ class Manager::BookingController < Manager::BaseController
     end
   end
 
+  def find_bks
+    @slot = ParkingSlot.find_by number_plate: params[:bks]
+    @floor = @slot.block.floor
+    case @floor.size
+    when '1'
+      size = '4 - 7 chỗ'
+    when '2'
+      size = '12 - 16 chỗ'
+    when '3'
+      size = 'Trên 16 chỗ'
+    end
+    respond_to do |format|
+      if @slot.present?
+        format.json { render json: { park: @floor.parking.address, size: size, slotname: @slot.name }, status: :ok }
+      else
+        format.json { render json: false, status: 404 }
+      end
+    end
+  end
+
   private
 
   def set_park

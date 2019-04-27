@@ -1,3 +1,26 @@
-// Place all the styles related to the manager/booking controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.findBKS {
+  padding: 15px;
+  padding-top: 3px;
+  background-color: #dce4e03d;
+  border: 1px solid #28a645;
+  border-radius: 5px;
+}
+
+.resultBKS {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.resultBKS hr {
+  margin: 5px 0;
+}
+
+.collapse-times {
+  position: absolute;
+  right: 2%;
+  top: 0;
+  color: red;
+}

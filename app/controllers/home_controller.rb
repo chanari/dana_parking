@@ -7,9 +7,12 @@ class HomeController < ApplicationController
     @helper = Helper.new
   end
 
-  
+
 
   def price
+    @size_1 = Floor.includes(:parking).where(size: '1')
+    @size_2 = Floor.includes(:parking).where(size: '2')
+    @size_3 = Floor.includes(:parking).where(size: '3')
   end
 
   def get_floors

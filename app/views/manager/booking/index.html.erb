@@ -48,17 +48,41 @@
         </div>
         <% end %>
         <div class="col-md-1"></div>
-        <div class="col-md-2">
-          <label for="search">Tìm Xe theo BKS: </label>
-          <input id="search" class="form-control bks" placeholder="Nhập BKS">
+        <div class="col-md-4 findBKS">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="search">Tìm Xe theo BKS: </label>
+              <input id="search" class="form-control bks" placeholder="Nhập BKS">
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-outline-success btn-search" style="margin-top: 32px;">
+                Tìm kiếm
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 collapse" id="collapseExample">
+              <div class="resultBKS">
+                  <!-- <div class="col-md-1" style="padding-left: 0;"></div> -->
+                  <div class="row">
+                    <div class="col-md-4"><strong>Bãi:</strong></div>
+                    <div class="col-md-8" style="padding: 0;"><span id="span-park"></span></div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-4"><strong>Loại xe:</strong></div>
+                    <div class="col-md-8" style="padding: 0;"><span id="span-size"></span></div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-4"><strong>Vị trí:</strong></div>
+                    <div class="col-md-8" style="padding: 0;"><span id="span-slotname"></span></div>
+                  </div>
+              </div>
+              <a data-toggle="collapse" href="#collapseExample" class="collapse-times"><i class="fas fa-window-close fa-lg"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="col-md-2">
-          <button class="btn btn-outline-success" style="margin-top: 32px;">Tìm kiếm</button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8"></div>
-        <div class="col-md-4" style="margin-top: 10px;"></div>
       </div>
     </div>
   </div>

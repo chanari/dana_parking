@@ -1,51 +1,73 @@
 <div class="wrapper">
-    <div class="container">
-      <!-- HEADER -->
-      <%= render 'layouts/home/new_header' %>
-      <div class="price-container">
-        <h1 class="text-center" style="margin: 50px 0">Bảng giá</h1>
-        <div class="places">
-          <ul class="text-center">
-            <li>
-              <a href="javascript:void(0)"><i class="fa fa-car fa-2x selected" aria-hidden="true"></i></a>
-              <p>4-7 chỗ</p>
-            </li>
-            <li>
-              <a href="javascript:void(0)"><i class="fa fa-car fa-2x" aria-hidden="true"></i></a>
-              <p>12-16 chỗ</p>
-            </li>
-            <li>
-              <a href="javascript:void(0)"><i class="fa fa-car fa-2x" aria-hidden="true"></i></a>
-              <p>Trên 16 chỗ</p>
-            </li>
-          </ul>
-        </div>
-        <table class="price-table">
-          <thead>
-            <th colspan="2" class="text-center">
-              Chi phí xe <span class="places-des"></span>
-            </th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Giá tối thiểu</td>
-              <td>25.000đ/2km đầu</td>
-            </tr>
-            <tr class="odd">
-              <td>Giá tối thiểu</td>
-              <td>25.000đ/2km đầu</td>
-            </tr>
-            <tr>
-              <td>Giá tối thiểu</td>
-              <td>25.000đ/2km đầu</td>
-            </tr>
-          
-          </tbody>
-        </table>
+  <div class="container">
+    <!-- HEADER -->
+    <%= render 'layouts/home/new_header' %>
+    <div class="price-container">
+      <h1 class="text-center" style="margin: 50px 0">Bảng giá</h1>
+      <div class="places">
+        <ul class="text-center">
+          <li>
+            <a href="javascript:void(0)"><i class="fa fa-car fa-2x selected" data-size="0"></i></a>
+            <p>4-7 chỗ</p>
+          </li>
+          <li>
+            <a href="javascript:void(0)"><i class="fa fa-car fa-2x" data-size="1"></i></a>
+            <p>12-16 chỗ</p>
+          </li>
+          <li>
+            <a href="javascript:void(0)"><i class="fa fa-car fa-2x" data-size="2"></i></a>
+            <p>Trên 16 chỗ</p>
+          </li>
+        </ul>
       </div>
-
+      <table class="price-table">
+        <thead>
+          <th colspan="3" class="text-center">
+            Giá cước 4-7 chỗ
+          </th>
+        </thead>
+        <tbody>
+          <% @size_1.each do |s| %>
+          <tr>
+            <td><%= s.parking.address %></td>
+            <td><%= number_with_delimiter(s.price_by_hours.to_i, delimiter: ".") %>đ/Giờ</td>
+            <td><%= number_with_delimiter(s.price_by_months.to_i, delimiter: ".") %>đ/Tháng</td>
+          </tr>
+          <% end %>
+        </tbody>
       </table>
-
-
+      <table class="price-table price-table-hidden">
+        <thead>
+          <th colspan="3" class="text-center">
+            Giá cước 12-16 chỗ
+          </th>
+        </thead>
+        <tbody>
+          <% @size_2.each do |s| %>
+          <tr>
+            <td><%= s.parking.address %></td>
+            <td><%= number_with_delimiter(s.price_by_hours.to_i, delimiter: ".") %>đ/Giờ</td>
+            <td><%= number_with_delimiter(s.price_by_months.to_i, delimiter: ".") %>đ/Tháng</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <table class="price-table price-table-hidden">
+        <thead>
+          <th colspan="3" class="text-center">
+            Giá cước trên 16 chỗ
+          </th>
+        </thead>
+        <tbody>
+          <% @size_3.each do |s| %>
+          <tr>
+            <td><%= s.parking.address %></td>
+            <td><%= number_with_delimiter(s.price_by_hours.to_i, delimiter: ".") %>đ/Giờ</td>
+            <td><%= number_with_delimiter(s.price_by_months.to_i, delimiter: ".") %>đ/Tháng</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>

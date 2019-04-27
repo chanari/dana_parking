@@ -2,4 +2,5 @@
  *= require normalize
  *= require custom
  *= require admin/sb-admin
+ *= require manager/booking
  */

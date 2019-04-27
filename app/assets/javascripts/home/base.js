@@ -3,13 +3,18 @@ $(document).on('click', 'ul.slot-list-items li a', function() {
 });
 
 $('.places ul li i').on('click', function() {
- $('.places ul li i').each(function() {
-   $(this).removeClass('selected');
-   $(this).parent().siblings('p').css('color', 'black');
- });
- $(this).addClass('selected');
- $(this).parent().siblings('p').css('color', 'green');
- $('.places-des').html($(this).parent().siblings('p').html());
+  $('.places ul li i').each(function() {
+    $(this).removeClass('selected');
+    $(this).parent().siblings('p').css('color', 'black');
+  });
+  $(this).addClass('selected');
+  $(this).parent().siblings('p').css('color', 'green');
+  $('.price-table').not(':eq('+$(this).data('size')+')').each(function() {
+    if(!$(this).hasClass('price-table-hidden')) {
+      $(this).addClass('price-table-hidden');
+    }
+  });
+  $('.price-table').eq($(this).data('size')).removeClass('price-table-hidden');
 });
 
 function delayLoading() {
@@ -77,14 +82,14 @@ $('#selectSlot').change(function() {
           $.each(blocks.parking_slots, function(iii, slots) {
             switch (slots.status) {
               case '0':
-                slots.status = '';
-                break;
+              slots.status = '';
+              break;
               case '1':
-                slots.status = 'reservation';
-                break;
+              slots.status = 'reservation';
+              break;
               case '2':
-                slots.status = 'selecting';
-                break;
+              slots.status = 'selecting';
+              break;
             }
             result_tab.find('.slot-list-items').append('<li class="col-2 slot-item"> <a id="slot-' + slots.id + '" class="' + slots.status + '" href="javascript:void(0)">' + slots.name + '</a></li>');
           });

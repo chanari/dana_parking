@@ -230,4 +230,26 @@ $(document).ready ->
     $.LoadingOverlay('hide')
     return
 
+  $('.btn-search').click ->
+    bks = $('.findBKS .bks').val()
+    return false unless bks.length > 0
+    $.ajax
+      url: '/manager/booking/find_bks'
+      type: 'GET'
+      data:
+        bks: bks
+      dataType: 'JSON'
+      success: (data) ->
+        console.log data
+        $('#span-park').html data.park
+        $('#span-size').html data.size
+        $('#span-slotname').html data.slotname
+        $('.collapse').collapse('show')
+        return
+      error: ->
+        $('.collapse').collapse('hide')
+        alertify.error("Thất bại !!!")
+        return
+    return
+
   return
