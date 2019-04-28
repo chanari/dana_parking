@@ -16,6 +16,7 @@
         <div class="card-body">
           <div class="container">
             <%= form_tag admin_booking_index_path, enforce_utf8: false, method: :get do %>
+            <%= hidden_field_tag :format %>
             <div class="row">
               <div class="col-3">
                 <label for="park">Bãi:</label>
@@ -38,27 +39,27 @@
               </div>
               <div class="col-3">
                 <label>Từ:</label>
-                <input type="date" id="from_day" class="form-control" onchange="TDate()" name="from_day">
+                <input type="date" id="from_day" class="form-control" onchange="TDate()" name="from_day" value="<%= params[:from_day] %>">
               </div>
               <div class="col-3">
                 <label>Đến:</label>
-                <input type="date" id="to_day" class="form-control" onchange="TDate()" name="to_day">
+                <input type="date" id="to_day" class="form-control" onchange="TDate()" name="to_day" value="<%= params[:to_day] %>">
               </div>
               <div class="col-1">
                 <br>
-                <button class="btn btn-info" style="margin-left: 0px; width: 75px;">Xem</button>
+                <%= submit_tag "Xem", class: "btn btn-info", style: 'margin-left: 0px; width: 75px;', onclick: "changeFormat('html')" %>
               </div>
             </div>
-            <% end %>
 
             <hr>
             <h4 class="text-center">Thống Kê</h4>
             <% if @histoty && @histoty.size > 0 %>
             <div class="form-group row">
               <div class="col-3">
-                <button type="button" class="btn btn-primary">Xuất Excel</button>
+                <%= submit_tag "Xuất Excel", class: "btn btn-primary", onclick: "changeFormat('xlsx')" %>
               </div>
             </div>
+            <% end %>
             <% end %>
 
             <div class="form-group">
@@ -123,5 +124,8 @@
       return false;
     }
     return true;
+  }
+  function changeFormat(format) {
+    document.getElementById("format").value = format;
   }
 </script>

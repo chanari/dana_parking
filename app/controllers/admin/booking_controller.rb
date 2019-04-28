@@ -6,5 +6,11 @@ class Admin::BookingController < Admin::BaseController
     else
       @histoty = nil
     end
+    respond_to do |format|
+      format.html {}
+      format.xlsx do
+        send_data(ParkingSlotReservation.get_histories_xlsx(params[:park], params[:type], params[:from_day], params[:to_day]), :disposition => 'attachment', :type => 'application/excel', :filename => "ThongKe.xlsx")
+      end
+    end
   end
 end
