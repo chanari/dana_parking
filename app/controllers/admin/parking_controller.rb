@@ -1,4 +1,5 @@
 class Admin::ParkingController < Admin::BaseController
+  before_action :set_parking, only: [:edit, :destroy]
 
   def index
     @parkings = Parking.all.pluck(:id, :address)
@@ -13,10 +14,10 @@ class Admin::ParkingController < Admin::BaseController
   def create
     @parking = Parking.new parking_params
     if @parking.save
-      flash[:success] = 'Saved.'
+      flash[:success] = 'Đã lưu.'
       redirect_to new_admin_parking_path
     else
-      flash[:error] = 'Failed !'
+      flash[:error] = 'Thất bại !'
       redirect_to new_admin_parking_path
     end
   end
@@ -32,9 +33,21 @@ class Admin::ParkingController < Admin::BaseController
     end
   end
 
+  def destroy
+    if @parking.destroy
+      flash[:success] = 'Đã lưu.'
+    else
+      flash[:error] = 'Thất bại !'
+    end
+    redirect_to admin_parking_index_path
+  end
+
   private
 
   def parking_params
     params.require(:parking).permit(:address, floors_attributes: [:id, :name, :size, :price_by_hours, :price_by_months, blocks_attributes: [:id, :name, :slots]])
+  end
+  def set_parking
+    @parking = Parking.find_by id: params[:id]
   end
 end

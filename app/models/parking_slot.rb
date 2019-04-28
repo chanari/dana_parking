@@ -1,6 +1,6 @@
 class ParkingSlot < ApplicationRecord
   belongs_to :block
-  has_many :parking_slot_reservations
+  has_many :parking_slot_reservations, dependent: :destroy
 
   before_save :set_status
   after_update :send_update_slot

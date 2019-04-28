@@ -1,3 +1,22 @@
+<style media="screen">
+  .btn-teal {
+    background-color: #00796b!important;
+    border-radius: 10em;
+    margin-right: 10px;
+  }
+  table.table a, .btn-teal {
+    color: #fff;
+  }
+  .btn-danger {
+    color: #fff;
+    border-radius: 10em;
+  }
+  .thead {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+</style>
+
 <div id="wrapper">
 
   <%= render 'layouts/admin/sidebar' %>
@@ -56,65 +75,59 @@
                       <li class="nav-item" style="display: none;">
                         <a class="nav-link" data-toggle="tab" role="tab" href="#" aria-controls="" aria-selected="false">401</a>
                       </li>
-                      <!-- <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" role="tab" href="#profile" aria-controls="profile" aria-selected="false">402</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" role="tab" href="#contact" aria-controls="contact" aria-selected="false">403</a>
-                  </li> -->
-                </ul>
+                    </ul>
 
-                <div class="tab-wrapper">
-                  <div class="tab-content" id="resultTabContent">
-                    <div class="tab-pane show" id="" role="tabpanel" aria-labelledby="" style="display: none;">
-                      <div class="container">
-                        <ul class="row slot-list-items">
-                          <!-- <li class="col-2 slot-item"> <a class="selected" href="javascript:void(0)">1</a></li>
-                          <li class="col-2 slot-item"> <a class="selecting" href="javascript:void(0)">2</a></li>
-                          <li class="col-2 slot-item"> <a class="reservation" href="javascript:void(0)">3</a></li> -->
-                        </ul>
+                    <div class="tab-wrapper">
+                      <div class="tab-content" id="resultTabContent">
+                        <div class="tab-pane show" id="" role="tabpanel" aria-labelledby="" style="display: none;">
+                          <div class="container">
+                            <ul class="row slot-list-items">
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    <%= render 'layouts/note' %>
                   </div>
                 </div>
-                <%= render 'layouts/note' %>
+
               </div>
             </div>
-
           </div>
+
         </div>
       </div>
-
-    </div>
-  </div>
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fas fa-table"></i>
+          Danh sách các bãi
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="card-body">
+          <table class="table table-striped table-responsive-md btn-table">
+            <thead class="thead">
+              <tr>
+                <th>#</th>
+                <th>Bãi Đỗ</th>
+                <th>Tác Vụ</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @parkings.each_with_index do |p,i| %>
+              <tr>
+                <th scope="row" style="vertical-align: middle;"><%= i+1 %></th>
+                <td><%= p[1] %></td>
+                <td>
+                  <button type="button" class="btn btn-teal btn-rounded btn-sm m-0">Sửa</button>
+                  &nbsp;
+                  <%= link_to 'Xóa', admin_parking_path(p[0]), class: 'btn btn-danger btn-rounded btn-sm m-0', method: :delete, data: { confirm: 'Bạn có chắc chắn muốn xóa bãi này ?' } %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
-</div>
-<footer class="sticky-footer">
-  <div class="container my-auto">
-    <div class="copyright text-center my-auto">
-      <span>Copyright © Your Website 2019</span>
-    </div>
-  </div>
-</footer>
-
-</div>
 </div>
