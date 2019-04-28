@@ -12,34 +12,34 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-id-card fa-lg"></i> |
-          Account Profile
+          Thông tin tài khoản
         </div>
         <div class="card-body">
           <div class="col-8">
             <%= form_for @profile, url: update_profile_admin_managers_path, method: :patch, html: { class: 'admin_profile' } do |f| %>
             <%= f.hidden_field :user_id %>
             <div class="form-group">
-              <%= f.label :first_name %>
+              <%= f.label :first_name, 'Họ' %>
               <%= f.text_field :first_name, class: 'form-control', readonly: true %>
             </div>
             <div class="form-group">
-              <%= f.label :last_name %>
+              <%= f.label :last_name, 'Tên' %>
               <%= f.text_field :last_name, class: 'form-control', readonly: true %>
             </div>
             <div class="form-group">
-              <%= f.label :phone %>
+              <%= f.label :phone, 'Số điện thoại' %>
               <%= f.text_field :phone, class: 'form-control', readonly: true %>
             </div>
             <div class="form-group">
-              <%= f.label :address %>
+              <%= f.label :address, 'Địa chỉ' %>
               <%= f.text_field :address, class: 'form-control', readonly: true %>
             </div>
             <div id="div-update" class="form-group" style="display: none;">
-              <%= f.submit "Update", class: 'btn btn-primary' %>
-              <button class="btn btn-secondary btn-cancel" style="margin-left: 15px;">Cancel</button>
+              <%= f.submit "Cập nhật", class: 'btn btn-primary' %>
+              <button class="btn btn-secondary btn-cancel" style="margin-left: 15px;">Hủy</button>
             </div>
             <div id="div-change" class="form-group">
-              <button class="btn btn-info btn-change">Change</button>
+              <button class="btn btn-info btn-change">Thay đổi</button>
             </div>
             <% end %>
           </div>

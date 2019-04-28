@@ -39,6 +39,7 @@ Rails.application.routes.draw do
         get 'remove_parking'
         get 'get_manager'
         get 'clients'
+        get 'get_profile'
       end
     end
     resources :parking do

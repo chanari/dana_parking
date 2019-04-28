@@ -103,6 +103,18 @@ class Admin::ManagersController < Admin::BaseController
     @clients = User.includes(:profile).where(role: '0')
   end
 
+  def get_profile
+    @total = ParkingSlotReservation.client_paid(Vehicle.where(user_id: params[:user_id]).pluck(:number_plate))
+    @month = ParkingSlotReservation.client_paid_month(Vehicle.where(user_id: params[:user_id]).pluck(:number_plate))
+    respond_to do |format|
+      unless @total.present?
+        format.json { render json: false, status: 404 }
+      else
+        format.json { render json: { total: @total, month: @month}, status: :ok }
+      end
+    end
+  end
+
   private
 
   def user_params

@@ -1,0 +1,153 @@
+<style media="screen">
+  fieldset.scheduler-border {
+    border: 1px solid #33C4FF ;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    border-radius: 10px;
+  }
+
+  legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width:auto;
+    padding:0 10px;
+  }
+</style>
+<div id="wrapper">
+
+  <%= render 'layouts/admin/sidebar' %>
+
+  <div id="content-wrapper">
+
+    <div class="container-fluid">
+
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fas fa-table"></i>
+          Thêm bãi đỗ
+        </div>
+        <div class="card-body">
+          <h4 class="text-center">Sửa bãi đỗ</h4>
+
+          <%= form_for @parking, url: admin_parking_index_path, html: { class: 'main-form' } do |f| %>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :address do %>
+                    <b>Tên bãi đỗ</b>
+                  <% end %>
+                  <%= f.text_field :address, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10"></div>
+              <div class="col-md-2">
+                <button id="btn-floor" class="btn btn-primary">
+                  <i class="fas fa-plus-circle"></i> Thêm Bãi
+                </button>
+              </div>
+            </div>
+
+            <%= f.fields_for :floors do |ff| %>
+            <div class="form-group form-floors">
+              <%= ff.hidden_field :name %>
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                  <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Bãi 1</legend>
+                    <div class="row">
+                      <div class="col-md-3">
+                        <%= ff.label :size, 'Số chỗ ngồi' %>
+                        <%= ff.select :size, options_for_select([['4 - 7', '1'], ['12 - 16', '2'], ['> 16', '3']], selected: ff.object.size), { include_blank: "Chọn số chỗ ngồi"}, class: 'form-control' %>
+                      </div>
+                      <div class="col-md-3">
+                        <%= ff.label :price_by_hours, 'Giá tiền theo giờ' %>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">VND</span>
+                          </div>
+                          <%= ff.number_field :price_by_hours, class: 'form-control' %>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <%= ff.label :price_by_months, 'Giá tiền theo tháng' %>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">VND</span>
+                          </div>
+                          <%= ff.number_field :price_by_months, class: 'form-control' %>
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <button class="btn btn-primary btn-block">
+                          <i class="fas fa-plus-circle"></i> Khu
+                        </button>
+                      </div>
+                      <div class="col-md-1">
+                        <button class="btn btn-info btn-reset" style="margin-top: 0px;">
+                          <i class="fas fa-redo"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <%= ff.fields_for :blocks do |fff| %>
+                    <div class="form-blocks">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <b>Khu: </b>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-9">
+                          <div class="form-group form-sub-blocks">
+                            <div class="row">
+                              <div class="col-md-5">
+                                <%= fff.text_field :name, class: 'form-control', placeholder: 'Tên khu' %>
+                              </div>
+                              <span></span>
+                              <div class="col-md-5">
+                                <%= fff.text_field :slots, class: 'form-control', placeholder: 'Số lượng chỗ', value: fff.object.parking_slots.size %>
+                              </div>
+                              <div class="col-md-2"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <% end %>
+
+                  </fieldset>
+                </div>
+                <div class="col-md-1"></div>
+              </div>
+            </div>
+            <% end %>
+
+            <div class="col-4">
+              <%= f.submit 'Lưu', class: 'btn btn-primary btn-md', type: 'submit' %>
+              <%= link_to 'Quay lại', :back, class: 'btn btn-outline-info btn-md waves-effect' %>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <footer class="sticky-footer">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright © DANA CAR PARKING 2019</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</div>

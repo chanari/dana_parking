@@ -64,6 +64,24 @@ $(document).ready ->
           return
     return
 
+  $('.btn-user').click ->
+    user_id = $(this).data('uid')
+    return false unless user_id > 0
+    $.ajax
+      url: '/admin/managers/get_profile'
+      type: 'GET'
+      dataType: 'JSON'
+      data: user_id: user_id
+      success: (data) ->
+        $('#fullHeightModalRight').find('.modal-body .col-md-7').eq(0).html(data.month + ' VND')
+        $('#fullHeightModalRight').find('.modal-body .col-md-7').eq(1).html(data.total + ' VND')
+        $('#fullHeightModalRight').modal('show')
+        return
+      error: ->
+        alertify.error('Thất bại !')
+        return
+    return
+
   $('input[type=file]').change (e) ->
     $(this).next('label').html e.target.files[0].name
     return

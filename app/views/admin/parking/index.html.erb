@@ -4,11 +4,10 @@
     border-radius: 10em;
     margin-right: 10px;
   }
-  table.table a, .btn-teal {
+  table.table a, .btn {
     color: #fff;
   }
   .btn-danger {
-    color: #fff;
     border-radius: 10em;
   }
   .thead {
@@ -38,7 +37,7 @@
                 <div class="col-md-5">
                   <label for="selectPark">Bãi: </label>
                   <select id="selectPark" class="form-control">
-                    <option value="0">Please select one</option>
+                    <option value="0">Chọn bãi</option>
                     <% @parkings.each do |p| %>
                     <option value="<%= p[0] %>"><%= p[1] %></option>
                     <% end %>
@@ -47,7 +46,7 @@
                 <div class="col-md-3">
                   <label for="selectSlot">Số chỗ: </label>
                   <select id="selectSlot" class="form-control">
-                    <option value="0">Please select one</option>
+                    <option value="0">Chọn số chỗ ngồi</option>
                     <option value="1">4 - 7</option>
                     <option value="2">12 - 16</option>
                     <option value="3">> 16</option>
@@ -118,9 +117,9 @@
                 <th scope="row" style="vertical-align: middle;"><%= i+1 %></th>
                 <td><%= p[1] %></td>
                 <td>
-                  <button type="button" class="btn btn-teal btn-rounded btn-sm m-0">Sửa</button>
+                  <%= link_to 'Sửa bãi', edit_admin_parking_path(p[0]), class: 'btn btn-teal btn-rounded btn-sm m-0' %>
                   &nbsp;
-                  <%= link_to 'Xóa', admin_parking_path(p[0]), class: 'btn btn-danger btn-rounded btn-sm m-0', method: :delete, data: { confirm: 'Bạn có chắc chắn muốn xóa bãi này ?' } %>
+                  <%= link_to 'Xóa bãi', admin_parking_path(p[0]), class: 'btn btn-danger btn-rounded btn-sm m-0', method: :delete, data: { confirm: 'Bạn có chắc chắn muốn xóa bãi này ?' } %>
                 </td>
               </tr>
               <% end %>

@@ -7,6 +7,9 @@ class ParkingSlotReservation < ApplicationRecord
 
   attr_accessor :total_time
 
+  scope :client_paid, -> (number_plate) { where(number_plate: number_plate, is_paid: true).sum(:subtotal) }
+  scope :client_paid_month, -> (number_plate) { where(number_plate: number_plate, is_paid: true, updated_at: DateTime.now.beginning_of_month..DateTime.now).sum(:subtotal) }
+
   def self.get_histories(park, type, from, to)
     hash = { '0' => [true, false], '1' => false, '2' => true }
     park = '' if park == '0'

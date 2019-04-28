@@ -11,6 +11,10 @@ class Admin::ParkingController < Admin::BaseController
     @block = @floor.blocks.build
   end
 
+  def edit
+    @parking.floors
+  end
+
   def create
     @parking = Parking.new parking_params
     if @parking.save

@@ -2,6 +2,12 @@
   .pagination {
     justify-content: center;
   }
+  .modal-header {
+    background-color: #00c851;
+  }
+  .modal-title {
+    color: #fff;
+  }
 </style>
 
 <div id="wrapper">
@@ -26,7 +32,7 @@
                 <tr>
                   <th>#</th>
                   <th>Email</th>
-                  <th>Họ và Tên</th>
+                  <th>Họ và tên</th>
                   <th>Số điện thoại</th>
                   <th>Chi tiêu</th>
                 </tr>
@@ -39,30 +45,17 @@
                   <td><%= m.profile.first_name + ' ' + m.profile.last_name if m.profile.present? %></td>
                   <td><%= m.profile.phone if m.profile.present? %></td>
                   <td>
-                    <a href="javascript:void(0)">Xem</a>
+                    <a href="javascript:void(0)" class="btn btn-outline-success btn-md waves-effect btn-user" data-uid="<%= m.id %>">Xem</a>
                   </td>
                 </tr>
                 <% end %>
 
               </tbody>
             </table>
-
-            <!-- <div style="padding-top: 10px;">
-              <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-              </ul>
-            </div> -->
-
           </div>
         </div>
       </div>
-
     </div>
-
     <footer class="sticky-footer">
       <div class="container my-auto">
         <div class="copyright text-center my-auto">
@@ -70,7 +63,39 @@
         </div>
       </div>
     </footer>
-
   </div>
+
+  <div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <div class="modal-dialog modal-side modal-top-right" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title w-100" id="myModalLabel" style="font-size: 1.55rem;">Lịch sử gửi xe</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-5"><b>Tháng này:</b></div>
+            <div class="col-md-7"></div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-5"><b>Tất cả:</b></div>
+            <div class="col-md-7"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-outline-success btn-md waves-effect" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
