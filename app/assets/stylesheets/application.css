@@ -1,4 +1,4 @@
 /*
- *= require_tree .
- *= require_self
+ *= require new_css/style
+ *= require new_css/custom
  */

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  layout :layout_by_resource
+  # layout :layout_by_resource
 
   protected
 

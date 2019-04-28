@@ -1,35 +1,24 @@
-<div class="our-services">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="our-services-wrap">
-          <h2>Đăng Ký</h2>
-          <div class="login-page">
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <fieldset>
-
-                <div class="form-group">
-                  <%= f.label :email, class: 'control-label' %>
-                  <%= f.email_field :email, autofocus: true, class: "form-control" %>
-                </div>
-
-                <div class="form-group">
-                  <%= f.label :password, class: 'control-label' %>
-                  <%= f.password_field :password, autofocus: true, class: "form-control" %>
-                </div>
-
-                <div class="form-group">
-                  <%= f.label :password_confirmation,  class: 'control-label' %>
-                  <%= f.password_field :password_confirmation, autofocus: true, class: "form-control" %>
-                </div>
-
-                <div class="control-group">
-                  <%= f.submit "Đăng ký", class: 'btn btn-success' %>
-                </div>
-              </fieldset>
-            <% end %>
-        </div>
-      </div>
-    </div>
+<h1 class="w3ls">Đăng ký thông tin</h1>
+<div class="content-w3ls">
+  <div class="content-agile1">
   </div>
+  <div class="content-agile2">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="form-control w3layouts">
+      <%= f.email_field :email, autofocus: true, placeholder: 'Tài khoản Email' %>
+    </div>
+
+    <div class="form-control agileinfo">
+      <%= f.password_field :password, placeholder: 'Mật khẩu' %>
+    </div>
+
+    <div class="form-control agileinfo">
+      <%= f.password_field :password_confirmation, placeholder: 'Xác nhận mật khẩu' %>
+    </div>
+
+    <%= f.submit "Đăng Ký", class: 'register' %>
+    <% end %>
+  </div>
+  <div class="clear"></div>
 </div>
+<p class="copyright w3l"> &copy; 2019 Đại Học Duy Tân<a href=http://kcntt.duytan.edu.vn/ target="_blank"></a></p>

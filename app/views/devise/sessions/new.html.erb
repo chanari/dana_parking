@@ -1,30 +1,272 @@
-<div class="our-services">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="our-services-wrap">
-          <h2>Đăng nhập</h2>
-          <div class="login-page">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <fieldset>
+<style media="screen">
+  .main-w3layouts-agileinfo {
+    width: 35%;
+    margin: 0 auto;
+    padding: 4em 2em;
+    background-color: rgba(0, 0, 0, 0.4);;
+    -webkit-box-shadow: 0 6px 12px 0 rgb(37, 37, 37);
+    -moz-box-shadow: 0 6px 12px 0 rgb(37, 37, 37);
+    box-shadow: 0 6px 43px 0 rgba(0, 0, 0, 0.4);
+  }
+  .wthree-form h2 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1.5em;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 4px #fff;
+  }
+  h1 {
+    text-align: center;
+    font-size: 45px;
+    font-weight: 300;
+    margin: 40px 0;
+    color: #fff;
+    letter-spacing: 9px;
+    text-shadow: 4px 4px 3px #000;
+    word-spacing: 4px;
+    font-weight: 500;
+    font-family: 'Josefin Slab', serif;
+  }
+  .icon-w3 i {
+    color: #ffffff;
+    font-size: 19px;
+    line-height: 49px;
+  }
+  .icon-w3 {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+    width: 53px;
+    height: 50px;
+    text-align: center;
+    background: #00d70a;
+  }
+  form {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .submit-agileits {
+    text-align: center;
+    margin-top: 2em;
+  }
+  .form-sub-w3{
+    position:relative;
+    margin-bottom: 20px;
+  }
+  .form-sub-w3 input[type="text"], input[type="password"] {
+    width: 85%;
+    padding: 15px 66px 15px 19px;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.16);
+    border: 0;
+    border-left: 2px solid #00d70a;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    color: #fff;
+    outline: 0;
+    -webkit-box-shadow: 0 6px 12px 0 rgb(37, 37, 37);
+    -moz-box-shadow: 0 6px 12px 0 rgb(37, 37, 37);
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.4);
+    font-family: 'Open Sans', sans-serif;
+  }
+  .submit-agileits input[type="submit"], .submit-agileits a {
+    text-align: center;
+    border: 0;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 14px 90px;
+    background-color: rgba(0, 0, 0, 0.34);
+    border: 3px solid rgba(255, 255, 255, 0.43);
+    -webkit-box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.71);
+    -moz-box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.71);
+    box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.71);
+    outline: none;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 1px;
+    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+  }
+  .submit-agileits input[type="submit"]:hover, .submit-agileits a {
+    color: #ffffff;
+    border-color: #00d70a;
+  }
+  /*-- checkbox --*/
+  .anim {
+    position: relative;
+    display: block;
+    margin-top: .5em;
+  }
+  label.anim span, label.anim a {
+    color: #fff;
+    font-size: 13px;
+    display: inline;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+  }
+  label.anim  a {
+    display: inline-block;
+    text-decoration:none;
+    float:right;
+    margin-top:4px;
+  }
+  .wthree-text ul li {
+    displaY: block;
+  }
+  .wthree-text ul li:nth-child(1) {
+    margin-right: 36px;
+  }
+  .agileits-login label {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
 
-                <div class="form-group">
-                  <%= f.label :email, class: 'control-label' %>
-                  <%= f.email_field :email, autofocus: true, class: "form-control" %>
-                </div>
+  }
+  input.checkbox {
+    background:#fff;
+    cursor: pointer;
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0 6px 0 0!important;
+  }
+  input.checkbox:before {
+    content: "";
+    position: absolute;
+    width: 1.2em;
+    height: 1.2em;
+    background: inherit;
+    cursor: pointer;
+  }
+  input.checkbox:after {
+    content: "";
+    transition: .4s ease-in-out;
+    position: absolute;
+    top: 1px;
+    left: 0px;
+    z-index: 1;
+    width: 1.1em;
+    height: 1.1em;
+    /* margin-top: 4px; */
+    border: 1px solid #000000;
+  }
+  input.checkbox:checked:after {
+    transform: rotate(-45deg);
+    height: .5rem;
+    border-color: #000000;
+    border-top-color: transparent;
+    border-right-color: transparent;
+  }
+  .anim input.checkbox:checked:after {
+    transform: rotate(-45deg);
+    height: .5rem;
+    border-color: transparent;
+    border-right-color: transparent;
+    animation: .4s rippling .4s ease;
+    animation-fill-mode: forwards;
+  }
+  @keyframes rippling {
+    50% {
+      border-left-color: #d24747;
+    }
+    100% {
+      border-bottom-color: #000000;
+      border-left-color: #000000;
+    }
+  }
+  /*-- //checkbox --*/
+  /*--copy-right-starts-here--*/
+  .footer p {
+    margin: 0 auto;
+    text-align: center;
+    margin: 8em 0;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: none;
+  }
+  .footer a {
+    color: #00d70a;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    -ms-transition: 0.3s all;
+  }
+  .footer a:hover{
+    color: #fff;
+    transition: 0.3s all;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    -ms-transition: 0.3s all;
+  }
+  /*--copy-right-ends-here--*/
+  /*--placeholder-color--*/
 
-                <div class="form-group">
-                  <%= f.label :password, class: 'control-label' %>
-                  <%= f.password_field :password, autofocus: true, class: "form-control" %>
-                </div>
+  ::-webkit-input-placeholder{
+    color:#fff;
+  }
 
-                <div class="control-group">
-                  <%= f.submit "Đăng nhập", class: 'btn btn-success' %>
-                </div>
-              </fieldset>
-            <% end %>
+  :-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: #fff;
+  }
+
+  :-ms-input-placeholder {
+    color: #fff;
+  }
+</style>
+
+<div class="header-w3l" >
+  <h1>
+    <i class="fas fa-car"></i> Dana Parking
+  </h1>
+</div>
+
+<div class="main-w3layouts-agileinfo">
+  <div class="wthree-form">
+    <h2>Đăng Nhập</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-sub-w3">
+        <%= f.text_field :email, autofocus: true, placeholder: "Tên đăng nhập" %>
+        <div class="icon-w3">
+          <i class="fa fa-user" aria-hidden="true"></i>
         </div>
       </div>
-    </div>
+      <div class="form-sub-w3">
+        <%= f.password_field :password, placeholder: "Mật khẩu" %>
+        <div class="icon-w3">
+          <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+        </div>
+      </div>
+      <label class="anim">
+        <input type="checkbox" class="checkbox">
+        <span>Nhớ mất khẩu</span>
+        <a href="#">Quên mật khẩu</a>
+      </label>
+      <div class="clear"></div>
+      <div class="submit-agileits">
+        <input type="submit" value="Đăng Nhập">
+      </div>
+      <div class="submit-agileits">
+        <a href="<%= root_path %>">Trang chủ</a>
+      </div>
+    <% end %>
   </div>
+</div>
+
+<div class="footer">
+  <p>&copy; 2019 Đại Học Duy Tân<a href=http://kcntt.duytan.edu.vn/></a></p>
 </div>
