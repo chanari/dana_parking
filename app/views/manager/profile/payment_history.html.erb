@@ -2,7 +2,7 @@
 <div class="form-group">
   <div class="row">
     <div class="col-2" style="max-width: 12%"></div>
-    <% if @payments.size == 0 %>
+    <% if @payments.size > 0 %>
     <div class="col-3">
       <%= link_to 'Xuất file', payment_history_manager_profile_path(@user, format: :xlsx), class: 'btn btn-outline-info' %>
     </div>
@@ -26,7 +26,7 @@
         <tbody>
           <% if @payments.size == 0 %>
           <tr>
-            <td colspan="6">Chưa có dữ liệu</td>
+            <td colspan="6" style="text-align: center;">Chưa có dữ liệu</td>
           </tr>
           <% end %>
           <% @payments.each_with_index do |p,i| %>
