@@ -31,9 +31,6 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- <tr>
-                  <td colspan="5" style="text-align: center;">Chưa có bản ghi nào</td>
-                </tr> -->
                 <% @managers.each_with_index do |m,i| %>
                 <tr>
                   <td><%= i+1 %></td>
@@ -58,16 +55,6 @@
               </tbody>
             </table>
 
-            <!-- <div style="padding-top: 10px;">
-              <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-              </ul>
-            </div> -->
-
           </div>
         </div>
       </div>
@@ -89,11 +76,8 @@
                     <p>Chọn bãi: </p>
                   </div>
                   <div class="col-sm-6">
-                    <%= select_tag :parking, options_from_collection_for_select(Parking.all, :id, :address), class: 'form-control', prompt: "Select something" %>
+                    <%= select_tag :parking, options_from_collection_for_select(Parking.all, :id, :address), class: 'form-control', prompt: "Chọn bãi" %>
                   </div>
-                  <!-- <div class="col-sm-3">
-                    <a href="javascript:void(0)" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                  </div> -->
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@ class Manager::BookingController < Manager::BaseController
     if @parking.present?
       @parking_address = @parking.address
     else
-      @parking_address = 'Bạn chưa quản lý bãi nào'
+      @parking_address = 'Bạn chưa quản lý bãi nào hoặc bãi đã đóng cửa.'
     end
   end
 
@@ -25,7 +25,7 @@ class Manager::BookingController < Manager::BaseController
       else
         subtotal = @slot.price_by_months.to_i * params[:quantity].to_i
         timeout = DateTime.now + params[:quantity].to_i.month
-        if @slot.update(status: '2', number_plate: params[:number_plate], date_in: DateTime.now) && @parking_slot_reservation.update(is_paid: true, price: @slot.price_by_months, subtotal: subtotal, timeout: timeout, is_monthly: true)
+        if @slot.update(status: '2', number_plate: params[:number_plate], date_in: DateTime.now) && @parking_slot_reservation.update(is_paid: true, price: @slot.price_by_months, subtotal: subtotal, timeout: timeout, is_monthly: true, park_id: @slot.block.floor.parking_id)
           SlotExpiredJob.set(wait: params[:quantity].to_i.minutes).perform_later(@slot.id, true)
           format.json { render json: false, status: :ok }
         else
@@ -131,6 +131,6 @@ class Manager::BookingController < Manager::BaseController
   private
 
   def set_park
-    @parking = Parking.find_by id: current_user.parking_id
+    @parking = Parking.find_by id: current_user.parking_id, active: true
   end
 end

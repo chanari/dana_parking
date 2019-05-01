@@ -12,8 +12,11 @@ class ParkingSlotReservation < ApplicationRecord
 
   def self.get_histories(park, type, from, to)
     hash = { '0' => [true, false], '1' => false, '2' => true }
-    park = '' if park == '0'
-    where(park_id: park, is_monthly: hash[type], timeout: from..to)
+    if park == '0'
+      where.not(park_id: nil).where(is_monthly: hash[type], updated_at: from..to)
+    else
+      where(park_id: park, is_monthly: hash[type], updated_at: from..to)
+    end
   end
 
   def self.get_histories_xlsx(park, type, from, to)

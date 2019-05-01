@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def parking
-    @parkings = Parking.all.pluck(:id, :address)
+    @parkings = Parking.where(active: true).pluck(:id, :address)
   end
 
   def help

@@ -2,7 +2,7 @@ class Admin::ParkingController < Admin::BaseController
   before_action :set_parking, only: [:edit, :destroy]
 
   def index
-    @parkings = Parking.all.pluck(:id, :address)
+    @parkings = Parking.all.pluck(:id, :address, :active)
   end
 
   def new
@@ -38,7 +38,7 @@ class Admin::ParkingController < Admin::BaseController
   end
 
   def destroy
-    if @parking.destroy
+    if (@parking.active == true && @parking.update(active: false)) || @parking.active == false && @parking.update(active: true)
       flash[:success] = 'Đã lưu.'
     else
       flash[:error] = 'Thất bại !'

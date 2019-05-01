@@ -20,7 +20,7 @@ class Admin::ManagersController < Admin::BaseController
     @profile = @user.build_profile profile_params
     if @user.save && @profile.save
       AdminMailer.with(mail: @user.email, password: password).send_manager_info.deliver_later
-      flash[:success] = 'New Manager Created.'
+      flash[:success] = 'Thành công.'
       redirect_to new_admin_manager_path
     else
       flash[:errors] = @user.errors.full_messages

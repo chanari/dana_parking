@@ -7,12 +7,18 @@
   table.table a, .btn {
     color: #fff;
   }
-  .btn-danger {
+  .btn-danger, .btn-primary {
     border-radius: 10em;
+  }
+  .btn:hover {
+    color: #fff;
   }
   .thead {
     font-size: 1rem;
     font-weight: 600;
+  }
+  .active {
+    color: #30c730;
   }
 </style>
 
@@ -39,7 +45,9 @@
                   <select id="selectPark" class="form-control">
                     <option value="0">Chọn bãi</option>
                     <% @parkings.each do |p| %>
-                    <option value="<%= p[0] %>"><%= p[1] %></option>
+                      <% if p[2] %>
+                      <option value="<%= p[0] %>"><%= p[1] %></option>
+                      <% end %>
                     <% end %>
                   </select>
                 </div>
@@ -107,19 +115,32 @@
               <tr>
                 <th>#</th>
                 <th>Bãi Đỗ</th>
+                <th>Trạng Thái</th>
                 <th>Tác Vụ</th>
               </tr>
             </thead>
 
             <tbody>
+              <% if @parkings.size == 0 %>
+              <tr>
+                <td colspan="3" class="text-center">
+                  <strong>Chưa có dữ liệu</strong>
+                </td>
+              </tr>
+              <% end %>
               <% @parkings.each_with_index do |p,i| %>
               <tr>
                 <th scope="row" style="vertical-align: middle;"><%= i+1 %></th>
                 <td><%= p[1] %></td>
+                <td><%= p[2] ? '<i class="fas fa-dot-circle active"></i> Hoạt động'.html_safe : '<i class="fas fa-dot-circle"></i> Đóng cửa'.html_safe %></td>
                 <td>
                   <%= link_to 'Sửa bãi', edit_admin_parking_path(p[0]), class: 'btn btn-teal btn-rounded btn-sm m-0' %>
                   &nbsp;
-                  <%= link_to 'Xóa bãi', admin_parking_path(p[0]), class: 'btn btn-danger btn-rounded btn-sm m-0', method: :delete, data: { confirm: 'Bạn có chắc chắn muốn xóa bãi này ?' } %>
+                  <% if p[2] %>
+                  <%= link_to 'Đóng bãi', admin_parking_path(p[0]), class: 'btn btn-danger btn-rounded btn-sm m-0', method: :delete, data: { confirm: 'Bạn có chắc chắn muốn đóng bãi này ?' } %>
+                  <% else %>
+                  <%= link_to 'Mở bãi', admin_parking_path(p[0]), class: 'btn btn-primary btn-rounded btn-sm m-0', method: :delete, data: { confirm: 'Bạn có chắc chắn muốn mở bãi này ?' } %>
+                  <% end %>
                 </td>
               </tr>
               <% end %>

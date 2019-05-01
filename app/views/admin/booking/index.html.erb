@@ -20,20 +20,20 @@
             <div class="row">
               <div class="col-3">
                 <label for="park">Bãi:</label>
-                <%= select_tag :park, options_for_select([["Tất cả", 0]] + Parking.all.pluck(:address, :id)), class: 'form-control' %>
+                <%= select_tag :park, options_for_select([["Tất cả", 0]] + Parking.all.pluck(:address, :id), params[:park]), class: 'form-control' %>
               </div>
               <div class="col-2">
                 <label>Thuê theo:</label>
                 <div class="form-check">
-                  <input type="radio" class="form-check-input" id="all" name="type" value="0" checked>
+                  <input type="radio" class="form-check-input" id="all" name="type" value="0" <%= 'checked' if params[:type] == '0' || params[:type].nil? %>>
                   <label class="form-check-label" for="all">Tất cả</label>
                 </div>
                 <div class="form-check">
-                  <input type="radio" class="form-check-input" id="days" name="type" value="1">
+                  <input type="radio" class="form-check-input" id="days" name="type" value="1" <%= 'checked' if params[:type] == '1' %>>
                   <label class="form-check-label" for="days">Theo giờ</label>
                 </div>
                 <div class="form-check">
-                  <input type="radio" class="form-check-input" id="months" name="type" value="2">
+                  <input type="radio" class="form-check-input" id="months" name="type" value="2" <%= 'checked' if params[:type] == '2' %>>
                   <label class="form-check-label" for="months">Theo tháng</label>
                 </div>
               </div>

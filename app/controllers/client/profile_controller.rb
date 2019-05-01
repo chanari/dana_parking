@@ -31,7 +31,7 @@ class Client::ProfileController < Client::BaseController
 
   def create_profile
     @profile = Profile.new
-    render layout: 'application'
+    # render layout: 'client'
   end
 
   def upload_avatar
@@ -56,6 +56,7 @@ class Client::ProfileController < Client::BaseController
     else
       flash[:error] = 'Không thành công !'
     end
+    redirect_to client_profile_path(@user)
   end
 
   def destroy_vehicle
