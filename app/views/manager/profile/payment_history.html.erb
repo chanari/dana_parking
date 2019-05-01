@@ -22,6 +22,11 @@
           </tr>
         </thead>
         <tbody>
+          <% if @payments.size == 0 %>
+          <tr>
+            <td colspan="6">Chưa có dữ liệu</td>
+          </tr>
+          <% end %>
           <% @payments.each_with_index do |p,i| %>
           <tr>
             <% if params[:page].present? && params[:page].to_i > 1 %>
