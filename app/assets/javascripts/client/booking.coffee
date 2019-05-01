@@ -81,7 +81,7 @@ $(document).ready ->
     e.preventDefault()
     slot_id = $('#slot-id').val()
     number_plate = $('#client-booking').find('input.bks').val()
-    if slot_id < 0
+    if slot_id < 0 || number_plate.length < 10
       alertify.error("Thất Bại !")
       return
     $.LoadingOverlay('show')

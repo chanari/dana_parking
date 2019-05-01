@@ -115,7 +115,7 @@
                 <th>#</th>
                 <th>Tên xe</th>
                 <th>Số chỗ ngồi</th>
-                <th>Biển số</th>
+                <th colspan="2">Biển số</th>
               </tr>
             </thead>
             <tbody>
@@ -125,6 +125,7 @@
                 <td><%= v.vehicle_name %></td>
                 <td><%= v.vehicle_type %></td>
                 <td><%= v.number_plate %></td>
+                <td><%= link_to 'Xóa', destroy_vehicle_client_profile_path(v.id), method: :delete, class: 'btn btn-outline-danger btn-sm', data: { confirm: 'Bạn chắc chắn xóa xe này ?' } %></td>
               </tr>
               <% end %>
             </tbody>

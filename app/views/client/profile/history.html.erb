@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="form-group" style="margin-top: 80px;">
+    <h3 class="text-center">Lịch sử gửi xe</h3>
+  </div>
+  <div class="form-group">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Biển số</th>
+          <th scope="col">Bãi</th>
+          <th scope="col">Ngày vào</th>
+          <th scope="col">Ngày ra/Hết hạn</th>
+          <th scope="col">Tổng tiền</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @histories.each_with_index do |h,i| %>
+        <tr>
+          <th scope="row"><%= i+1 %></th>
+          <td><%= h.number_plate %></td>
+          <td><%= Parking.find_by(id: h.park_id).address if Parking.find_by(id: h.park_id).present? %></td>
+          <td><%= date_format h.timein %></td>
+          <td><%= date_format h.timeout %></td>
+          <td><%= h.subtotal %> VND</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

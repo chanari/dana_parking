@@ -8,6 +8,13 @@
   ::placeholder {
     text-transform: none;
   }
+  .btn-dark {
+    background-color: #45ba51;
+    border-color: #45ba51;
+  }
+  .btn-dark:hover {
+    background-color: #54945a;
+  }
 </style>
 
 <div class="container" style="margin-top: 90px;">
@@ -75,7 +82,12 @@
           <div class="form-group row">
             <label class="col-sm-3 col-form-label" for="bks" >BKS:</label>
             <div class="col-sm-5">
-              <input type="text" class="form-control bks" id="bks" placeholder="Biển kiểm soát">
+              <input type="text" class="form-control bks" id="bks" placeholder="Biển kiểm soát" list="vehicles">
+              <datalist id="vehicles">
+                <% @vehicles.each do |v| %>
+                <option value="<%= v %>"></option>
+                <% end %>
+              </datalist>
             </div>
           </div>
 
@@ -87,9 +99,9 @@
           </div>
 
           <div class="form-group">
-            <div class="col-sm-9">
+            <div class="col-sm-10" style="padding-left: 0;">
               <a id="btn-booking" href="javascript:void(0)" class="form-control btn btn-dark">Đặt xe</a>
-              <p><b> <strong>Chú ý:</strong> Bạn chỉ được đặt xe trước 30 phút !!!</b></p>
+              <p><b> <strong>Chú ý:</strong> Bạn chỉ được đặt xe trước 30 phút</b></p>
             </div>
           </div>
         </form>

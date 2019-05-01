@@ -1,45 +1,46 @@
+<style media="screen">
+  .content-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .flex-end {
+    text-align: center;
+  }
+</style>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<body>
-  <div class="wrapper">
-    <!-- HEADER -->
-    <div class="container">
+<div class="wrapper">
+  <div class="container">
     <%= render 'layouts/home/header' %>
-      <!-- HEADER -->
 
-      <div class="form-gop-y text-center">
-        <h4>        Bạn có gì muốn nhắn nhủ gì?</h4>
-        <span><i class="fa fa-envelope" aria-hidden="true"></i>.com.vn</span>
-        <span><i class="fa fa-phone" aria-hidden="true"></i>1900000</span>
-        <form>
-          <div class="form-row">
-            <div class="col-4">
-              <input type="text" class="form-control" placeholder="Họ và tên">
-            </div>
-            <div class="col-4">
-              <input type="text" class="form-control" placeholder="Email">
-            </div>
-            <div class="col-4">
-              <input type="text" class="form-control" placeholder="Số điện thoại">
-            </div>
-            <div class="col-12">
-              <textarea type="text" class="form-control" placeholder="Nội dung" rows="5"></textarea>
-            </div>
-            <div class="col-12 flex-end">
-              <button class="btn-ok">Gửi</button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      </table>
-
-
+    <div class="row content-center" style="width: 100%">
+      <h3>Bạn có gì muốn nhắn nhủ gì?</h3>
     </div>
-  </div>
-<script src="./js/jquery.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<script src="./js/script.js"></script>
-</body>
+    <div class="form-gop-y">
+      <div class="row content-center">
+        <span><i class="fa fa-envelope" aria-hidden="true"></i>danaparking.com.vn</span>
+        <span><i class="fa fa-phone" aria-hidden="true"></i>1900000</span>
+      </div>
+      <%= form_for @helper, url: help_path do |f| %>
+        <div class="form-row">
+          <div class="col-4">
+            <%= f.text_field :name, class: 'form-control', placeholder: 'Họ và tên' %>
+          </div>
+          <div class="col-4">
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+          </div>
+          <div class="col-4">
+            <%= f.phone_field :phone, class: 'form-control', placeholder: 'Số điện thoại' %>
+          </div>
+          <div class="col-12">
+            <%= text_area(:helper, :content, rows: 5, class: 'form-control', placeholder: 'Nội dung') %>
+          </div>
+          <div class="col-12 flex-end">
+            <%= f.submit 'Gửi', class: 'btn btn-outline-success' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+</div>
+</div>

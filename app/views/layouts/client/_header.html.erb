@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item <%= 'active' if controller_name == 'booking' && action_name == 'index' %>">
-          <a class="nav-link" href="<%= client_booking_index_path %>">Booking</a>
+          <a class="nav-link" href="<%= client_booking_index_path %>">Đặt Chỗ</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,7 +25,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -115px;">
             <a class="dropdown-item" href="<%= client_profile_path(current_user) %>">Thông tin cá nhân</a>
-            <a class="dropdown-item" href="#">Lịch sử gửi xe</a>
+            <a class="dropdown-item" href="<%= history_client_profile_path(current_user) %>">Lịch sử gửi xe</a>
             <%= link_to 'Đăng xuất', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           </div>
         </li>

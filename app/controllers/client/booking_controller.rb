@@ -2,6 +2,7 @@ class Client::BookingController < Client::BaseController
 
   def index
     @parkings = Parking.all.pluck(:id, :address)
+    @vehicles = current_user.vehicles.pluck(:number_plate)
   end
 
   def create

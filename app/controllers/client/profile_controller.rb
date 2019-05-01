@@ -1,5 +1,5 @@
 class Client::ProfileController < Client::BaseController
-  before_action :set_user, only: %i(show update_password upload_avatar create_vehicle)
+  before_action :set_user, only: %i(show update_password upload_avatar create_vehicle destroy_vehicle)
   before_action :set_profile, except: %i(upload_avatar)
   skip_before_action :profile?, only: %i(update create_profile)
 
@@ -53,11 +53,23 @@ class Client::ProfileController < Client::BaseController
     @vehicle = @user.vehicles.build vehical_params
     if @vehicle.save
       flash[:success] = 'Đã cập nhật.'
-      redirect_to client_profile_path(@user)
     else
       flash[:error] = 'Không thành công !'
-      redirect_to client_profile_path(@user)
     end
+  end
+
+  def destroy_vehicle
+    @vehicle = Vehicle.find_by id: params[:id]
+    if @vehicle.destroy
+      flash[:success] = 'Thành công.'
+    else
+      flash[:error] = 'Không thành công !'
+    end
+    redirect_to client_profile_path(@user)
+  end
+
+  def history
+    @histories = ParkingSlotReservation.where(is_paid: true, number_plate: current_user.vehicles.select(:number_plate))
   end
 
   private

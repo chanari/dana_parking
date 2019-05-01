@@ -7,7 +7,15 @@ class HomeController < ApplicationController
     @helper = Helper.new
   end
 
-
+  def create_helper
+    @helper = Helper.new help_params
+    if @helper.save
+      flash[:success] = 'Thành công.'
+    else
+      flash[:error] = 'Thất bại!'
+    end
+    redirect_to help_path
+  end
 
   def price
     @size_1 = Floor.includes(:parking).where(size: '1')
@@ -24,5 +32,10 @@ class HomeController < ApplicationController
         format.json { render json: @floors.as_json(except: [:created_at, :updated_at], include: { blocks: { only: [:id, :name], include: { parking_slots: { except: [:created_at, :updated_at, :block_id] }} }}), status: :ok }
       end
     end
+  end
+
+  private
+  def help_params
+    params.require(:helper).permit(:name, :email, :phone, :content)
   end
 end

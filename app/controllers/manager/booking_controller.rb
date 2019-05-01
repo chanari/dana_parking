@@ -11,7 +11,7 @@ class Manager::BookingController < Manager::BaseController
 
   def slot_book
     @slot = ParkingSlot.find_by id: params[:slot_id]
-    @parking_slot_reservation = @slot.parking_slot_reservations.build(number_plate: params[:number_plate], timein: DateTime.now, user_id: current_user.id, park_id: @slot.block.floor.parking_id)
+    @parking_slot_reservation = @slot.parking_slot_reservations.build(number_plate: params[:number_plate], timein: DateTime.now, user_id: current_user.id)
     respond_to do |format|
       unless @slot.present? || @slot.status != '2'
         format.json { render json: false, status: 404 }
@@ -26,7 +26,7 @@ class Manager::BookingController < Manager::BaseController
         subtotal = @slot.price_by_months.to_i * params[:quantity].to_i
         timeout = DateTime.now + params[:quantity].to_i.month
         if @slot.update(status: '2', number_plate: params[:number_plate], date_in: DateTime.now) && @parking_slot_reservation.update(is_paid: true, price: @slot.price_by_months, subtotal: subtotal, timeout: timeout, is_monthly: true)
-          SlotExpiredJob.set(wait: params[:quantity].to_i.minutes).perform_later(@slot.id)
+          SlotExpiredJob.set(wait: params[:quantity].to_i.minutes).perform_later(@slot.id, true)
           format.json { render json: false, status: :ok }
         else
           format.json { render json: false, status: 404 }
@@ -65,7 +65,7 @@ class Manager::BookingController < Manager::BaseController
       else
         @slot = @parking_slot_reservation.parking_slot
         subtotal = @slot.price_by_hours.to_i * @parking_slot_reservation.total_time
-        if @slot.reserve_expired && @parking_slot_reservation.update(is_paid: true, timeout: DateTime.now, subtotal: subtotal)
+        if @slot.reserve_expired && @parking_slot_reservation.update(is_paid: true, timeout: DateTime.now, subtotal: subtotal, park_id: @slot.block.floor.parking_id)
           format.json { render json: @parking_slot_reservation, status: :ok }
         else
           format.json { render json: false, status: 404 }

@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'parking', to: 'home#parking'
   get 'help', to:'home#help'
+  post 'help', to: 'home#create_helper'
   get 'price', to:'home#price'
   get 'home/floors', to:'home#get_floors'
-
 
   namespace :client do
     resources :booking do
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :profile do
       member do
         get 'create_profile'
+        delete 'destroy_vehicle'
+        get 'history'
       end
       collection do
         patch 'update_password'
