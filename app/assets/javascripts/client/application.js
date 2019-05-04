@@ -3,3 +3,4 @@
 //= require cable
 //= require script
 //= require client/base
+//= require client/validate

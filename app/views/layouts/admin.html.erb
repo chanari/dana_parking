@@ -18,6 +18,15 @@
     <%= yield %>
 
     <%= javascript_include_tag 'admin/application', params[:controller] %>
+    <% if controller_name == 'parking' && action_name == 'new' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+      jQuery.extend(jQuery.validator.messages, {
+        required: "Bắt buộc nhập."
+      });
+      $('#new_parking').validate();
+    </script>
+    <% end %>
     <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
