@@ -116,7 +116,7 @@ class Admin::ManagersController < Admin::BaseController
   end
 
   def helps
-    @helps = Helper.all.reverse
+    @helps = Helper.all.order(is_read: :asc, created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
 
   def help_isread

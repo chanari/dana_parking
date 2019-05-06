@@ -29,7 +29,11 @@
               <tbody>
                 <% @helps.each_with_index do |h,i| %>
                 <tr>
+                  <% if params[:page].present? && params[:page].to_i > 1 %>
+                  <td><%= (i+1) + ((params[:page].to_i - 1) * 5) %></td>
+                  <% else %>
                   <td><%= i+1 %></td>
+                  <% end %>
                   <td><%= h.email %></td>
                   <td><%= h.name %></td>
                   <td><%= h.phone %></td>
@@ -45,6 +49,13 @@
                 <% end %>
               </tbody>
             </table>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-9 mx-auto" style="display: flex; justify-content: center;">
+              <%= will_paginate @helps, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+            </div>
           </div>
         </div>
       </div>
