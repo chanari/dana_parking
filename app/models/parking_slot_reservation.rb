@@ -14,9 +14,9 @@ class ParkingSlotReservation < ApplicationRecord
     hash = { '0' => [true, false], '1' => false, '2' => true }
     monthly = hash[type]
     if park == '0'
-      where.not(park_id: nil).where(is_monthly: monthly, timeout: from..to)
+      where.not(park_id: nil).where(is_monthly: monthly, timeout: from..to.end_of_day)
     else
-      where(park_id: park, is_monthly: monthly, timeout: from..to)
+      where(park_id: park, is_monthly: monthly, timeout: from..to.end_of_day)
     end
   end
 
