@@ -18,9 +18,9 @@ class Block < ApplicationRecord
     if self.slots.present?
       self.slots.to_i.times do |n|
         if n < 9
-          self.parking_slots.build(name: "#{self.name}0#{n+1}")
+          self.parking_slots.build(name: "0#{n+1}")
         else
-          self.parking_slots.build(name: "#{self.name}#{n+1}")
+          self.parking_slots.build(name: "#{n+1}")
         end
       end
     end

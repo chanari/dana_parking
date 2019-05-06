@@ -14,7 +14,7 @@ class ParkingSlot < ApplicationRecord
   end
 
   def reserve(number_plate, client)
-    return false if User.where(id: client, role: '0').empty? && where(client: client).empty?
+    return false if User.where(id: client, role: '0').empty? || ParkingSlot.find_by(client: client).present?
     SlotExpiredJob.set(wait: 30.seconds).perform_later(self.id, false) if self.update(status: '1', date_in: DateTime.now, number_plate: number_plate, client: client)
   end
 

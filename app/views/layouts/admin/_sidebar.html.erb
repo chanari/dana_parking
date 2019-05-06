@@ -1,3 +1,17 @@
+<style media="screen">
+  .helps-number {
+    width: 20px;
+    position: absolute;
+    height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    right: 40%;
+    top: 15%;
+    font-size: 14px;
+    background: linear-gradient(40deg,#2096ff,#05ffa3)!important;
+  }
+</style>
+
 <ul class="sidebar navbar-nav">
   <li class="nav-item <%= active_class? admin_booking_index_path %>">
     <a class="nav-link" href="<%= admin_booking_index_path %>">
@@ -5,7 +19,7 @@
       <span>Tổng Quan</span>
     </a>
   </li>
-  <li class="nav-item <%= 'active' if ['managers', 'parking'].include?(controller_name) && !['edit_password', 'edit_profile', 'clients'].include?(action_name) %> dropdown">
+  <li class="nav-item <%= 'active' if ['managers', 'parking'].include?(controller_name) && !['edit_password', 'edit_profile', 'clients', 'helps'].include?(action_name) %> dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fas fa-fw fa-folder"></i>
       <span>Quản Lý</span>
@@ -24,6 +38,15 @@
     <a class="nav-link" href="<%= clients_admin_managers_path %>">
       <i class="fas fa-fw fa-table"></i>
       <span>Khách Hàng</span>
+    </a>
+  </li>
+  <li class="nav-item <%= 'active' if action_name == 'helps' %>" style="position: relative;">
+    <% if @unreads > 0 %>
+    <div class="helps-number"><span><%= @unreads %></span></div>
+    <% end %>
+    <a class="nav-link" href="<%= helps_admin_managers_path %>">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Phản Hồi</span>
     </a>
   </li>
 </ul>

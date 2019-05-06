@@ -115,6 +115,20 @@ class Admin::ManagersController < Admin::BaseController
     end
   end
 
+  def helps
+    @helps = Helper.all.reverse
+  end
+
+  def help_isread
+    @help = Helper.find_by id: params[:id]
+    if @help.update(is_read: true)
+      flash[:success] = 'Đã cập nhật.'
+    else
+      flash[:error] = 'Thất bại !'
+    end
+    redirect_to helps_admin_managers_path
+  end
+
   private
 
   def user_params

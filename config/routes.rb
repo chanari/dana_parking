@@ -42,6 +42,8 @@ Rails.application.routes.draw do
         get 'get_manager'
         get 'clients'
         get 'get_profile'
+        get 'helps'
+        get 'help_isread'
       end
     end
     resources :parking do
