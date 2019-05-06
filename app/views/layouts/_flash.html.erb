@@ -11,3 +11,8 @@
   <% end %>
 </script>
 <% end %>
+<script type="text/javascript">
+  if (window.location.href.indexOf("#login") > 0) {
+    alertify.error("Bạn cần đăng nhập để đặt chỗ");
+  }
+</script>

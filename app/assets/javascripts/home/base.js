@@ -1,7 +1,3 @@
-$(document).on('click', 'ul.slot-list-items li a', function() {
-  alertify.error("Bạn cần đăng nhập để đặt chỗ");
-});
-
 $('.places ul li i').on('click', function() {
   $('.places ul li i').each(function() {
     $(this).removeClass('selected');
@@ -91,7 +87,7 @@ $('#selectSlot').change(function() {
               slots.status = 'selecting';
               break;
             }
-            result_tab.find('.slot-list-items').append('<li class="col-2 slot-item"> <a id="slot-' + slots.id + '" class="' + slots.status + '" href="/users/sign_in">' + slots.name + '</a></li>');
+            result_tab.find('.slot-list-items').append('<li class="col-2 slot-item"> <a id="slot-' + slots.id + '" class="' + slots.status + '" href="/users/sign_in#login">' + slots.name + '</a></li>');
           });
           $('#resultTabContent').append(result_tab);
         });
@@ -106,10 +102,3 @@ $('#selectSlot').change(function() {
     }
   });
 });
-
-// $(document).ready(function() {
-//   $("li").hover(function(){
-//     var color = $(this).find("a").css("color");
-//     console.log(color);
-//   });
-// });
