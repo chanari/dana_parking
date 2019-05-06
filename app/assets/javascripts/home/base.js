@@ -91,7 +91,7 @@ $('#selectSlot').change(function() {
               slots.status = 'selecting';
               break;
             }
-            result_tab.find('.slot-list-items').append('<li class="col-2 slot-item"> <a id="slot-' + slots.id + '" class="' + slots.status + '" href="javascript:void(0)">' + slots.name + '</a></li>');
+            result_tab.find('.slot-list-items').append('<li class="col-2 slot-item"> <a id="slot-' + slots.id + '" class="' + slots.status + '" href="/users/sign_in">' + slots.name + '</a></li>');
           });
           $('#resultTabContent').append(result_tab);
         });
