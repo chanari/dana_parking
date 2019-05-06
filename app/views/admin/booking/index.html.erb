@@ -88,7 +88,7 @@
                         <td><%= h.number_plate %></td>
                         <td><%= date_format(h.timein) %></td>
                         <td><%= date_format(h.timeout) %></td>
-                        <td><%= h.is_monthly ? 'Tháng' : 'Ngày' %></td>
+                        <td><%= h.is_monthly ? 'Tháng' : 'Giờ' %></td>
                         <td><%= h.subtotal %> VND</td>
                       </tr>
                       <% end if @histoty && @histoty.size > 0 %>
