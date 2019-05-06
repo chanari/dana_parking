@@ -47,7 +47,7 @@
               </div>
               <div class="col-1">
                 <br>
-                <%= submit_tag "Xem", class: "btn btn-info", style: 'margin-left: 0px; width: 75px;', onclick: "changeFormat('html')" %>
+                <%= button_tag "Xem", class: "btn btn-info", style: 'margin-left: 0px; width: 75px;', onclick: "changeFormat('html')" %>
               </div>
             </div>
 
@@ -56,7 +56,7 @@
             <% if @histoty && @histoty.size > 0 %>
             <div class="form-group row">
               <div class="col-3">
-                <%= submit_tag "Xuất Excel", class: "btn btn-primary", onclick: "changeFormat('xlsx')" %>
+                <%= button_tag "Xuất Excel", class: "btn btn-primary", onclick: "changeFormat('xlsx')" %>
               </div>
             </div>
             <% end %>
