@@ -53,7 +53,7 @@ $(document).ready ->
         data:
           parking_id: parking_id
         success: (data) ->
-          console.log data
+          # console.log data
           $('#manager-name').html(data.first_name + ' ' + data.last_name)
           return
         error: (data) ->
