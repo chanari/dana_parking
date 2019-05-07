@@ -1,12 +1,12 @@
 <style media="screen">
   .car-selected {
-    color: red;
+    background-color: red;
   }
   .car-selecting {
-    color: #caa19e;
+    background-color: #af9999;
   }
   .car-reservation {
-    color: #e5d315;
+    background-color: #e5d315;
   }
   .description {
     padding: 10px;
@@ -16,24 +16,33 @@
   }
   .description p {
     margin: 0;
+    font-size: 14px;
+  }
+  .description-box {
+    width: 50%;
+    padding-top: 25%;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 5px;
+    border: 1.2px solid;
   }
 </style>
 <div class="description" style="margin-top: 30px;">
   <div class="form-group row" style="margin: 0;">
     <div class="col-3">
-      <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+      <div class="description-box"></div>
       <p>Chỗ trống</p>
     </div>
     <div class="col-3">
-      <i class="fa fa-car fa-2x car-selected" aria-hidden="true"></i>
+      <div class="description-box car-selected"></div>
       <p>Chỗ đang chọn</p>
     </div>
     <div class="col-3">
-      <i class="fa fa-car fa-2x car-selecting" aria-hidden="true"></i>
+      <div class="description-box car-selecting"></div>
       <p>Chỗ đã đặt</p>
     </div>
     <div class="col-3">
-      <i class="fa fa-car fa-2x car-reservation" aria-hidden="true"></i>
+      <div class="description-box car-reservation"></div>
       <p>Chỗ đang giữ</p>
     </div>
   </div>
