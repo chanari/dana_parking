@@ -24,6 +24,7 @@
     border-radius: 5px;
     margin: auto;
     margin-top: 5px;
+    margin-bottom: 5px;
     border: 1.2px solid;
   }
 </style>
@@ -33,10 +34,12 @@
       <div class="description-box"></div>
       <p>Chỗ trống</p>
     </div>
+    <% if ['0','1'].include?(current_user.role) %>
     <div class="col-3">
       <div class="description-box car-selected"></div>
       <p>Chỗ đang chọn</p>
     </div>
+    <% end %>
     <div class="col-3">
       <div class="description-box car-selecting"></div>
       <p>Chỗ đã đặt</p>
