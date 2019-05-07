@@ -34,12 +34,12 @@
       <div class="description-box"></div>
       <p>Chỗ trống</p>
     </div>
-    <% if ['0','1'].include?(current_user.role) %>
+    <% if current_user && ['0','1'].include?(current_user.role) %>
     <div class="col-3">
       <div class="description-box car-selected"></div>
       <p>Chỗ đang chọn</p>
     </div>
-    <% end if current_user %>
+    <% end %>
     <div class="col-3">
       <div class="description-box car-selecting"></div>
       <p>Chỗ đã đặt</p>
