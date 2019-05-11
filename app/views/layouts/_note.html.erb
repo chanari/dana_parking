@@ -1,12 +1,12 @@
 <style media="screen">
   .car-selected {
-    background-color: red;
+    color: red;
   }
   .car-selecting {
-    background-color: #af9999;
+    color: #af9999;
   }
   .car-reservation {
-    background-color: #e5d315;
+    color: #e5d315;
   }
   .description {
     padding: 10px;
@@ -31,21 +31,21 @@
 <div class="description" style="margin-top: 30px;">
   <div class="form-group row" style="margin: 0;">
     <div class="col-3">
-      <div class="description-box"></div>
+      <i class="fa fa-car fa-2x" aria-hidden="true"></i>
       <p>Chỗ trống</p>
     </div>
     <% if current_user && ['0','1'].include?(current_user.role) %>
     <div class="col-3">
-      <div class="description-box car-selected"></div>
+      <i class="fa fa-car fa-2x car-selected" aria-hidden="true"></i>
       <p>Chỗ đang chọn</p>
     </div>
     <% end %>
     <div class="col-3">
-      <div class="description-box car-selecting"></div>
+      <i class="fa fa-car fa-2x car-selecting" aria-hidden="true"></i>
       <p>Chỗ đã đặt</p>
     </div>
     <div class="col-3">
-      <div class="description-box car-reservation"></div>
+      <i class="fa fa-car fa-2x car-reservation" aria-hidden="true"></i>
       <p>Chỗ đang giữ</p>
     </div>
   </div>
