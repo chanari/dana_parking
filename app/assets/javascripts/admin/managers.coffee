@@ -82,6 +82,28 @@ $(document).ready ->
         return
     return
 
+  $('#modalResetPassword').on 'show.bs.modal', (event) ->
+    button = $(event.relatedTarget)
+    manager_id = button.data('mid')
+    $('#form-reset').find('input').eq(0).val(manager_id)
+    return
+
+  $('#btn-resetp').click ->
+    dataform = $("#form-reset").serialize()
+    $.ajax
+      url: '/admin/managers/manager_reset_password'
+      type: 'PUT'
+      dataType: 'JSON'
+      data: dataform
+      success: (data) ->
+        alertify.success("Thành công.")
+        return
+      error: ->
+        alertify.error('Thất bại !')
+        return
+    $('#modalResetPassword').modal('hide')
+    return
+
   $('input[type=file]').change (e) ->
     $(this).next('label').html e.target.files[0].name
     return

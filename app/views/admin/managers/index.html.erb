@@ -28,6 +28,7 @@
                   <th>Họ và Tên</th>
                   <th>Số điện thoại</th>
                   <th>Bãi đỗ đang quản lý</th>
+                  <th>Mật khẩu</th>
                 </tr>
               </thead>
               <tbody>
@@ -47,6 +48,10 @@
                     <%= m.get_parking.address %> |
                     <a id="rm-parking" href="javascript:void(0)" data-mid="<%= m.id %>"><i class="fas fa-trash" style="color: #F12A2A;"></i></a>
                     <% end %>
+                  </td>
+
+                  <td>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modalResetPassword" data-mid="<%= m.id %>" style="color: #45ba51;"><i class="fas fa-undo-alt fa-lg"></i> Đặt lại</a>
                   </td>
 
                 </tr>
@@ -88,6 +93,48 @@
           </div>
         </div>
       </div>
+
+      <div class="modal fade right" id="modalResetPassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+
+      <div class="modal-dialog modal-side modal-top-right" role="document">
+
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title w-100" id="myModalLabel">Mật khẩu</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="#" id="form-reset">
+              <input type="text" name="m_id" hidden>
+              <div class="row">
+                <div class="col-4">
+                  <label for="new-password">Mật khẩu mới:</label>
+                </div>
+                <div class="col-8">
+                  <input type="password" class="form-control" id="new_password" name="user[password]">
+                </div>
+              </div>
+              <div class="row" style="margin-top: 10px;">
+                <div class="col-4">
+                  <label for="re-password">Nhập lại MK:</label>
+                </div>
+                <div class="col-8">
+                  <input type="password" class="form-control" id="re-password" name="user[password_confirmation]">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="btn-resetp">Lưu</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
 
     <footer class="sticky-footer">

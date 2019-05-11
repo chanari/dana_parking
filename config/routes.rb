@@ -44,6 +44,7 @@ Rails.application.routes.draw do
         get 'get_profile'
         get 'helps'
         get 'help_isread'
+        put 'manager_reset_password'
       end
     end
     resources :parking do

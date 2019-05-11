@@ -129,6 +129,19 @@ class Admin::ManagersController < Admin::BaseController
     redirect_to helps_admin_managers_path
   end
 
+  def manager_reset_password
+    @manager = User.find_by(id: params[:m_id], role: '1')
+    return false unless @manager.present?
+
+    respond_to do |format|
+      if @manager.update(user_password_params)
+        format.json { render json: false, status: :ok }
+      else
+        format.json { render json: false, status: 404 }
+      end
+    end
+  end
+
   private
 
   def user_params
