@@ -3,16 +3,15 @@ class Block < ApplicationRecord
   has_many :parking_slots, dependent: :destroy
   accepts_nested_attributes_for :parking_slots, reject_if: :all_blank
 
-  before_save :update_name
+  # before_save :update_name
   before_save :build_parking_slots
 
   attr_accessor :slots
 
   private
-
-  def update_name
-    self.name = "#{self.floor.name}-#{self.name}"
-  end
+  # def update_name
+  #   self.name = "#{self.floor.name}-#{self.name}"
+  # end
 
   def build_parking_slots
     if self.slots.present?

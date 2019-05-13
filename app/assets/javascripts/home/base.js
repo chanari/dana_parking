@@ -65,7 +65,7 @@ $('#selectSlot').change(function() {
             nav_tab.find('a').addClass('active');
             n = n + 1;
           }
-          nav_tab.find('a').html(blocks.name);
+          nav_tab.find('a').html(floor.name + '-' + blocks.name);
           $('#resultTab').append(nav_tab);
           result_tab = $('#resultTabContent').find('.tab-pane').eq(0).clone();
           result_tab.removeAttr('style');

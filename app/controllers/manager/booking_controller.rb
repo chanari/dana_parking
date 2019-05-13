@@ -50,7 +50,7 @@ class Manager::BookingController < Manager::BaseController
     respond_to do |format|
       if params[:size] && ['1','2','3'].include?(params[:size]) && @parking.present?
         @floors = Floor.get_floors(@parking.id, params[:size])
-        format.json { render json: @floors.as_json(include: { blocks: { except: %i(created_at updated_at), include: { parking_slots: { except: %i(block_id created_at updated_at) } } }}), status: :ok }
+        format.json { render json: @floors.as_json(except: [:created_at, :updated_at], include: { blocks: { except: %i(created_at updated_at), include: { parking_slots: { except: %i(block_id created_at updated_at) } } }}), status: :ok }
       else
         format.json { render json: false, status: 404 }
       end
@@ -110,7 +110,7 @@ class Manager::BookingController < Manager::BaseController
 
   def find_bks
     @slot = ParkingSlot.find_by number_plate: params[:bks]
-    @floor = @slot.block.floor
+    @floor = Floor.joins(blocks: :parking_slots).where(blocks: { parking_slots: { id: @slot.id } }).take()
     case @floor.size
     when '1'
       size = '4 - 7 chỗ'
