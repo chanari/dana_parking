@@ -30,7 +30,7 @@
         <div class="card-body">
           <h4 class="text-center">Sửa bãi đỗ</h4>
 
-          <%= form_for @parking, url: admin_parking_index_path, html: { class: 'main-form' } do |f| %>
+          <%= form_for @parking, url: admin_parking_path, method: :put, html: { class: 'main-form' } do |f| %>
 
             <div class="row">
               <div class="col-md-12">
@@ -58,7 +58,7 @@
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                   <fieldset class="scheduler-border">
-                    <legend class="scheduler-border">Bãi 1</legend>
+                    <legend class="scheduler-border">Bãi <%= ff.object.name %></legend>
                     <div class="row">
                       <div class="col-md-3">
                         <%= ff.label :size, 'Số chỗ ngồi' %>

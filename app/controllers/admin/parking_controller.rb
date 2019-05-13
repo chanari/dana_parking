@@ -1,5 +1,5 @@
 class Admin::ParkingController < Admin::BaseController
-  before_action :set_parking, only: [:edit, :destroy]
+  before_action :set_parking, only: [:edit, :update, :destroy]
 
   def index
     @parkings = Parking.all.pluck(:id, :address, :active)
@@ -19,11 +19,19 @@ class Admin::ParkingController < Admin::BaseController
     @parking = Parking.new parking_params
     if @parking.save
       flash[:success] = 'Đã lưu.'
-      redirect_to new_admin_parking_path
     else
       flash[:error] = 'Thất bại !'
-      redirect_to new_admin_parking_path
     end
+    redirect_to new_admin_parking_path
+  end
+
+  def update
+    if @parking.update parking_params
+      flash[:success] = 'Đã lưu.'
+    else
+      flash[:error] = 'Thất bại !'
+    end
+    redirect_to admin_parking_index_path
   end
 
   def get_floors
@@ -38,7 +46,7 @@ class Admin::ParkingController < Admin::BaseController
   end
 
   def destroy
-    if (@parking.active == true && @parking.update(active: false)) || @parking.active == false && @parking.update(active: true)
+    if (@parking.active == true && @parking.update(active: false)) || (@parking.active == false && @parking.update(active: true))
       flash[:success] = 'Đã lưu.'
     else
       flash[:error] = 'Thất bại !'
@@ -49,7 +57,7 @@ class Admin::ParkingController < Admin::BaseController
   private
 
   def parking_params
-    params.require(:parking).permit(:address, floors_attributes: [:id, :name, :size, :price_by_hours, :price_by_months, blocks_attributes: [:id, :name, :slots]])
+    params.require(:parking).permit(:id, :address, floors_attributes: [:id, :name, :size, :price_by_hours, :price_by_months, blocks_attributes: [:id, :name, :slots]])
   end
   def set_parking
     @parking = Parking.find_by id: params[:id]

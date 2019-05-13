@@ -12,7 +12,24 @@
 $(document).on('ready', function() {
   var url = window.location.href;
   if (/#OK/.test(url)) {
-    alertify.success('Thanh Cong !');
+    alertify.success('Thành công.');
+  }
+
+  if (window.location.href.indexOf('edit') > 0) {
+    var rm_floor = '<a href="javascript:void(0)" class="rm-floors"><i class="fas fa-minus-circle fa-lg"></i></a>';
+    var rm_block ='<a href="javascript:void(0)" class="btn-rm-blocks"><i class="fas fa-trash"></i></a>';
+    $('fieldset.scheduler-border').each(function(i, item) {
+      $(this).find('.form-blocks').each(function(ii, block) {
+        if (ii == 0) {
+          return true;
+        }
+        $(block).find('.form-sub-blocks .col-md-2').html(rm_block);
+      });
+      if (i == 0) {
+        return true;
+      }
+      $(this).find('legend.scheduler-border').after(rm_floor);
+    });
   }
 });
 
