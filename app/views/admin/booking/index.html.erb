@@ -70,6 +70,7 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">BKS</th>
+                        <th scope="col">Bãi</th>
                         <th scope="col">Ngày vào</th>
                         <th scope="col">Ngày ra/Hết hạn</th>
                         <th scope="col">Thuê theo</th>
@@ -86,6 +87,7 @@
                       <tr>
                         <th scope="row"><%= i+1 %></th>
                         <td><%= h.number_plate %></td>
+                        <td><%= Parking.find_by(id: h.park_id).address %></td>
                         <td><%= date_format(h.timein) %></td>
                         <td><%= date_format(h.timeout) %></td>
                         <td><%= h.is_monthly ? 'Tháng' : 'Giờ' %></td>
