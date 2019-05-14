@@ -8,7 +8,7 @@ class Client::BookingController < Client::BaseController
   def create
     @parking_slot = ParkingSlot.find_by id: params[:slot_id]
     respond_to do |format|
-      unless @parking_slot.present? || params[:number_plate].nil?
+      unless @parking_slot.present? || params[:number_plate].nil? || params[:number_plate].size < 10
         format.json { render json: false, status: 404 }
       end
       if @parking_slot.reserve(params[:number_plate], current_user.id)

@@ -13,7 +13,7 @@ class Manager::BookingController < Manager::BaseController
     @slot = ParkingSlot.find_by id: params[:slot_id]
     @parking_slot_reservation = @slot.parking_slot_reservations.build(number_plate: params[:number_plate], timein: DateTime.now, user_id: current_user.id)
     respond_to do |format|
-      unless @slot.present? || @slot.status != '2'
+      unless @slot.present? || @slot.status != '2' || params[:number_plate].size < 10
         format.json { render json: false, status: 404 }
       end
       if params[:type] == 'day'
