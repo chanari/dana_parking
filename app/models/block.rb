@@ -1,9 +1,9 @@
 class Block < ApplicationRecord
   belongs_to :floor
   has_many :parking_slots, dependent: :destroy
-  accepts_nested_attributes_for :parking_slots, reject_if: :all_blank
+  accepts_nested_attributes_for :parking_slots, allow_destroy: true, reject_if: :all_blank
 
-  after_create :build_parking_slots
+  before_save :build_parking_slots
 
   attr_accessor :slots
 

@@ -59,6 +59,7 @@
                 <div class="col-md-10">
                   <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Bãi <%= ff.object.name %></legend>
+                    <%= ff.hidden_field '_destroy' %>
                     <div class="row">
                       <div class="col-md-3">
                         <%= ff.label :size, 'Số chỗ ngồi' %>
@@ -116,6 +117,7 @@
                                 <%= fff.text_field :slots, class: 'form-control', placeholder: 'Số lượng chỗ', value: fff.object.parking_slots.size %>
                               </div>
                               <div class="col-md-2"></div>
+                              <%= fff.hidden_field '_destroy' %>
                             </div>
                           </div>
                         </div>

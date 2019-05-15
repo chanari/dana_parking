@@ -57,7 +57,7 @@ class Admin::ParkingController < Admin::BaseController
   private
 
   def parking_params
-    params.require(:parking).permit(:id, :address, floors_attributes: [:id, :name, :size, :price_by_hours, :price_by_months, blocks_attributes: [:id, :name, :slots]])
+    params.require(:parking).permit(:id, :address, floors_attributes: [:id, :name, :size, :price_by_hours, :price_by_months, :_destroy, blocks_attributes: [:id, :name, :_destroy, :slots]])
   end
   def set_parking
     @parking = Parking.find_by id: params[:id]

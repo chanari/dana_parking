@@ -21,10 +21,17 @@ $(document).on 'click', '.btn-reset', (e) ->
   return
 
 $(document).on 'click', '.btn-rm-blocks', ->
+  if window.location.href.indexOf('edit') > 0 && $(this).closest('.col-md-2').next('input[type="hidden"]').length > 0
+    destroy = $(this).closest('.col-md-2').next('input[type="hidden"]').val('true')
+    $(this).closest('fieldset.scheduler-border').append(destroy)
+
   $(this).closest('.form-blocks').remove()
   return
 
 $(document).on 'click', '.rm-floors', ->
+  if window.location.href.indexOf('edit') > 0 && $(this).next('input[name$="[_destroy]"]').length > 0
+    destroy = $(this).next('input[name$="[_destroy]"]').val('true')
+    $(this).closest('.form-floors').after(destroy)
   $(this).closest('.form-floors').remove()
   updateFloors('form-floors')
   return
@@ -38,6 +45,8 @@ $(document).ready ->
     clearInputs(obj)
     obj.find('.form-blocks').not(':first').remove()
     renameCloneIdsAndNames(obj, 'parking[floors_attributes]', 1)
+    obj.find("input[name$='[id]']").each ->
+      $(this).remove()
     $('.form-floors').last().after obj
     updateFloors('form-floors')
     return
