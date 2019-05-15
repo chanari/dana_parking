@@ -19,7 +19,7 @@ class Admin::ManagersController < Admin::BaseController
 
     @profile = @user.build_profile profile_params
     if @user.save && @profile.save
-      AdminMailer.with(mail: @user.email, password: password).send_manager_info.deliver_later
+      SendMailJob.set(wait: 3.seconds).perform_later(@user.email, password)
       flash[:success] = 'Thành công.'
       redirect_to new_admin_manager_path
     else
@@ -135,6 +135,7 @@ class Admin::ManagersController < Admin::BaseController
 
     respond_to do |format|
       if @manager.update(user_password_params)
+        SendMailJob.set(wait: 3.seconds).perform_later(@manager.email, user_password_params[:password])
         format.json { render json: false, status: :ok }
       else
         format.json { render json: false, status: 404 }
