@@ -9,7 +9,9 @@ $(document).ready(function() {
           required: true
         },
         'profile[phone]': {
-          required: true
+          required: true,
+          minlength: 10,
+          maxlength: 10
         },
         'profile[address]': {
           required: true
@@ -23,7 +25,9 @@ $(document).ready(function() {
           required: 'Bạn chưa nhập tên.'
         },
         'profile[phone]': {
-          required: 'Bạn chưa nhập SDT.'
+          required: 'Bạn chưa nhập SDT.',
+          minlength: "Vui lòng nhập 1 SDT.",
+          maxlength: "Vui lòng nhập 1 SDT."
         },
         'profile[address]': {
           required: 'Bạn chưa nhập địa chỉ.'
