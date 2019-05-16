@@ -8,9 +8,8 @@ class Block < ApplicationRecord
   attr_accessor :slots
 
   private
-
   def build_parking_slots
-    if self.slots.present?
+    if self.slots.present? && self.parking_slots.count == 0
       self.slots.to_i.times do |n|
         if n < 9
           self.parking_slots.build(name: "0#{n+1}")
@@ -20,5 +19,4 @@ class Block < ApplicationRecord
       end
     end
   end
-
 end
