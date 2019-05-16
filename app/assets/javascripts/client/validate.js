@@ -10,8 +10,8 @@ $(document).ready(function() {
         },
         'profile[phone]': {
           required: true,
-          minlength: 10,
-          maxlength: 10
+          minlength: 14,
+          maxlength: 14
         },
         'profile[address]': {
           required: true
