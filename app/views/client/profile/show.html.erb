@@ -134,7 +134,7 @@
                 <td><%= i+1 %></td>
                 <td><%= v.vehicle_name %></td>
                 <td><%= v.vehicle_type %></td>
-                <td><%= v.number_plate %></td>
+                <td style="text-transform: uppercase;"><%= v.number_plate %></td>
                 <td><%= link_to 'Xóa', destroy_vehicle_client_profile_path(v.id), method: :delete, class: 'btn btn-outline-danger btn-sm', data: { confirm: 'Bạn chắc chắn xóa xe này ?' } %></td>
               </tr>
               <% end %>

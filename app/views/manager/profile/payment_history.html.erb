@@ -36,7 +36,7 @@
             <% else %>
             <th scope="row"><%= i+1 %></th>
             <% end %>
-            <td><%= p.number_plate %></td>
+            <td style="text-transform: uppercase;"><%= p.number_plate %></td>
             <td><%= p.timein.strftime("%d-%m-%Y %H:%M:%S") %></td>
             <td><%= p.timeout.strftime("%d-%m-%Y %H:%M:%S") %></td>
             <td><%= p.is_monthly ? 'Tháng' : 'Ngày' %></td>

@@ -18,7 +18,7 @@
         <% @histories.each_with_index do |h,i| %>
         <tr>
           <th scope="row"><%= i+1 %></th>
-          <td><%= h.number_plate %></td>
+          <td style="text-transform: uppercase;"><%= h.number_plate %></td>
           <td><%= Parking.find_by(id: h.park_id).address if Parking.find_by(id: h.park_id).present? %></td>
           <td><%= date_format h.timein %></td>
           <td><%= date_format h.timeout %></td>
