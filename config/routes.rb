@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :booking do
       collection do
         get 'get_floors'
+        get 'get_slot_detail'
+        put 'cancel_slot'
       end
     end
     resources :profile do

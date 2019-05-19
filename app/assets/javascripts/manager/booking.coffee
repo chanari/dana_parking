@@ -87,7 +87,7 @@ $(document).ready ->
         $('#slot-' + slot_id).removeAttr('class')
         $('#slot-' + slot_id).addClass('selecting')
         $('#form-detail').trigger("reset")
-        alertify.success("Thanh Cong !")
+        alertify.success("Thành Công !")
         $('.select-month, .select-day').css('display', 'none')
         $('#form-detail').find('.options').css('display','none')
         return

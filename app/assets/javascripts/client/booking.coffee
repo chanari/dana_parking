@@ -114,4 +114,19 @@ $(document).ready ->
         return
     return
 
+  $('#btn-cancel-modal').click ->
+    $.ajax
+      url: '/client/booking/cancel_slot'
+      type: 'PUT'
+      dataType: 'JSON'
+      data: slot_id: $('#slot-id-modal').val()
+      success: (data) ->
+        $('#slot-modal').modal('hide')
+        alertify.success('Thành công.')
+        return
+      error: ->
+        alertify.error('Thất bại!')
+        return
+    return
+
   return

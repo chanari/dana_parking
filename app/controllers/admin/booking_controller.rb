@@ -5,7 +5,7 @@ class Admin::BookingController < Admin::BaseController
         flash[:error] = 'Bạn chưa chọn ngày !'
         redirect_to admin_booking_index_path
       end
-      @histoty = ParkingSlotReservation.get_histories(params[:park], params[:type], params[:from_day], params[:to_day])
+      @histoty = ParkingSlotReservation.get_histories(params[:park], params[:type], params[:from_day], params[:to_day]).paginate(page: params[:page], per_page: 5)
     else
       @histoty = nil
     end

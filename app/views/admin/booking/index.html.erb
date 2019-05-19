@@ -68,7 +68,7 @@
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
                         <th scope="col">BKS</th>
                         <th scope="col">Bãi</th>
                         <th scope="col">Ngày vào</th>
@@ -83,9 +83,9 @@
                         <td colspan="6" class="text-center">Chưa có dữ liệu</td>
                       </tr>
                       <% end %>
-                      <% @histoty.each_with_index do |h,i| %>
+                      <% @histoty.each do |h| %>
                       <tr>
-                        <th scope="row"><%= i+1 %></th>
+                        <th scope="row"><%= h.id %></th>
                         <td style="text-transform: uppercase;"><%= h.number_plate %></td>
                         <td><%= Parking.find_by(id: h.park_id).address %></td>
                         <td><%= date_format(h.timein) %></td>
@@ -96,6 +96,11 @@
                       <% end if @histoty && @histoty.size > 0 %>
                     </tbody>
                   </table>
+                  <div class="row">
+                    <div class="col-9 mx-auto" style="display: flex; justify-content: center;">
+                      <%= will_paginate @histoty, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
