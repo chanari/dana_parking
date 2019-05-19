@@ -119,7 +119,7 @@ class Manager::BookingController < Manager::BaseController
     when '3'
       size = 'Trên 16 chỗ'
     end
-    slotname = @slot.block.name + ' - ' + @slot.name
+    slotname = @slot.block.floor.name + '-' + @slot.block.name + ' - ' + @slot.name
     respond_to do |format|
       if @slot.present?
         format.json { render json: { park: @floor.parking.address, size: size, slotname: slotname }, status: :ok }
