@@ -46,7 +46,7 @@ class Client::BookingController < Client::BaseController
   def cancel_slot
     @slot = ParkingSlot.find_by id: params[:slot_id]
     respond_to do |format|
-      if @slot.present? && @slot.status == '1' && @slot.reserve_expired
+      if @slot.present? && @slot.status == '1' && @slot.client == current_user.id && @slot.reserve_expired
         format.json { render json: @slot, status: :ok}
       else
         format.json { render json: false, status: 404 }
