@@ -38,7 +38,7 @@ class Client::BookingController < Client::BaseController
       unless @slot.present?
         format.json { render json: false, status: 404 }
       else
-        format.json { render json: { slot_expired: @slot_expired.strftime("%d-%m-%Y %H:%M:%S") } }
+        format.json { render json: { slot_expired: @slot_expired.strftime("%d-%m-%Y %H:%M:%S"), number_plate: @slot.number_plate } }
       end
     end
   end

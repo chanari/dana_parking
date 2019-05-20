@@ -18,6 +18,7 @@ $(document).on('click', 'ul.slot-list-items li a', function() {
       data: { slot_id: slot_id },
       success: function(data) {
         $('#slot-expired-modal').html(data.slot_expired);
+        $('#slot-bks-modal').html(data.number_plate);
       },
       error: function() {
         alertify.error('Thất bại !');
