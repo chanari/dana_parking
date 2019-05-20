@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: 'Email sai' }
+
   before_save :set_role
   has_many :parking_slot_reservations
   has_many :vehicles, dependent: :destroy
